@@ -231,6 +231,165 @@
     .section-copy { margin: 14px 0 0; }
     .copy { margin: 10px 0 0; }
 
+    .miracle-hero {
+      position: relative;
+      display: grid;
+      gap: clamp(18px, 3vw, 28px);
+      border: 1px solid rgba(224, 184, 76, 0.58);
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255, 248, 236, 0.46) 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 18%, rgba(224, 184, 76, 0.38) 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 76%, rgba(255, 248, 236, 0.28) 0 1px, transparent 2px),
+        linear-gradient(140deg, rgba(24, 32, 67, 0.98), rgba(8, 12, 31, 0.96));
+      box-shadow:
+        0 28px 90px rgba(0, 0, 0, 0.48),
+        inset 0 0 58px rgba(224, 184, 76, 0.09);
+      overflow: clip;
+    }
+
+    .miracle-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, transparent, rgba(224, 184, 76, 0.14), transparent),
+        radial-gradient(circle at 50% 0, rgba(240, 211, 117, 0.16), transparent 36%);
+      opacity: 0.8;
+    }
+
+    .miracle-intro,
+    .miracle-list {
+      position: relative;
+      z-index: 1;
+    }
+
+    .miracle-intro {
+      max-width: 780px;
+    }
+
+    .miracle-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .miracle-title {
+      margin: 0;
+      color: var(--white);
+      font-family: "Shippori Mincho", "Yu Mincho", serif;
+      font-size: clamp(32px, 7vw, 64px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .miracle-lead {
+      max-width: 720px;
+      margin: 12px 0 0;
+      color: #ddd6c8;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.9;
+    }
+
+    .miracle-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .miracle-card {
+      position: relative;
+      min-width: 0;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background:
+        linear-gradient(145deg, rgba(10, 14, 39, 0.92), rgba(19, 26, 53, 0.88)) padding-box,
+        linear-gradient(135deg, rgba(240, 211, 117, 0.95), rgba(232, 160, 168, 0.42), rgba(127, 168, 217, 0.36), rgba(224, 184, 76, 0.9)) border-box;
+      padding: clamp(18px, 4vw, 30px);
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.34),
+        inset 0 0 34px rgba(224, 184, 76, 0.08);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+
+    .miracle-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 248, 236, 0.34) 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 28%, rgba(240, 211, 117, 0.38) 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 82%, rgba(255, 248, 236, 0.2) 0 1px, transparent 2px);
+    }
+
+    .miracle-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .miracle-kicker {
+      position: relative;
+      display: block;
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .miracle-headline {
+      position: relative;
+      margin: 10px 0 0;
+      color: var(--white);
+      font-family: "Shippori Mincho", "Yu Mincho", serif;
+      font-size: clamp(26px, 5.4vw, 48px);
+      line-height: 1.18;
+      letter-spacing: 0;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+    }
+
+    .miracle-text {
+      position: relative;
+      margin: 14px 0 0;
+      color: #e5ded2;
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.95;
+      overflow-wrap: anywhere;
+    }
+
+    .miracle-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-top: 18px;
+      padding: 6px 14px;
+      border: 1px solid rgba(224, 184, 76, 0.54);
+      border-radius: 999px;
+      background: rgba(224, 184, 76, 0.12);
+      color: #fff0bd;
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .miracle-link:hover,
+    .miracle-link:focus-visible {
+      outline: none;
+      background: rgba(224, 184, 76, 0.2);
+      box-shadow: 0 0 0 3px rgba(224, 184, 76, 0.16);
+      transform: translateY(-1px);
+    }
+
     .one-liner {
       display: inline-flex;
       align-items: center;
@@ -1123,6 +1282,8 @@
       .seal { width: 48px; height: 48px; }
       .tab { font-size: 12px; }
       .section-pad { padding: 16px; }
+      .miracle-hero { border-radius: 12px; }
+      .miracle-card { border-radius: 12px; padding: 16px; }
       .bar-row { grid-template-columns: 70px minmax(0, 1fr) 42px; }
       table { min-width: 100%; table-layout: fixed; }
     }
@@ -1133,6 +1294,11 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.001ms !important;
+      }
+
+      .miracle-card {
+        opacity: 1 !important;
+        transform: none !important;
       }
     }
   </style>
@@ -3155,6 +3321,26 @@ const INTERP = {
 
   "compat": {
     "intro": "ここからは二人の相性。3つの占術が別々の計算体系で、それぞれ何を言うかを見ていきます。",
+    "miracles": [
+      {
+        "kicker": "奇跡その一 — 西洋占星術",
+        "headline": "生まれた瞬間、ふたりの星は0.08度で重なっていた",
+        "text": "奈緒美さんの冥王星と宏勇さんの土星。黄道360度の中で、ふたつの星の差はわずか0.08度——計算上ほぼ完全な一致です。占星術で「合」は結びつきの最強角度。しかも冥王星×土星は「時間が経つほど固まり、お互いを根本から作り替える絆」と読まれる組み合わせです。約11ヶ月違いで生まれたふたりの空に、これが最初から刻まれていました。",
+        "anchor": "kamishibai"
+      },
+      {
+        "kicker": "奇跡その二 — 四柱推命",
+        "headline": "暦の上で、ふたりは互いの「配偶者の星」だった",
+        "text": "奈緒美さんの日主・甲から見て、宏勇さんの庚は、そのまま「夫の星(官星)」。宏勇さんの日主・庚から見て、奈緒美さんの甲は、そのまま「妻の星(財星)」。しかも宏勇さんの命式には木がひとつも無く、「妻の星は命式の外からやって来る」構造——その甲木が、奈緒美さんです。千年以上前から夫婦の象意とされてきた、教科書どおりの成立です。",
+        "anchor": "bazi-compat"
+      },
+      {
+        "kicker": "奇跡その三 — ふたつの体系が同じ答え",
+        "headline": "彼に足りないもの、ぜんぶあなたが持っていた",
+        "text": "占星術では、奈緒美さん=水と風(感受と知性)、宏勇さん=火と地(行動と実務)——きれいな鏡合わせです。四柱推命でも、宏勇さんにひとつも無い「木」を、奈緒美さんは3つ持っています。互いを知らない別々の体系が、同時に「欠けを埋め合う配分」を指しました。ふたり合わせて、ようやく全色そろうパレットです。",
+        "anchor": "wuxing-compat"
+      }
+    ],
     "astro": {
       "headline": "土星が主役のシナストリー——「長続き」の骨格が異常に強い",
       "aspect_featured": [
@@ -3379,6 +3565,7 @@ const INTERP = {
     if ((INTERP.meta?.person_order || []).join(",") !== "naomi,hk") fail("INTERP.meta.person_order が naomi,hk ではありません。");
     if (!CALC.astro?.naomi || !CALC.astro?.hk || !CALC.astro?.synastry) fail("CALC.astro の必須キーが不足しています。");
     if (CALC.astro.synastry.aspects.length !== 70) fail("synastry aspects が70件ではありません。");
+    if (!Array.isArray(INTERP.compat?.miracles) || INTERP.compat.miracles.length !== 3) fail("compat.miracles が3件ではありません。");
     if (!Array.isArray(INTERP.compat?.astro?.aspect_featured) || INTERP.compat.astro.aspect_featured.length !== 14) fail("compat.astro.aspect_featured が14件ではありません。");
     if (!INTERP.guides?.astro || !INTERP.guides?.bazi || !INTERP.guides?.seimei) fail("INTERP.guides が不足しています。");
     if (!INTERP.glossary || Object.keys(INTERP.glossary).length < 34) fail("INTERP.glossary が不足しています。");
@@ -3628,6 +3815,46 @@ const INTERP = {
 
   function chapterJump(prefix, items) {
     return `<nav class="chapter-jump" aria-label="章ジャンプ">${items.map((item) => `<a href="#${esc(prefix)}-${esc(item.id)}">${esc(item.label)}</a>`).join("")}</nav>`;
+  }
+
+  function miracleHero(items) {
+    return `
+      <section class="section section-pad miracle-hero" aria-labelledby="miracle-title">
+        <div class="miracle-intro">
+          <span class="miracle-label">FORTUNE HIGHLIGHT</span>
+          <h2 class="miracle-title" id="miracle-title">ふたりの奇跡</h2>
+          <p class="miracle-lead">別々の占術が、同じ方向を指した三つの強いサインです。</p>
+        </div>
+        <div class="miracle-list">
+          ${items.map((item, index) => `
+            <article class="miracle-card" data-miracle-card style="transition-delay: ${index * 70}ms">
+              <span class="miracle-kicker">${esc(item.kicker || "")}</span>
+              <h3 class="miracle-headline">${esc(item.headline || "")}</h3>
+              <p class="miracle-text">${esc(item.text || "")}</p>
+              <a class="miracle-link" href="#${esc(item.anchor || "")}">根拠を見る ↓</a>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function bindMiracleReveal(root) {
+    const cards = [...root.querySelectorAll("[data-miracle-card]:not(.is-visible)")];
+    if (!cards.length) return;
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    if (reduced || !("IntersectionObserver" in window)) {
+      cards.forEach((card) => card.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.22, rootMargin: "0px 0px -8% 0px" });
+    cards.forEach((card) => observer.observe(card));
   }
 
   function showTip(title, body, x, y) {
@@ -4156,6 +4383,7 @@ const INTERP = {
     const bazi = INTERP.compat.bazi || {};
     const seimei = INTERP.compat.seimei || {};
     panel.innerHTML = `
+      ${miracleHero(INTERP.compat.miracles || [])}
       ${chapterJump("compat", [
         { id: "astro", label: "星の相性" },
         { id: "bazi", label: "暦の相性" },
@@ -4167,7 +4395,7 @@ const INTERP = {
         <h2 class="section-title">${esc(text(astro.headline, "相性ヘッドライン"))}</h2>
         <p class="section-copy">${esc(text(astro.structural_summary))}</p>
       </section>
-      <section class="section section-pad">
+      <section class="section section-pad" id="kamishibai">
         <div class="two-col">
           <div class="chart-panel">
             <p class="chart-title"><span>シナストリーホロスコープ</span><span>内=奈緒美 / 外=宏勇</span></p>
@@ -4194,7 +4422,7 @@ const INTERP = {
       </section>
       ${chapterBanner("compat-bazi", "第二章", "暦の相性(四柱推命)", "日干・日支・五行の組み合わせから、補い合い方を見ます。")}
       ${guideDetails("bazi")}
-      <section class="section section-pad">
+      <section class="section section-pad" id="bazi-compat">
         <h2 class="section-title">四柱推命の相性</h2>
         <div class="two-col">
           <div class="stack">
@@ -4204,7 +4432,7 @@ const INTERP = {
             <article class="mini-card"><h3 class="mini-title">まとめ</h3><p class="copy">${esc(text(bazi.summary))}</p></article>
           </div>
           <div class="stack">
-            <div class="mini-card">
+            <div class="mini-card" id="wuxing-compat">
               <h3 class="mini-title">五行合算レーダー</h3>
               ${compatRadar()}
             </div>
@@ -4232,6 +4460,7 @@ const INTERP = {
         </div>
       </section>
     `;
+    bindMiracleReveal(panel);
     renderSynastry();
     bindCompatControls();
     const revealBtn = document.getElementById("reveal-name");
@@ -4397,6 +4626,7 @@ const INTERP = {
       document.getElementById(`tab-${id}`).setAttribute("aria-selected", String(active));
       document.getElementById(`panel-${id}`).hidden = !active;
     });
+    if (safeKey === "compat") bindMiracleReveal(document.getElementById("panel-compat"));
     if (updateHash && location.hash.replace("#", "") !== safeKey) history.replaceState(null, "", `#${safeKey}`);
   }
 
@@ -4404,7 +4634,10 @@ const INTERP = {
     document.querySelectorAll(".tab").forEach((tab) => {
       tab.addEventListener("click", () => activateTab(tab.dataset.tab));
     });
-    window.addEventListener("hashchange", () => activateTab(location.hash.replace("#", ""), false));
+    window.addEventListener("hashchange", () => {
+      const hash = location.hash.replace("#", "");
+      if (TAB_ORDER.includes(hash)) activateTab(hash, false);
+    });
   }
 
   function init() {

@@ -3609,9 +3609,7 @@ const INTERP = {
           </div>
           <div class="stack">
             ${distributionBlock(calc.distribution, interp.astro?.distribution_reading)}
-            <div class="subgrid">
-              ${featuredCards(interp.astro?.natal_aspects_featured, "注目アスペクト")}
-            </div>
+            ${featuredDetails(interp.astro?.natal_aspects_featured, "注目アスペクト")}
           </div>
         </div>
       </section>
@@ -3697,6 +3695,16 @@ const INTERP = {
         ${item.constructive_note ? `<p class="meta">${esc(item.constructive_note)}</p>` : ""}
       </article>
     `).join("");
+  }
+
+  function featuredDetails(list, title) {
+    const items = list || [];
+    return `
+      <details class="guide featured-list">
+        <summary>注目の角度を一覧で読む(全${items.length}件)</summary>
+        <div class="cards">${featuredCards(items, title)}</div>
+      </details>
+    `;
   }
 
   function readingCard(reading) {
@@ -3999,8 +4007,7 @@ const INTERP = {
         </div>
       </section>
       <section class="section section-pad">
-        <h2 class="section-title">注目アスペクト</h2>
-        <div class="cards">${featuredCards(astro.aspect_featured, "相性アスペクト")}</div>
+        ${featuredDetails(astro.aspect_featured, "相性アスペクト")}
       </section>
       ${chapterBanner("compat-bazi", "第二章", "暦の相性(四柱推命)", "日干・日支・五行の組み合わせから、補い合い方を見ます。")}
       ${guideDetails("bazi")}

@@ -1,0 +1,3523 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="dark">
+  <title>奈緒美 × 宏勇 | ふたりの鑑定書</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg0: #0a0e27;
+      --bg1: #050810;
+      --card: rgba(19, 26, 53, 0.86);
+      --card-strong: rgba(24, 32, 67, 0.94);
+      --line: rgba(224, 184, 76, 0.34);
+      --line-soft: rgba(224, 184, 76, 0.2);
+      --text: #eae6dc;
+      --muted: #bcb6aa;
+      --gold: #e0b84c;
+      --gold-2: #f0d375;
+      --naomi: #e8a0a8;
+      --hk: #7fa8d9;
+      --hard: #c25450;
+      --white: #fff8ec;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+      --safe: min(1180px, calc(100% - 32px));
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: var(--bg1);
+      color: var(--text);
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(224, 184, 76, 0.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 12%, rgba(255, 255, 255, 0.38) 0 1px, transparent 2px),
+        radial-gradient(circle at 46% 62%, rgba(255, 255, 255, 0.24) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 78%, rgba(224, 184, 76, 0.18) 0 1px, transparent 2px),
+        linear-gradient(145deg, var(--bg0), var(--bg1));
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(224, 184, 76, 0.17), transparent 24%),
+        radial-gradient(circle at 82% 18%, rgba(127, 168, 217, 0.14), transparent 28%),
+        radial-gradient(circle at 58% 82%, rgba(232, 160, 168, 0.12), transparent 30%);
+      animation: skyDrift 18s ease-in-out infinite alternate;
+    }
+
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    svg { display: block; max-width: 100%; height: auto; }
+
+    .shell {
+      width: var(--safe);
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-content: center;
+      gap: 24px;
+      padding: 38px 0 22px;
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--gold-2);
+      font-family: "Cormorant", "Shippori Mincho", serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .seal {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(224, 184, 76, 0.56);
+      border-radius: 50%;
+      color: var(--gold);
+      box-shadow: inset 0 0 22px rgba(224, 184, 76, 0.12), 0 0 22px rgba(224, 184, 76, 0.14);
+      font-family: "Shippori Mincho", serif;
+      font-size: 12px;
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 980px;
+      color: #f3ead8;
+      font-family: "Shippori Mincho", "Yu Mincho", serif;
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-shadow: 0 0 20px rgba(224, 184, 76, 0.22);
+      text-wrap: balance;
+    }
+
+    .lead {
+      max-width: 790px;
+      margin: 0;
+      color: #d9d3c6;
+      font-size: clamp(16px, 2vw, 21px);
+      line-height: 1.85;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      gap: 22px;
+      align-items: end;
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(19, 26, 53, 0.72);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      margin: 6px 0 28px;
+      padding: 10px 0;
+      background: linear-gradient(180deg, rgba(5, 8, 16, 0.94), rgba(5, 8, 16, 0.72));
+      backdrop-filter: blur(14px);
+    }
+
+    .tabs {
+      width: var(--safe);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .tab {
+      min-height: 44px;
+      border: 1px solid rgba(224, 184, 76, 0.44);
+      border-radius: 999px;
+      background: rgba(19, 26, 53, 0.74);
+      color: var(--gold);
+      font-weight: 700;
+      transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .tab:hover,
+    .tab:focus-visible {
+      outline: none;
+      color: var(--white);
+      box-shadow: 0 0 0 3px rgba(224, 184, 76, 0.18);
+    }
+
+    .tab[aria-selected="true"] {
+      background: rgba(224, 184, 76, 0.18);
+      color: #fff3c6;
+      box-shadow: inset 0 0 24px rgba(224, 184, 76, 0.12);
+    }
+
+    .panel {
+      display: grid;
+      gap: 22px;
+      padding-bottom: 42px;
+    }
+
+    .panel[hidden] { display: none; }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      overflow: clip;
+    }
+
+    .section-pad { padding: clamp(18px, 3vw, 28px); }
+
+    .section-title {
+      margin: 0;
+      color: var(--gold-2);
+      font-family: "Shippori Mincho", "Yu Mincho", serif;
+      font-size: clamp(24px, 4vw, 42px);
+      line-height: 1.28;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .section-copy,
+    .copy {
+      color: #ddd6c8;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .section-copy { margin: 14px 0 0; }
+    .copy { margin: 10px 0 0; }
+
+    .one-liner {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      margin-top: 16px;
+      padding: 4px 12px;
+      border: 1px solid rgba(232, 160, 168, 0.54);
+      border-radius: 999px;
+      background: rgba(232, 160, 168, 0.1);
+      color: #ffd4d8;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.98fr) minmax(0, 1.02fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .chart-panel {
+      position: relative;
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      background: rgba(8, 12, 31, 0.56);
+    }
+
+    .chart-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 10px;
+      color: var(--gold-2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .horo {
+      width: min(100%, 540px);
+      margin: 0 auto;
+      aspect-ratio: 1;
+    }
+
+    .ring, .house, .zodiac-line, .aspect-line, .radar-axis, .radar-frame, .radar-shape {
+      vector-effect: non-scaling-stroke;
+    }
+
+    .ring {
+      fill: none;
+      stroke: rgba(224, 184, 76, 0.42);
+      stroke-width: 1.1;
+    }
+
+    .zodiac-line,
+    .house {
+      stroke: rgba(224, 184, 76, 0.28);
+      stroke-width: 1;
+    }
+
+    .house {
+      stroke-dasharray: 3 5;
+      opacity: 0.8;
+    }
+
+    .sign-label {
+      fill: rgba(234, 230, 220, 0.86);
+      font-family: "Cormorant", "Noto Sans JP", serif;
+      font-size: 19px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .planet {
+      paint-order: stroke;
+      stroke: rgba(5, 8, 16, 0.9);
+      stroke-width: 4px;
+      font-family: "Cormorant", "Noto Sans JP", serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+      cursor: help;
+    }
+
+    .planet.naomi { fill: var(--naomi); }
+    .planet.hk { fill: var(--hk); }
+    .planet.marker { fill: var(--gold-2); font-size: 12px; }
+
+    .aspect-line {
+      stroke-width: 1.15;
+      opacity: 0.68;
+      cursor: pointer;
+      pointer-events: stroke;
+      transition: opacity 180ms ease, stroke-width 180ms ease;
+    }
+
+    .aspect-line:hover,
+    .aspect-line:focus {
+      opacity: 1;
+      stroke-width: 2.4;
+      outline: none;
+    }
+
+    .aspect-line.soft { stroke: rgba(224, 184, 76, 0.72); }
+    .aspect-line.hard { stroke: rgba(194, 84, 80, 0.78); }
+    .aspect-line.conjunction { stroke: rgba(255, 248, 236, 0.82); }
+    .aspect-line.minor { stroke: rgba(188, 182, 170, 0.44); stroke-dasharray: 4 5; }
+    .aspect-line.featured { stroke-width: 2.05; opacity: 0.94; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend span::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .legend .naomi { color: var(--naomi); }
+    .legend .hk { color: var(--hk); }
+    .legend .soft { color: var(--gold); }
+    .legend .hard { color: var(--hard); }
+
+    .tool-tip {
+      position: fixed;
+      z-index: 50;
+      max-width: min(340px, calc(100vw - 28px));
+      padding: 12px 14px;
+      border: 1px solid rgba(224, 184, 76, 0.56);
+      border-radius: 12px;
+      background: rgba(5, 8, 16, 0.96);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.6;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .tool-tip.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tool-tip strong {
+      display: block;
+      color: var(--gold-2);
+      margin-bottom: 4px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      min-width: 0;
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      background: rgba(10, 14, 39, 0.5);
+      padding: 16px;
+    }
+
+    .mini-title {
+      margin: 0;
+      color: var(--gold-2);
+      font-family: "Shippori Mincho", serif;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .bars {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr) 34px;
+      align-items: center;
+      gap: 10px;
+      color: #dcd6cb;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 10px;
+      border: 1px solid rgba(224, 184, 76, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(232, 160, 168, 0.88), rgba(224, 184, 76, 0.9));
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 520px;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 11px 10px;
+      border-bottom: 1px solid rgba(224, 184, 76, 0.18);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--gold-2);
+      background: rgba(224, 184, 76, 0.06);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .day-cell {
+      background: linear-gradient(90deg, rgba(224, 184, 76, 0.14), rgba(232, 160, 168, 0.08));
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .radar {
+      width: min(100%, 330px);
+      margin: 0 auto;
+      aspect-ratio: 1;
+    }
+
+    .radar-axis,
+    .radar-frame {
+      fill: none;
+      stroke: rgba(224, 184, 76, 0.32);
+      stroke-width: 1;
+    }
+
+    .radar-shape {
+      fill: rgba(224, 184, 76, 0.13);
+      stroke: var(--gold);
+      stroke-width: 2;
+    }
+
+    .radar-shape.naomi { fill: rgba(232, 160, 168, 0.2); stroke: var(--naomi); }
+    .radar-shape.hk { fill: rgba(127, 168, 217, 0.18); stroke: var(--hk); stroke-dasharray: 6 4; }
+    .radar-label {
+      fill: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .timeline {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 2px 12px;
+      scroll-snap-type: x proximity;
+    }
+
+    .period {
+      flex: 0 0 176px;
+      scroll-snap-align: start;
+      border: 1px solid rgba(224, 184, 76, 0.22);
+      border-radius: 12px;
+      background: rgba(10, 14, 39, 0.55);
+      padding: 12px;
+    }
+
+    .period.current {
+      border-color: rgba(224, 184, 76, 0.86);
+      box-shadow: inset 0 0 22px rgba(224, 184, 76, 0.12), 0 0 18px rgba(224, 184, 76, 0.18);
+    }
+
+    .period strong {
+      display: block;
+      color: var(--gold-2);
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      min-height: 44px;
+      padding: 7px 12px;
+      border: 1px solid rgba(224, 184, 76, 0.4);
+      border-radius: 999px;
+      background: rgba(19, 26, 53, 0.62);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .chip[aria-pressed="true"] {
+      background: rgba(224, 184, 76, 0.18);
+      color: var(--white);
+    }
+
+    details {
+      border: 1px solid var(--line-soft);
+      border-radius: 12px;
+      background: rgba(10, 14, 39, 0.45);
+      padding: 14px 16px;
+    }
+
+    summary {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      color: var(--gold-2);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      margin: 12px 0 0;
+      color: #d8d2c7;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .reveal {
+      display: grid;
+      gap: 14px;
+    }
+
+    .primary-btn {
+      min-height: 48px;
+      width: fit-content;
+      max-width: 100%;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111527;
+      font-weight: 800;
+      transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .primary-btn:hover,
+    .primary-btn:focus-visible {
+      outline: none;
+      background: #f0ce68;
+      box-shadow: 0 0 26px rgba(224, 184, 76, 0.34);
+      transform: translateY(-1px);
+    }
+
+    .reveal-box {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 260ms ease, opacity 220ms ease;
+    }
+
+    .reveal-box.is-open {
+      max-height: 1600px;
+      opacity: 1;
+    }
+
+    .footer {
+      width: var(--safe);
+      margin: 0 auto;
+      padding: 24px 0 42px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(224, 184, 76, 0.2);
+    }
+
+    .error {
+      width: var(--safe);
+      margin: 32px auto;
+      border: 1px solid var(--hard);
+      border-radius: 12px;
+      background: rgba(194, 84, 80, 0.12);
+      padding: 18px;
+      color: var(--white);
+    }
+
+    @keyframes skyDrift {
+      from { transform: translate3d(-1%, -1%, 0) scale(1); }
+      to { transform: translate3d(1.2%, 1.4%, 0) scale(1.04); }
+    }
+
+    @media (max-width: 860px) {
+      :root { --safe: min(100% - 24px, 680px); }
+      .hero { min-height: auto; padding-top: 34px; }
+      .hero-grid,
+      .two-col,
+      .subgrid,
+      .cards { grid-template-columns: 1fr; }
+      .tabs { gap: 6px; }
+      .tab { padding-inline: 6px; font-size: 13px; }
+      .full { grid-column: auto; }
+      table { min-width: 460px; }
+    }
+
+    @media (max-width: 420px) {
+      :root { --safe: calc(100% - 20px); }
+      .shell { padding-top: 18px; }
+      .topline { font-size: 12px; }
+      .seal { width: 48px; height: 48px; }
+      .tab { font-size: 12px; }
+      .section-pad { padding: 16px; }
+      .bar-row { grid-template-columns: 70px minmax(0, 1fr) 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="tip" class="tool-tip" role="status" aria-live="polite"></div>
+
+  <script>
+const CALC = {
+  "meta": {
+    "generated_by": "build_engine.py",
+    "ephemeris": "Moshier",
+    "house_system": "Placidus"
+  },
+  "astro": {
+    "hk": {
+      "jd_ut": 2445436.71805556,
+      "planets": {
+        "Sun": {
+          "lon": 21.737194,
+          "sign_en": "Ari",
+          "sign_ja": "牡羊",
+          "deg": 21.737194,
+          "house": 8,
+          "retro": false
+        },
+        "Moon": {
+          "lon": 8.321711,
+          "sign_en": "Ari",
+          "sign_ja": "牡羊",
+          "deg": 8.321711,
+          "house": 8,
+          "retro": false
+        },
+        "Mercury": {
+          "lon": 38.213186,
+          "sign_en": "Tau",
+          "sign_ja": "牡牛",
+          "deg": 8.213186,
+          "house": 9,
+          "retro": false
+        },
+        "Venus": {
+          "lon": 58.514631,
+          "sign_en": "Tau",
+          "sign_ja": "牡牛",
+          "deg": 28.514631,
+          "house": 9,
+          "retro": false
+        },
+        "Mars": {
+          "lon": 34.911826,
+          "sign_en": "Tau",
+          "sign_ja": "牡牛",
+          "deg": 4.911826,
+          "house": 9,
+          "retro": false
+        },
+        "Jupiter": {
+          "lon": 250.564529,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 10.564529,
+          "house": 4,
+          "retro": true
+        },
+        "Saturn": {
+          "lon": 211.849108,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 1.849108,
+          "house": 3,
+          "retro": true
+        },
+        "Uranus": {
+          "lon": 248.761386,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 8.761386,
+          "house": 4,
+          "retro": true
+        },
+        "Neptune": {
+          "lon": 269.199139,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 29.199139,
+          "house": 4,
+          "retro": true
+        },
+        "Pluto": {
+          "lon": 208.329618,
+          "sign_en": "Lib",
+          "sign_ja": "天秤",
+          "deg": 28.329618,
+          "house": 3,
+          "retro": true
+        }
+      },
+      "asc": {
+        "lon": 155.777478,
+        "sign_en": "Vir",
+        "sign_ja": "乙女",
+        "deg": 5.777478
+      },
+      "mc": {
+        "lon": 61.204321,
+        "sign_en": "Gem",
+        "sign_ja": "双子",
+        "deg": 1.204321
+      },
+      "house_cusps": [
+        155.777478,
+        179.197851,
+        207.822182,
+        241.204321,
+        276.073953,
+        308.075128,
+        335.777478,
+        359.197851,
+        27.822182,
+        61.204321,
+        96.073953,
+        128.075128
+      ],
+      "natal_aspects": [
+        {
+          "a": "Sun",
+          "b": "Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 112.538055,
+          "orb": 7.461945
+        },
+        {
+          "a": "Sun",
+          "b": "Pluto",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.407576,
+          "orb": 6.592424
+        },
+        {
+          "a": "Moon",
+          "b": "Mercury",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 29.891475,
+          "orb": 0.108525
+        },
+        {
+          "a": "Moon",
+          "b": "Venus",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 50.19292,
+          "orb": 9.80708
+        },
+        {
+          "a": "Moon",
+          "b": "Jupiter",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 117.757182,
+          "orb": 2.242818
+        },
+        {
+          "a": "Moon",
+          "b": "Uranus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 119.560325,
+          "orb": 0.439675
+        },
+        {
+          "a": "Moon",
+          "b": "Neptune",
+          "type": "Square",
+          "angle": 90,
+          "exact": 99.122572,
+          "orb": 9.122572
+        },
+        {
+          "a": "Moon",
+          "b": "ASC",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 147.455767,
+          "orb": 2.544233
+        },
+        {
+          "a": "Moon",
+          "b": "MC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 52.88261,
+          "orb": 7.11739
+        },
+        {
+          "a": "Mercury",
+          "b": "Mars",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 3.30136,
+          "orb": 3.30136
+        },
+        {
+          "a": "Mercury",
+          "b": "Jupiter",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 147.648657,
+          "orb": 2.351343
+        },
+        {
+          "a": "Mercury",
+          "b": "Saturn",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.635922,
+          "orb": 6.364078
+        },
+        {
+          "a": "Mercury",
+          "b": "Uranus",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 149.4518,
+          "orb": 0.5482
+        },
+        {
+          "a": "Mercury",
+          "b": "ASC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 117.564292,
+          "orb": 2.435708
+        },
+        {
+          "a": "Venus",
+          "b": "Neptune",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 149.315492,
+          "orb": 0.684508
+        },
+        {
+          "a": "Venus",
+          "b": "Pluto",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 149.814987,
+          "orb": 0.185013
+        },
+        {
+          "a": "Venus",
+          "b": "ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 97.262847,
+          "orb": 7.262847
+        },
+        {
+          "a": "Venus",
+          "b": "MC",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 2.68969,
+          "orb": 2.68969
+        },
+        {
+          "a": "Mars",
+          "b": "Saturn",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 176.937282,
+          "orb": 3.062718
+        },
+        {
+          "a": "Mars",
+          "b": "Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 125.712687,
+          "orb": 5.712687
+        },
+        {
+          "a": "Mars",
+          "b": "Pluto",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.417792,
+          "orb": 6.582208
+        },
+        {
+          "a": "Mars",
+          "b": "ASC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 120.865652,
+          "orb": 0.865652
+        },
+        {
+          "a": "Jupiter",
+          "b": "Uranus",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 1.803143,
+          "orb": 1.803143
+        },
+        {
+          "a": "Jupiter",
+          "b": "ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 94.787051,
+          "orb": 4.787051
+        },
+        {
+          "a": "Saturn",
+          "b": "Neptune",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 57.350031,
+          "orb": 2.649969
+        },
+        {
+          "a": "Saturn",
+          "b": "Pluto",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 3.51949,
+          "orb": 3.51949
+        },
+        {
+          "a": "Saturn",
+          "b": "ASC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 56.07163,
+          "orb": 3.92837
+        },
+        {
+          "a": "Saturn",
+          "b": "MC",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 150.644787,
+          "orb": 0.644787
+        },
+        {
+          "a": "Uranus",
+          "b": "ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 92.983908,
+          "orb": 2.983908
+        },
+        {
+          "a": "Uranus",
+          "b": "MC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 172.442935,
+          "orb": 7.557065
+        },
+        {
+          "a": "Neptune",
+          "b": "Pluto",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 60.869521,
+          "orb": 0.869521
+        },
+        {
+          "a": "Neptune",
+          "b": "ASC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 113.421661,
+          "orb": 6.578339
+        },
+        {
+          "a": "Neptune",
+          "b": "MC",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 152.005182,
+          "orb": 2.005182
+        },
+        {
+          "a": "Pluto",
+          "b": "ASC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 52.55214,
+          "orb": 7.44786
+        },
+        {
+          "a": "Pluto",
+          "b": "MC",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 147.125297,
+          "orb": 2.874703
+        },
+        {
+          "a": "ASC",
+          "b": "MC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 94.573157,
+          "orb": 4.573157
+        }
+      ],
+      "distribution": {
+        "elements": {
+          "fire": 5,
+          "earth": 4,
+          "air": 1,
+          "water": 1
+        },
+        "qualities": {
+          "cardinal": 3,
+          "fixed": 4,
+          "mutable": 4
+        }
+      }
+    },
+    "naomi": {
+      "jd_ut": 2445770.89166667,
+      "planets": {
+        "Sun": {
+          "lon": 350.999373,
+          "sign_en": "Pis",
+          "sign_ja": "魚",
+          "deg": 20.999373,
+          "house": 6,
+          "retro": false
+        },
+        "Moon": {
+          "lon": 88.656609,
+          "sign_en": "Gem",
+          "sign_ja": "双子",
+          "deg": 28.656609,
+          "house": 9,
+          "retro": false
+        },
+        "Mercury": {
+          "lon": 353.504194,
+          "sign_en": "Pis",
+          "sign_ja": "魚",
+          "deg": 23.504194,
+          "house": 6,
+          "retro": false
+        },
+        "Venus": {
+          "lon": 326.134971,
+          "sign_en": "Aqu",
+          "sign_ja": "水瓶",
+          "deg": 26.134971,
+          "house": 5,
+          "retro": false
+        },
+        "Mars": {
+          "lon": 234.905384,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 24.905384,
+          "house": 2,
+          "retro": false
+        },
+        "Jupiter": {
+          "lon": 279.375319,
+          "sign_en": "Cap",
+          "sign_ja": "山羊",
+          "deg": 9.375319,
+          "house": 4,
+          "retro": false
+        },
+        "Saturn": {
+          "lon": 226.170918,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 16.170918,
+          "house": 2,
+          "retro": true
+        },
+        "Uranus": {
+          "lon": 253.542982,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 13.542982,
+          "house": 3,
+          "retro": false
+        },
+        "Neptune": {
+          "lon": 271.286298,
+          "sign_en": "Cap",
+          "sign_ja": "山羊",
+          "deg": 1.286298,
+          "house": 3,
+          "retro": false
+        },
+        "Pluto": {
+          "lon": 211.766002,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 1.766002,
+          "house": 2,
+          "retro": true
+        }
+      },
+      "asc": {
+        "lon": 181.361549,
+        "sign_en": "Lib",
+        "sign_ja": "天秤",
+        "deg": 1.361549
+      },
+      "mc": {
+        "lon": 91.570741,
+        "sign_en": "Can",
+        "sign_ja": "蟹",
+        "deg": 1.570741
+      },
+      "house_cusps": [
+        181.361549,
+        207.549777,
+        238.024053,
+        271.570741,
+        305.063495,
+        335.396451,
+        1.361549,
+        27.549777,
+        58.024053,
+        91.570741,
+        125.063495,
+        155.396451
+      ],
+      "natal_aspects": [
+        {
+          "a": "Sun",
+          "b": "Moon",
+          "type": "Square",
+          "angle": 90,
+          "exact": 97.657236,
+          "orb": 7.657236
+        },
+        {
+          "a": "Sun",
+          "b": "Mercury",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 2.504821,
+          "orb": 2.504821
+        },
+        {
+          "a": "Sun",
+          "b": "Mars",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 116.093989,
+          "orb": 3.906011
+        },
+        {
+          "a": "Sun",
+          "b": "Saturn",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 124.828455,
+          "orb": 4.828455
+        },
+        {
+          "a": "Sun",
+          "b": "Uranus",
+          "type": "Square",
+          "angle": 90,
+          "exact": 97.456391,
+          "orb": 7.456391
+        },
+        {
+          "a": "Moon",
+          "b": "Mercury",
+          "type": "Square",
+          "angle": 90,
+          "exact": 95.152415,
+          "orb": 5.152415
+        },
+        {
+          "a": "Moon",
+          "b": "Venus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 122.521638,
+          "orb": 2.521638
+        },
+        {
+          "a": "Moon",
+          "b": "Neptune",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 177.370311,
+          "orb": 2.629689
+        },
+        {
+          "a": "Moon",
+          "b": "Pluto",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 123.109393,
+          "orb": 3.109393
+        },
+        {
+          "a": "Moon",
+          "b": "ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 92.70494,
+          "orb": 2.70494
+        },
+        {
+          "a": "Moon",
+          "b": "MC",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 2.914132,
+          "orb": 2.914132
+        },
+        {
+          "a": "Mercury",
+          "b": "Venus",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 27.369223,
+          "orb": 2.630777
+        },
+        {
+          "a": "Mercury",
+          "b": "Mars",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 118.59881,
+          "orb": 1.40119
+        },
+        {
+          "a": "Mercury",
+          "b": "Saturn",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 127.333276,
+          "orb": 7.333276
+        },
+        {
+          "a": "Mercury",
+          "b": "Neptune",
+          "type": "Square",
+          "angle": 90,
+          "exact": 82.217896,
+          "orb": 7.782104
+        },
+        {
+          "a": "Mercury",
+          "b": "ASC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 172.142645,
+          "orb": 7.857355
+        },
+        {
+          "a": "Venus",
+          "b": "Mars",
+          "type": "Square",
+          "angle": 90,
+          "exact": 91.229587,
+          "orb": 1.229587
+        },
+        {
+          "a": "Venus",
+          "b": "Neptune",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 54.848673,
+          "orb": 5.151327
+        },
+        {
+          "a": "Venus",
+          "b": "Pluto",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 114.368969,
+          "orb": 5.631031
+        },
+        {
+          "a": "Venus",
+          "b": "MC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 125.43577,
+          "orb": 5.43577
+        },
+        {
+          "a": "Mars",
+          "b": "ASC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 53.543835,
+          "orb": 6.456165
+        },
+        {
+          "a": "Jupiter",
+          "b": "Saturn",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 53.204401,
+          "orb": 6.795599
+        },
+        {
+          "a": "Jupiter",
+          "b": "Pluto",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.609317,
+          "orb": 7.609317
+        },
+        {
+          "a": "Jupiter",
+          "b": "MC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 172.195422,
+          "orb": 7.804578
+        },
+        {
+          "a": "Saturn",
+          "b": "Uranus",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 27.372064,
+          "orb": 2.627936
+        },
+        {
+          "a": "Neptune",
+          "b": "Pluto",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 59.520296,
+          "orb": 0.479704
+        },
+        {
+          "a": "Neptune",
+          "b": "ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 89.924749,
+          "orb": 0.075251
+        },
+        {
+          "a": "Neptune",
+          "b": "MC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 179.715557,
+          "orb": 0.284443
+        },
+        {
+          "a": "Pluto",
+          "b": "ASC",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.404453,
+          "orb": 0.404453
+        },
+        {
+          "a": "Pluto",
+          "b": "MC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 120.195261,
+          "orb": 0.195261
+        },
+        {
+          "a": "ASC",
+          "b": "MC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 89.790808,
+          "orb": 0.209192
+        }
+      ],
+      "distribution": {
+        "elements": {
+          "fire": 1,
+          "earth": 2,
+          "air": 3,
+          "water": 5
+        },
+        "qualities": {
+          "cardinal": 3,
+          "fixed": 4,
+          "mutable": 4
+        }
+      }
+    },
+    "synastry": {
+      "aspects": [
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Sun",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.737821,
+          "orb": 0.737821
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Moon",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 66.919415,
+          "orb": 6.919415,
+          "highlight": true
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Mercury",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 28.233,
+          "orb": 1.767
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Venus",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 55.602223,
+          "orb": 4.397777
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Uranus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 128.194212,
+          "orb": 8.194212
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 110.450896,
+          "orb": 9.549104
+        },
+        {
+          "a": "HK.Sun",
+          "b": "Naomi.MC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 69.833547,
+          "orb": 9.833547
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.Moon",
+          "type": "Square",
+          "angle": 90,
+          "exact": 80.334898,
+          "orb": 9.665102,
+          "highlight": true
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.Jupiter",
+          "type": "Square",
+          "angle": 90,
+          "exact": 88.946392,
+          "orb": 1.053608
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.Uranus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 114.778729,
+          "orb": 5.221271
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.Neptune",
+          "type": "Square",
+          "angle": 90,
+          "exact": 97.035413,
+          "orb": 7.035413
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.ASC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.039838,
+          "orb": 6.960162
+        },
+        {
+          "a": "HK.Moon",
+          "b": "Naomi.MC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 83.24903,
+          "orb": 6.75097
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.Moon",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 50.443423,
+          "orb": 9.556577
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.Jupiter",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 118.837867,
+          "orb": 1.162133
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.Saturn",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 172.042268,
+          "orb": 7.957732,
+          "highlight": true
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 126.926888,
+          "orb": 6.926888
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.Pluto",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.552816,
+          "orb": 6.447184
+        },
+        {
+          "a": "HK.Mercury",
+          "b": "Naomi.MC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 53.357555,
+          "orb": 6.642445
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Sun",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.515258,
+          "orb": 7.515258
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Moon",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.141978,
+          "orb": 0.141978
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Mercury",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 65.010437,
+          "orb": 5.010437
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Venus",
+          "type": "Square",
+          "angle": 90,
+          "exact": 92.37966,
+          "orb": 2.37966
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Mars",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 176.390753,
+          "orb": 3.609247,
+          "highlight": true
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.Neptune",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 147.228333,
+          "orb": 2.771667
+        },
+        {
+          "a": "HK.Venus",
+          "b": "Naomi.ASC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 122.846918,
+          "orb": 2.846918
+        },
+        {
+          "a": "HK.Mars",
+          "b": "Naomi.Moon",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 53.744783,
+          "orb": 6.255217
+        },
+        {
+          "a": "HK.Mars",
+          "b": "Naomi.Jupiter",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 115.536507,
+          "orb": 4.463493
+        },
+        {
+          "a": "HK.Mars",
+          "b": "Naomi.Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 123.625528,
+          "orb": 3.625528
+        },
+        {
+          "a": "HK.Mars",
+          "b": "Naomi.Pluto",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 176.854176,
+          "orb": 3.145824
+        },
+        {
+          "a": "HK.Mars",
+          "b": "Naomi.MC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 56.658915,
+          "orb": 3.341085
+        },
+        {
+          "a": "HK.Jupiter",
+          "b": "Naomi.Jupiter",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 28.81079,
+          "orb": 1.18921
+        },
+        {
+          "a": "HK.Jupiter",
+          "b": "Naomi.Uranus",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 2.978453,
+          "orb": 2.978453
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.Moon",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 123.192499,
+          "orb": 3.192499,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.Venus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 114.285863,
+          "orb": 5.714137,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.Jupiter",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.526211,
+          "orb": 7.526211,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.Neptune",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 59.43719,
+          "orb": 0.56281,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.Pluto",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 0.083106,
+          "orb": 0.083106,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.ASC",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.487559,
+          "orb": 0.487559,
+          "highlight": true
+        },
+        {
+          "a": "HK.Saturn",
+          "b": "Naomi.MC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 120.278367,
+          "orb": 0.278367,
+          "highlight": true
+        },
+        {
+          "a": "HK.Uranus",
+          "b": "Naomi.Jupiter",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.613933,
+          "orb": 0.613933
+        },
+        {
+          "a": "HK.Uranus",
+          "b": "Naomi.Uranus",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 4.781596,
+          "orb": 4.781596
+        },
+        {
+          "a": "HK.Uranus",
+          "b": "Naomi.ASC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.399837,
+          "orb": 7.399837
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Sun",
+          "type": "Square",
+          "angle": 90,
+          "exact": 81.800234,
+          "orb": 8.199766
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Moon",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 179.45747,
+          "orb": 0.54253
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Mercury",
+          "type": "Square",
+          "angle": 90,
+          "exact": 84.305055,
+          "orb": 5.694945
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Venus",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 56.935832,
+          "orb": 3.064168
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Neptune",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 2.087159,
+          "orb": 2.087159
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.Pluto",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 57.433137,
+          "orb": 2.566863
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.ASC",
+          "type": "Square",
+          "angle": 90,
+          "exact": 87.83759,
+          "orb": 2.16241
+        },
+        {
+          "a": "HK.Neptune",
+          "b": "Naomi.MC",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 177.628398,
+          "orb": 2.371602
+        },
+        {
+          "a": "HK.Pluto",
+          "b": "Naomi.Moon",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 119.673009,
+          "orb": 0.326991
+        },
+        {
+          "a": "HK.Pluto",
+          "b": "Naomi.Venus",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 117.805353,
+          "orb": 2.194647
+        },
+        {
+          "a": "HK.Pluto",
+          "b": "Naomi.Neptune",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 62.95668,
+          "orb": 2.95668
+        },
+        {
+          "a": "HK.Pluto",
+          "b": "Naomi.Pluto",
+          "type": "Conjunction",
+          "angle": 0,
+          "exact": 3.436384,
+          "orb": 3.436384
+        },
+        {
+          "a": "HK.Pluto",
+          "b": "Naomi.MC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 116.758877,
+          "orb": 3.241123
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.Moon",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.120869,
+          "orb": 7.120869
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.Jupiter",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 123.597841,
+          "orb": 3.597841
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.Uranus",
+          "type": "Square",
+          "angle": 90,
+          "exact": 97.765504,
+          "orb": 7.765504
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.Neptune",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 115.50882,
+          "orb": 4.49118
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.Pluto",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 55.988524,
+          "orb": 4.011476
+        },
+        {
+          "a": "HK.ASC",
+          "b": "Naomi.MC",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 64.206737,
+          "orb": 4.206737
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Moon",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 27.452288,
+          "orb": 2.547712
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Mercury",
+          "type": "Sextile",
+          "angle": 60,
+          "exact": 67.700127,
+          "orb": 7.700127
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Venus",
+          "type": "Square",
+          "angle": 90,
+          "exact": 95.06935,
+          "orb": 5.06935
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Mars",
+          "type": "Opposition",
+          "angle": 180,
+          "exact": 173.701063,
+          "orb": 6.298937
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Neptune",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 149.918023,
+          "orb": 0.081977
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.Pluto",
+          "type": "Quincunx",
+          "angle": 150,
+          "exact": 150.561681,
+          "orb": 0.561681
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.ASC",
+          "type": "Trine",
+          "angle": 120,
+          "exact": 120.157228,
+          "orb": 0.157228
+        },
+        {
+          "a": "HK.MC",
+          "b": "Naomi.MC",
+          "type": "Semisextile",
+          "angle": 30,
+          "exact": 30.36642,
+          "orb": 0.36642
+        }
+      ]
+    },
+    "composite": {
+      "planets": {
+        "Sun": {
+          "lon": 6.368284,
+          "sign_en": "Ari",
+          "sign_ja": "牡羊",
+          "deg": 6.368284
+        },
+        "Moon": {
+          "lon": 48.48916,
+          "sign_en": "Tau",
+          "sign_ja": "牡牛",
+          "deg": 18.48916
+        },
+        "Mercury": {
+          "lon": 15.85869,
+          "sign_en": "Ari",
+          "sign_ja": "牡羊",
+          "deg": 15.85869
+        },
+        "Venus": {
+          "lon": 12.324801,
+          "sign_en": "Ari",
+          "sign_ja": "牡羊",
+          "deg": 12.324801
+        },
+        "Mars": {
+          "lon": 314.908605,
+          "sign_en": "Aqu",
+          "sign_ja": "水瓶",
+          "deg": 14.908605
+        },
+        "Jupiter": {
+          "lon": 264.969924,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 24.969924
+        },
+        "Saturn": {
+          "lon": 219.010013,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 9.010013
+        },
+        "Uranus": {
+          "lon": 251.152184,
+          "sign_en": "Sag",
+          "sign_ja": "射手",
+          "deg": 11.152184
+        },
+        "Neptune": {
+          "lon": 270.242719,
+          "sign_en": "Cap",
+          "sign_ja": "山羊",
+          "deg": 0.242719
+        },
+        "Pluto": {
+          "lon": 210.04781,
+          "sign_en": "Sco",
+          "sign_ja": "蠍",
+          "deg": 0.04781
+        }
+      },
+      "asc": {
+        "lon": 168.569513,
+        "sign_en": "Vir",
+        "sign_ja": "乙女",
+        "deg": 18.569513
+      },
+      "mc": {
+        "lon": 76.387531,
+        "sign_en": "Gem",
+        "sign_ja": "双子",
+        "deg": 16.387531
+      }
+    }
+  },
+  "bazi": {
+    "hk": {
+      "year": {
+        "gan": "癸",
+        "zhi": "亥",
+        "ganzhi": "癸亥"
+      },
+      "month": {
+        "gan": "丙",
+        "zhi": "辰",
+        "ganzhi": "丙辰"
+      },
+      "day": {
+        "gan": "庚",
+        "zhi": "午",
+        "ganzhi": "庚午"
+      },
+      "time": {
+        "gan": "癸",
+        "zhi": "未",
+        "ganzhi": "癸未"
+      },
+      "day_master": "庚",
+      "wuxing_count": {
+        "木": 0,
+        "火": 2,
+        "土": 2,
+        "金": 1,
+        "水": 3
+      },
+      "dayun": {
+        "forward": false,
+        "start_solar": "1985-08-01",
+        "pillars": [
+          {
+            "ganzhi": "乙卯",
+            "start_year": 1985,
+            "end_year": 1994,
+            "start_age": 3
+          },
+          {
+            "ganzhi": "甲寅",
+            "start_year": 1995,
+            "end_year": 2004,
+            "start_age": 13
+          },
+          {
+            "ganzhi": "癸丑",
+            "start_year": 2005,
+            "end_year": 2014,
+            "start_age": 23
+          },
+          {
+            "ganzhi": "壬子",
+            "start_year": 2015,
+            "end_year": 2024,
+            "start_age": 33
+          },
+          {
+            "ganzhi": "辛亥",
+            "start_year": 2025,
+            "end_year": 2034,
+            "start_age": 43
+          },
+          {
+            "ganzhi": "庚戌",
+            "start_year": 2035,
+            "end_year": 2044,
+            "start_age": 53
+          },
+          {
+            "ganzhi": "己酉",
+            "start_year": 2045,
+            "end_year": 2054,
+            "start_age": 63
+          },
+          {
+            "ganzhi": "戊申",
+            "start_year": 2055,
+            "end_year": 2064,
+            "start_age": 73
+          }
+        ]
+      }
+    },
+    "naomi": {
+      "year": {
+        "gan": "甲",
+        "zhi": "子",
+        "ganzhi": "甲子"
+      },
+      "month": {
+        "gan": "丁",
+        "zhi": "卯",
+        "ganzhi": "丁卯"
+      },
+      "day": {
+        "gan": "甲",
+        "zhi": "辰",
+        "ganzhi": "甲辰"
+      },
+      "time": {
+        "gan": "癸",
+        "zhi": "酉",
+        "ganzhi": "癸酉"
+      },
+      "day_master": "甲",
+      "wuxing_count": {
+        "木": 3,
+        "火": 1,
+        "土": 1,
+        "金": 1,
+        "水": 2
+      },
+      "dayun": {
+        "forward": false,
+        "start_solar": "1986-03-11",
+        "pillars": [
+          {
+            "ganzhi": "丙寅",
+            "start_year": 1986,
+            "end_year": 1995,
+            "start_age": 3
+          },
+          {
+            "ganzhi": "乙丑",
+            "start_year": 1996,
+            "end_year": 2005,
+            "start_age": 13
+          },
+          {
+            "ganzhi": "甲子",
+            "start_year": 2006,
+            "end_year": 2015,
+            "start_age": 23
+          },
+          {
+            "ganzhi": "癸亥",
+            "start_year": 2016,
+            "end_year": 2025,
+            "start_age": 33
+          },
+          {
+            "ganzhi": "壬戌",
+            "start_year": 2026,
+            "end_year": 2035,
+            "start_age": 43
+          },
+          {
+            "ganzhi": "辛酉",
+            "start_year": 2036,
+            "end_year": 2045,
+            "start_age": 53
+          },
+          {
+            "ganzhi": "庚申",
+            "start_year": 2046,
+            "end_year": 2055,
+            "start_age": 63
+          },
+          {
+            "ganzhi": "己未",
+            "start_year": 2056,
+            "end_year": 2065,
+            "start_age": 73
+          }
+        ]
+      }
+    },
+    "compat": {
+      "day_gan_relation": {
+        "gan_he": false,
+        "he_pair": null,
+        "relation": "相剋",
+        "direction": "HK 金 controls Naomi 木"
+      },
+      "day_zhi_relation": {
+        "liuhe": false,
+        "sanhe": {
+          "shared": [],
+          "hk": [
+            "寅午戌=火局"
+          ],
+          "naomi": [
+            "申子辰=水局"
+          ]
+        },
+        "chong": false,
+        "xing": null
+      },
+      "wuxing_complement": {
+        "combined": {
+          "木": 3,
+          "火": 3,
+          "土": 3,
+          "金": 2,
+          "水": 5
+        },
+        "hk_lacking": [
+          "木"
+        ],
+        "naomi_lacking": [],
+        "hk_lacking_covered_by_naomi": [
+          "木"
+        ],
+        "naomi_lacking_covered_by_hk": []
+      }
+    }
+  },
+  "seimei": {
+    "hk_current": {
+      "label": "菅野宏勇",
+      "chars": [
+        {
+          "ch": "菅",
+          "strokes": 14
+        },
+        {
+          "ch": "野",
+          "strokes": 11
+        },
+        {
+          "ch": "宏",
+          "strokes": 7
+        },
+        {
+          "ch": "勇",
+          "strokes": 9
+        }
+      ],
+      "variant": "primary",
+      "tenkaku": {
+        "kaku": 25,
+        "fortune": "吉",
+        "meaning": "英敏・才知と感性の鋭さ",
+        "note": "大吉に分類する流派もある"
+      },
+      "jinkaku": {
+        "kaku": 18,
+        "fortune": "吉",
+        "meaning": "意志堅固・有徳有望・実業の成功"
+      },
+      "chikaku": {
+        "kaku": 16,
+        "fortune": "大吉",
+        "meaning": "徳望厚重・人望で家を興す首領運"
+      },
+      "gaikaku": {
+        "kaku": 23,
+        "fortune": "大吉",
+        "meaning": "旭日昇天・飛躍的発展と名声"
+      },
+      "soukaku": {
+        "kaku": 41,
+        "fortune": "大吉",
+        "meaning": "純陽独秀・徳望と実力を兼ねる最強の頭領運"
+      }
+    },
+    "naomi_maiden": [
+      {
+        "label": "石塚奈緒美",
+        "chars": [
+          {
+            "ch": "石",
+            "strokes": 5
+          },
+          {
+            "ch": "塚",
+            "strokes": 13
+          },
+          {
+            "ch": "奈",
+            "strokes": 8
+          },
+          {
+            "ch": "緒",
+            "strokes": 15
+          },
+          {
+            "ch": "美",
+            "strokes": 9
+          }
+        ],
+        "variant": "primary",
+        "tenkaku": {
+          "kaku": 18,
+          "fortune": "吉",
+          "meaning": "意志堅固・有徳有望・実業の成功"
+        },
+        "jinkaku": {
+          "kaku": 21,
+          "fortune": "大吉",
+          "meaning": "首領運・独立で頂点に立つ",
+          "note": "女性には強すぎるとする古い流派もあるが現代では男女差を置かない見方が主流"
+        },
+        "chikaku": {
+          "kaku": 32,
+          "fortune": "大吉",
+          "meaning": "僥倖・恩人の引き立てで発展・良縁"
+        },
+        "gaikaku": {
+          "kaku": 29,
+          "fortune": "半吉",
+          "meaning": "智謀優秀・活かせば大成",
+          "note": "流派差が大きい数(吉寄り〜凶寄りまで割れる)。才を活かす環境次第と読む"
+        },
+        "soukaku": {
+          "kaku": 50,
+          "fortune": "凶",
+          "meaning": "小舟巨浪・一盛一衰",
+          "note": "吉凶相半/小吉とする流派もある。前半の成功後の守りが鍵と読む"
+        }
+      },
+      {
+        "label": "石塚奈緒美",
+        "chars": [
+          {
+            "ch": "石",
+            "strokes": 5
+          },
+          {
+            "ch": "塚",
+            "strokes": 12
+          },
+          {
+            "ch": "奈",
+            "strokes": 8
+          },
+          {
+            "ch": "緒",
+            "strokes": 15
+          },
+          {
+            "ch": "美",
+            "strokes": 9
+          }
+        ],
+        "variant": "alt",
+        "tenkaku": {
+          "kaku": 17,
+          "fortune": "吉",
+          "meaning": "剛毅・権威と実行力で障害を突破"
+        },
+        "jinkaku": {
+          "kaku": 20,
+          "fortune": "大凶",
+          "meaning": "浮沈定まらず・健康に注意"
+        },
+        "chikaku": {
+          "kaku": 32,
+          "fortune": "大吉",
+          "meaning": "僥倖・恩人の引き立てで発展・良縁"
+        },
+        "gaikaku": {
+          "kaku": 29,
+          "fortune": "半吉",
+          "meaning": "智謀優秀・活かせば大成",
+          "note": "流派差が大きい数(吉寄り〜凶寄りまで割れる)。才を活かす環境次第と読む"
+        },
+        "soukaku": {
+          "kaku": 49,
+          "fortune": "凶",
+          "meaning": "転変無常・吉凶が入れ替わる",
+          "note": "吉凶相半とする流派もある。環境次第で吉に転じると読む"
+        }
+      }
+    ],
+    "naomi_married_sim": {
+      "label": "菅野奈緒美",
+      "chars": [
+        {
+          "ch": "菅",
+          "strokes": 14
+        },
+        {
+          "ch": "野",
+          "strokes": 11
+        },
+        {
+          "ch": "奈",
+          "strokes": 8
+        },
+        {
+          "ch": "緒",
+          "strokes": 15
+        },
+        {
+          "ch": "美",
+          "strokes": 9
+        }
+      ],
+      "variant": "primary",
+      "tenkaku": {
+        "kaku": 25,
+        "fortune": "吉",
+        "meaning": "英敏・才知と感性の鋭さ",
+        "note": "大吉に分類する流派もある"
+      },
+      "jinkaku": {
+        "kaku": 19,
+        "fortune": "凶",
+        "meaning": "風雲蔽日・才能あれど障害多し"
+      },
+      "chikaku": {
+        "kaku": 32,
+        "fortune": "大吉",
+        "meaning": "僥倖・恩人の引き立てで発展・良縁"
+      },
+      "gaikaku": {
+        "kaku": 38,
+        "fortune": "半吉",
+        "meaning": "磨鉄成針・技芸/学芸に吉",
+        "note": "芸術・専門職には吉、統率には力不足と読む流派差あり"
+      },
+      "soukaku": {
+        "kaku": 57,
+        "fortune": "吉",
+        "meaning": "寒梅待春・努力奮闘で晩成",
+        "note": "試練を経て開花する晩成型の吉"
+      }
+    }
+  }
+}
+;
+const INTERP = {
+  "meta": {
+    "person_order": ["naomi", "hk"],
+    "disclaimer": "この鑑定はエンターテインメントです。占いの予測的妥当性に科学的根拠はありません。ただし計算は伝統的な占術と同一の手順・精度で行い、全計算値は検算済みです(計算はガチ、解釈は楽しく)。",
+    "kanji_note": "姓名判断の画数は康熙字典体(旧字体)基準です。新字体で数える流派では結果が変わります(例: 菅=新字体11画)。流派差のある字(塚=13/12画)は両説を併記しています。",
+    "reading_stance": "ネガティブな配置も隠さず表示し、伝統的解釈での建設的な読み方を併記しています。断定ではなく「伝統的にはこう読まれる」という構造でお楽しみください。"
+  },
+
+  "person_naomi": {
+    "display_name": "奈緒美",
+    "astro": {
+      "core3": {
+        "title": "太陽 魚座 × 月 双子座 × ASC 天秤座",
+        "text": "太陽は魚座の第6ハウス。伝統的には、共感力と想像力を日々の仕事や誰かの役に立つ形で使う人と読まれます。月は双子座の第9ハウスで、心の栄養は「知ること・学ぶこと・遠くの世界」。好奇心が情緒の軸です。ASC天秤座は、外から見た佇まいが調和的で品よく、人と人の間をなめらかにする空気。MCは蟹座で、キャリアの到達点に「ケアと居場所づくり」の色が乗ります。",
+        "one_liner": "柔らかな共感力に、軽やかな知性のエンジンを積んだ人。"
+      },
+      "distribution_reading": {
+        "data_note": "水5・風3・地2・火1 / 活動3・不動4・柔軟4",
+        "text": "エレメントは水が最多(11点中5点)。感受性・共感・空気を読む力が資質の中心です。次いで風(知性・言葉)。火が1点のみで、自己主張やゴリ押しは本来の戦い方ではなく、「感じ取って、言葉にして、調和させる」のが持ち味と読まれます。クオリティは不動・柔軟が拮抗し、粘り強さと適応力を状況で使い分けるタイプです。"
+      },
+      "natal_aspects_featured": [
+        { "a": "Neptune", "b": "ASC", "type": "Square", "title": "海王星 スクエア ASC(誤差0.08度)", "text": "チャート中で最もタイトな角度のひとつ。第一印象に「掴みどころのない魅力・霞のようなオーラ」が乗ると伝統的に読まれます。実像より夢見がちに見られたり、頼まれごとの境界線が曖昧になりやすい配置ですが、芸術性・癒やしの雰囲気として働くのが建設的な使い方です。" },
+        { "a": "Pluto", "b": "MC", "type": "Trine", "title": "冥王星 トライン MC(誤差0.20度)", "text": "キャリアや社会的立場が「深い変容」と好角度。人生の節目で仕事や役割が根本から生まれ変わり、そのたびに深みを増していく型と読まれます。静かな底力の配置です。" },
+        { "a": "Venus", "b": "Mars", "type": "Square", "title": "金星 スクエア 火星", "text": "愛情(金星・水瓶)と情熱(火星・蠍)が90度。内側に「クールでいたい自分」と「深く求めたい自分」の緊張を抱く配置で、伝統的にはこの緊張こそが色気・магнетизм(磁力)として外に滲むと読まれます。衝動買いや感情の火照りには注意、が古典的な注意書き。" },
+        { "a": "Mercury", "b": "Mars", "type": "Trine", "title": "水星 トライン 火星", "text": "言葉と行動が好角度。思ったことを実行に移す回路が太く、議論や交渉でも粘り強い。柔らかな見た目(ASC天秤)の内側にある実務の推進力です。" },
+        { "a": "Sun", "b": "Mercury", "type": "Conjunction", "title": "太陽 コンジャンクション 水星", "text": "自分らしさと言葉が一体。話すこと・書くことが自己表現の中心にあり、「伝える人」の配置と読まれます。" },
+        { "a": "Moon", "b": "Venus", "type": "Trine", "title": "月 トライン 金星", "text": "情緒と愛情表現の調和。伝統的には「愛され力」の角度で、感情の機微を心地よい形で表現できる資質です。" },
+        { "a": "Moon", "b": "Neptune", "type": "Opposition", "title": "月 オポジション 海王星", "text": "感情と夢想が向かい合う配置。共感しすぎて自他の境界が溶けやすい一方、想像力・霊感的な察しの良さの源泉。疲れたときに現実逃避に流れやすい点は、意識的な休息で建設的に使えます。" }
+      ],
+      "life_themes": {
+        "title": "人生のテーマ: 第2ハウス(蠍座)の集中",
+        "text": "火星・土星・冥王星の3天体が第2ハウス(自分の資質・収入・自己価値)に集中しています。伝統的には「自分の力で価値を築くこと」が人生の大テーマ。若いうちはお金や自己評価をめぐる試練(土星)を感じやすい代わりに、年齢とともに揺るがない自前の基盤を完成させる型です。第9ハウスの月(双子)は学び・旅・遠い世界が心の癒やしであることを示し、MC蟹と合わせて「学んだことを、誰かの居場所づくりに還す」物語が読み取れます。"
+      }
+    },
+    "bazi": {
+      "meishiki_reading": {
+        "title": "日主: 甲辰(きのえ・たつ)",
+        "text": "甲は「大樹」の木。十干の先頭で、まっすぐ上に伸びる幹の気質です。座下の辰は水気を含む湿土で、木がしっかり根を張れる土壌。「甲辰」は伝統的に、大地に根ざした大樹=芯が強く、簡単には倒れない人と読まれます。月支は卯(木の最盛)で、甲の力が最も強まる月の生まれ。物腰は柔らかくても、自分の軸は明確に持っているタイプです。"
+      },
+      "wuxing_reading": {
+        "data_note": "木3・水2・火1・土1・金1",
+        "text": "木が3つと厚く、それを水2が育てる構造。自我の軸と学習・吸収力が資質の中心です。火(表現・発散)が1つと少なめで、内に溜めた力をどう外に出すかが伝統的な課題テーマ。火を持つ相手や環境(にぎやかさ・表現の場)と組むと木火通明=「才が輝く」と読まれます。"
+      },
+      "dayun_reading": {
+        "title": "大運: 2026年から「壬戌」の10年へ",
+        "text": "大運(10年ごとの運気)は逆行で、2016〜2025年の「癸亥」(水の潤い=学び・感受性の深化の10年)を終え、2026年からちょうど「壬戌」の10年に入ったところです。壬(大河の水)+戌(乾いた土)は、これまで蓄えたものを土台に変えていく時期と読まれます。つまり今は10年運の切り替わり直後=新章の始まりのタイミング。",
+        "data_note": "起運2歳0ヶ月(検算済み: 誕生が節入りのほぼちょうど6日後のため、÷3で端数なしの2年)"
+      }
+    },
+    "seimei": {
+      "intro": "旧姓「石塚奈緒美」の五格。塚の字は旧字体の点の有無で13画/12画の流派差があるため両方を掲載しています。",
+      "kaku_texts": {
+        "primary": {
+          "variant_note": "塚=13画説(主説)",
+          "tenkaku": "天格18(吉)— 先祖運・家系の器は「意志堅固」。",
+          "jinkaku": "人格21(大吉)— 性格・中心運は首領運! 独立独歩で頂点に立つ数。柔らかな物腰の内側にリーダーの芯がある、という占星術(第2ハウス集中)と響き合う結果です。",
+          "chikaku": "地格32(大吉)— 若年運は「僥倖・良縁」。恩人の引き立てと縁に恵まれる数で、対人運の良さを示します。",
+          "gaikaku": "外格29(半吉)— 対外運は「智謀優秀」。流派で評価が割れる数ですが、才を活かす環境次第で大きく化けると読まれます。",
+          "soukaku": "総格50(凶)— 人生全体は「小舟巨浪・一盛一衰」。良い時期と試練の時期の波がある数とされます。ただし吉凶相半・小吉とする流派もあり、また総格は姓が変われば変わる格です(→「菅野奈緒美」シミュレーションへ)。"
+        },
+        "alt": {
+          "variant_note": "塚=12画説(別説)",
+          "tenkaku": "天格17(吉)— 剛毅・突破力。",
+          "jinkaku": "人格20(大凶)— この流派で数えると中心運は「浮沈」の数に。同じ名前でも流派でここまで変わる、という姓名判断の構造がよく見える例です。",
+          "chikaku": "地格32(大吉)— 地格は名の画数のみなので流派差の影響を受けず、良縁の数のまま。",
+          "gaikaku": "外格29(半吉)— 主説と同じ。",
+          "soukaku": "総格49(凶)— 「転変無常」。吉凶が入れ替わる数とされ、環境次第で吉に転じるという建設的な読みが伝統的に付きます。"
+        },
+        "structural_note": "どちらの説でも地格32(良縁・大吉)は不変。「縁に恵まれる」ことだけは流派を問わず一致します。"
+      }
+    }
+  },
+
+  "person_hk": {
+    "display_name": "宏勇",
+    "astro": {
+      "core3": {
+        "title": "太陽 牡羊座 × 月 牡羊座 × ASC 乙女座",
+        "text": "太陽も月も牡羊座で、しかも第8ハウス。意志(太陽)と感情(月)が同じ方向を向いており、「やりたい」と「好きだ」が一致する迷いの少ない内面構造です。牡羊は開拓者の星座、第8ハウスは他者との深い結びつき・共有・変容の部屋。表の顔(ASC乙女座)は緻密で分析的、実務を丁寧に片づける佇まい——内側の開拓者と外側の分析者の二層構造です。MC双子は「情報を扱い、翻訳して伝える」キャリア像で、データを現場の言葉に訳す仕事と綺麗に重なります。",
+        "one_liner": "分析者の顔をした開拓者。"
+      },
+      "distribution_reading": {
+        "data_note": "火5・地4・風1・水1 / 活動3・不動4・柔軟4",
+        "text": "エレメントは火(直感・行動)と地(実務・着実)で11点中9点を占める、推進力と実行力の塊のような分布です。水が1点で、感情の機微を言葉にするのは本来の得意分野ではなく、「行動と成果で示す」型。奈緒美さんの水5・風3とちょうど鏡合わせの分布になっています(相性の章で詳述)。"
+      },
+      "natal_aspects_featured": [
+        { "a": "Moon", "b": "Uranus", "type": "Trine", "title": "月 トライン 天王星(誤差0.44度)", "text": "感情と革新が好角度。直感の閃きが鋭く、慣習に縛られない自由な感性。「人と同じやり方」より自分で見つけた最短ルートを好む配置です。" },
+        { "a": "Mars", "b": "ASC", "type": "Trine", "title": "火星 トライン ASC(誤差0.87度)", "text": "行動力が佇まいに直結する角度。動きが早い・決断が早いことが周囲に伝わりやすく、信頼の源泉になります。" },
+        { "a": "Jupiter", "b": "Uranus", "type": "Conjunction", "title": "木星 コンジャンクション 天王星(射手座・第4ハウス)", "text": "拡大と革新が重なる世代的にも強い配置が、家庭・基盤の部屋に。伝統的には「家庭や拠点に、自由と成長の風を入れ続ける人」。安定した家庭=退屈な家庭ではなく、変化と学びのある基盤を築く型です。" },
+        { "a": "Venus", "b": "Pluto", "type": "Quincunx", "title": "金星 クインカンクス 冥王星(誤差0.19度)", "text": "愛情と深層心理の調整角度。愛するものへの静かな執着・こだわりの強さを示し、意識的に手放しを覚えると愛情の深さがそのまま強みになります。" },
+        { "a": "Moon", "b": "Mercury", "type": "Semisextile", "title": "月 セミセクスタイル 水星(誤差0.11度)", "text": "感情と言葉の微調整回路。感じたことをすぐ言語化はしないが、少し寝かせて的確な言葉にする型です。" },
+        { "a": "Moon", "b": "Jupiter", "type": "Trine", "title": "月 トライン 木星", "text": "情緒と拡大の好角度。根が楽観的で、度量の大きさ・回復力の速さとして働きます。" }
+      ],
+      "life_themes": {
+        "title": "人生のテーマ: 第8・9ハウスの集中",
+        "text": "太陽・月が第8ハウス(深い関わり・変容)、水星・金星・火星が第9ハウス(探究・専門知・遠い世界)に集まっています。伝統的には「深く関わり、深く学び、それを専門性に変える」ことが人生の幹。浅く広くではなく、選んだ領域に深く潜って価値を掘り出す型です。牡牛座の水星・金星・火星は、学んだことを実利・実装に落とすまで手を離さない粘りを示します。"
+      }
+    },
+    "bazi": {
+      "meishiki_reading": {
+        "title": "日主: 庚午(かのえ・うま)",
+        "text": "庚は「鋼・原石の金属」。十干の中で最も硬質で、鍛えられて刃物になる気質です。座下の午は火=庚にとっての正官(規律・鍛錬の星)。「庚午」は伝統的に、火で鍛えられる鋼=負荷や試練を経るほど切れ味が増す人と読まれます。若いうちの苦労が年齢とともにそのまま強さに変換される型です。",
+        "note": "命式に木(財星)が無いのがもう一つの特徴。伝統的には「財は自分の外から来る」= 配偶者や環境が財の縁を運ぶと読まれます(相性の章で重要になります)。"
+      },
+      "wuxing_reading": {
+        "data_note": "水3・火2・土2・金1・木0",
+        "text": "水(食傷=アウトプット・分析・表現)が3つと最も厚い構造。庚の金が水を生む=「鋼が研がれて情報を流す」で、データを分析して言葉に変換する仕事は五行構造そのままです。木(財)が0である点は上記の通り、外から補われる縁として読まれます。"
+      },
+      "dayun_reading": {
+        "title": "大運: 2025年から「辛亥」の10年へ",
+        "text": "大運は逆行で、壬子(1995〜)・癸丑(2005〜)・壬子…と長く水の気(分析・学び)が続く人生でした——分析職のキャリアと符合します。2025年からは「辛亥」(金+水)の10年に入ったばかり。辛は磨かれた宝石の金で、伝統的には「原石(庚)が磨き上げられ、成果が形になって見えてくる」時期と読まれます。奈緒美さんも2026年に大運が切り替わったばかりで、二人同時に新しい10年の入口に立っています。",
+        "data_note": "起運2歳3ヶ月(検算済み: 清明の6.85日後の誕生→÷3≒2年3ヶ月半)"
+      }
+    },
+    "seimei": {
+      "intro": "「菅野宏勇」の五格(康熙字典体: 菅14・野11・宏7・勇9)。",
+      "kaku_texts": {
+        "tenkaku": "天格25(吉)— 家系の器は「英敏」。才知と感性の鋭さ(大吉とする流派もある)。",
+        "jinkaku": "人格18(吉)— 中心運は「意志堅固・実業の成功」。決めたら曲げない芯。",
+        "chikaku": "地格16(大吉)— 若年運は「徳望厚重」。人望で家を興す首領運の数。",
+        "gaikaku": "外格23(大吉)— 対外運は「旭日昇天」。外に出るほど運が開く飛躍の数。",
+        "soukaku": "総格41(大吉)— 人生全体は「純陽独秀」。徳望と実力を兼ねる、81数の中でも最上級の頭領運。"
+      },
+      "saikyo_note": {
+        "title": "「最強の画数」説の検証結果",
+        "text": "検算の結果、この説は康熙字典体基準では実体がありました。五格に凶が一つもなく、首領運の大吉数(16・23・41)を3つ同時に持つ構成は稀です。特に総格41は「純陽独秀」と呼ばれる最上級数。ただし前提条件があり、康熙字典体(菅=14画)で数えた場合の話です。新字体流派(菅=11画)では別の結果になります——「最強」は流派の上に成り立っている、というのが正確な結論です。"
+      }
+    }
+  },
+
+  "compat": {
+    "intro": "ここからは二人の相性。3つの占術が別々の計算体系で、それぞれ何を言うかを見ていきます。",
+    "astro": {
+      "headline": "土星が主役のシナストリー——「長続き」の骨格が異常に強い",
+      "aspect_featured": [
+        { "a": "HK.Saturn", "b": "Naomi.Pluto", "type": "Conjunction", "title": "宏勇の土星 合 奈緒美の冥王星(誤差0.08度)", "text": "このシナストリーで最もタイトな角度(ほぼ完全一致)。土星=責任と持続、冥王星=根源的な変容。伝統的には「腐れ縁レベルで切れない結びつき」「お互いを根本から作り替える長期の絆」と読まれる配置です。軽い関係では終わらない重力があります。", "constructive_note": "重さは深さの裏返し。長期戦提の関係でこそ最大の強みになります。" },
+        { "a": "HK.Saturn", "b": "Naomi.MC", "type": "Trine", "title": "宏勇の土星 トライン 奈緒美のMC(誤差0.28度)", "text": "宏勇さんの「支える力」が、奈緒美さんのキャリア・社会的な目標地点と好角度。相手の仕事や人生の方向性を、現実的な形で安定させる応援ができる配置です。" },
+        { "a": "HK.Saturn", "b": "Naomi.ASC", "type": "Semisextile", "title": "宏勇の土星 セミセクスタイル 奈緒美のASC(誤差0.49度)", "text": "土星が相手の佇まいそのものに静かに寄り添う角度。一緒にいると「ちゃんとしよう」と思える、背筋が伸びる関係性です。" },
+        { "a": "HK.Saturn", "b": "Naomi.Neptune", "type": "Sextile", "title": "宏勇の土星 セクスタイル 奈緒美の海王星(誤差0.56度)", "text": "現実(土星)と夢(海王星)の協力角度。奈緒美さんの想像力・理想に、宏勇さんが現実の足場を組む——夢を夢で終わらせないコンビの配置と読まれます。" },
+        { "a": "HK.Saturn", "b": "Naomi.Moon", "type": "Trine", "title": "宏勇の土星 トライン 奈緒美の月", "text": "土星-月のソフト角度は、伝統的な相性判断で「結婚の安定」を示す代表格。奈緒美さんの感情が宏勇さんの存在で安心する・落ち着く構造です。" },
+        { "a": "HK.Saturn", "b": "Naomi.Venus", "type": "Trine", "title": "宏勇の土星 トライン 奈緒美の金星", "text": "土星-金星のトラインも長期安定の古典的指標。愛情が時間とともに枯れるのではなく、時間とともに固まる型と読まれます。" },
+        { "a": "HK.Saturn", "b": "Naomi.Jupiter", "type": "Sextile", "title": "宏勇の土星 セクスタイル 奈緒美の木星", "text": "堅実(土星)と楽観(木星)の協力。攻めと守りの役割分担が自然に成立します。" },
+        { "a": "HK.Sun", "b": "Naomi.Moon", "type": "Sextile", "title": "宏勇の太陽 セクスタイル 奈緒美の月", "text": "太陽-月の調和角度は、伝統的相性判断の筆頭指標(意志と感情の噛み合わせ)。宏勇さんの進む方向を、奈緒美さんが情緒レベルで自然に受け止められる配置です。" },
+        { "a": "HK.Venus", "b": "Naomi.Mars", "type": "Opposition", "title": "宏勇の金星 オポジション 奈緒美の火星(誤差3.6度)", "text": "金星-火星のオポジションは「強い引力」の代表配置。向かい合う180度は緊張であると同時に磁石です。伝統的には、惹かれ合う力が強いぶん、ぶつかるときも火花が出る——退屈とは無縁の組み合わせと読まれます。", "constructive_note": "オポジションの緊張は「違うから惹かれた」の原点。摩擦が出たときこそ、この原点に戻ると建設的です。" },
+        { "a": "HK.Moon", "b": "Naomi.Moon", "type": "Square", "title": "月 スクエア 月(生活リズムのズレ)", "text": "お互いの月(素の感情・生活習慣)が90度。伝統的には「寛ぎ方・甘え方・日常のリズムが違う」配置で、同居初期に「え、そこ気になる?」が起きやすいとされます。隠さず言うと、これはこのシナストリーの数少ないハード要素の一つです。", "constructive_note": "四柱推命では逆に、日支同士が午→辰(火生土)で「日常の根っこは支え合う」と出ています(後述)。リズムは違えど根は支え合う——スタイルの違いと理解すれば、互いの死角を補うペアになります。" },
+        { "a": "HK.Mercury", "b": "Naomi.Saturn", "type": "Opposition", "title": "宏勇の水星 オポジション 奈緒美の土星", "text": "言葉(水星)と厳しさ(土星)が向かい合う配置。会話が時々「審査」っぽくなる、話が現実論で締まりすぎる、という緊張が伝統的な読みです。", "constructive_note": "同時に「言葉が鍛えられる」配置でもあります。曖昧な話が許されないぶん、二人の会話は年々精度が上がっていく型です。" },
+        { "a": "HK.Neptune", "b": "Naomi.Moon", "type": "Opposition", "title": "宏勇の海王星 オポジション 奈緒美の月(誤差0.54度)", "text": "夢と感情の共鳴。ロマンティックな理想化が起きやすい配置で、良いときは詩のような時間、悪いときは「思ってたのと違う」の温床と両面で読まれます。", "constructive_note": "理想化に気づいたら言葉で確認する、で実害はほぼ消えます。" },
+        { "a": "HK.Pluto", "b": "Naomi.Moon", "type": "Trine", "title": "宏勇の冥王星 トライン 奈緒美の月(誤差0.33度)", "text": "深層の変容力と感情の好角度。一緒にいることで奈緒美さんの感情の深い部分が癒やされ、書き換わっていく縁と読まれます。" },
+        { "a": "HK.MC", "b": "Naomi.ASC", "type": "Trine", "title": "宏勇のMC トライン 奈緒美のASC(誤差0.16度)", "text": "宏勇さんの社会的な目標と、奈緒美さんの佇まいが好角度。人前に二人で立ったとき、自然に「組み合わせとして映える」配置です。" }
+      ],
+      "composite_summary": "コンポジット(二人の関係そのものを一つのチャートにしたもの)は、太陽が牡羊座・月が牡牛座・ASC乙女座。関係の意志は「前進」(牡羊)、関係の情緒は「安定・積み上げ」(牡牛)、外から見えるカップル像は「きちんとした二人」(乙女)。攻めの意志と守りの情緒を併せ持つ関係像です。",
+      "structural_summary": "特筆すべきは宏勇さんの土星が、奈緒美さんの月・金星・木星・海王星・冥王星・ASC・MCの7点と同時にアスペクトを結んでいること。土星は「時間・責任・持続」の星で、これほど多重に絡むシナストリーは伝統的解釈では長期安定型の典型です。瞬発的なときめき配置(金星-火星オポ)も同居しており、「燃料もあるのに骨格も硬い」珍しい構造と言えます。"
+    },
+    "bazi": {
+      "day_gan": {
+        "title": "日干: 庚(金) × 甲(木)——金剋木、しかし古典では「良材の縁」",
+        "text": "五行だけ見ると庚(金)が甲(木)を剋す「相剋」で、表面上はハードな組み合わせです。ここを隠さず言った上で、古典の読みを併記します。甲(大樹)にとって庚(斧・鉈)は、枝を払い形を整えて「棟梁の材」に仕立てる存在——命理の古典では「甲は庚を得て器となる」とされ、実は相性の良い剋とされてきた組み合わせです。",
+        "spouse_star_note": "さらに伝統的に重要な点: 庚(宏勇さん)から見て甲(木)は財星=妻の星。宏勇さんの命式には木が0で「財星が命式の外から来る」構造でしたが、奈緒美さんの日主がまさにその甲木です。逆に甲(奈緒美さん)から見て庚(金)は官星=夫の星。互いが互いの配偶者星そのものという、四柱推命の夫婦観で最も古典的な「夫婦の象意」が成立しています。",
+        "constructive_note": "剋は「無関係」の反対語です。金剋木は放置すれば摩耗、使いこなせば彫琢——役割で言えば、宏勇さんの現実力が奈緒美さんの構想を形に刻む関係と読まれます。"
+      },
+      "zhi": {
+        "title": "日支: 午(火) × 辰(土)——火生土の静かな支え",
+        "text": "日支(結婚生活の宮)同士は、六合でも冲でもないフラットな関係ですが、五行では午(火)が辰(土)を生む相生。宏勇さんの日常の熱が、奈緒美さんの土台を温め続ける構造です。派手さはないが消耗もない、生活レベルの相性としては地味に良い配置と読まれます。"
+      },
+      "wuxing": {
+        "title": "五行の相互補完",
+        "text": "宏勇さんに無い木(3つ)を奈緒美さんが持ち、奈緒美さんに薄い火(宏勇さんは2つ)を宏勇さんが持つ。二人の五行を合算すると木3・火3・土3・金2・水5と、単独時より明らかにバランスが整います。伝統的には「二人でいるほうが五行が回る」=互いの欠けを埋め合う補完型の組み合わせです。"
+      },
+      "summary": "四柱推命の結論を構造で言うと: (1)互いが互いの配偶者星(最古典の夫婦象意)、(2)剋は良材の剋(甲庚の器)、(3)日支は火生土の支え、(4)五行は合算で改善。表面の「相剋」の一段下に、支え合いの構造が三層重なっています。"
+    },
+    "seimei": {
+      "married_sim_reveal": {
+        "before_text": "もしも姓が変わったら——「菅野奈緒美」の五格を開きますか?",
+        "after_title": "菅野奈緒美(シミュレーション)",
+        "after_text": "総格57(吉)「寒梅待春」——寒さの中で春を待つ梅が、時が来て一斉に花開く晩成の吉数です。旧姓の総格50(凶・一盛一衰)からは明確な上昇。地格32(良縁・大吉)は名前の運なので姓が変わっても不変です。一方、人格は21(大吉)→19(凶・波乱と知略)に変わります——正直に言うと、中心運の数字は下がります。伝統的には19は「才走るが波乱を呼ぶ」数で、知略として使えば強い数でもあります。",
+        "structural_note": "まとめると「総格は50(凶)→57(吉)へ上昇、人格は21(大吉)→19(凶)へ下降、良縁の地格32は不変」。姓名判断はどの格を重視するかで流派が分かれており、総格重視派なら改姓は吉、人格重視派なら旧姓が上、という構造まで含めてお楽しみください。",
+        "playful_note": "なお「菅野」姓は五格の器(天格25)ごと宏勇さんの「最強構成」と同じ土台を共有することになります。"
+      },
+      "comparison": {
+        "title": "旧姓 vs 新姓(主説: 塚13画)",
+        "rows": [
+          { "kaku": "天格", "maiden": "18(吉)", "married": "25(吉)" },
+          { "kaku": "人格", "maiden": "21(大吉)", "married": "19(凶)" },
+          { "kaku": "地格", "maiden": "32(大吉)", "married": "32(大吉)※不変" },
+          { "kaku": "外格", "maiden": "29(半吉)", "married": "38(半吉)" },
+          { "kaku": "総格", "maiden": "50(凶)", "married": "57(吉)" }
+        ]
+      }
+    }
+  },
+
+  "aspect_parts": {
+    "_usage": "個別解説の無いアスペクトは、points の2天体の説明 + types の角度の説明を組み合わせてポップアップ表示する",
+    "points": {
+      "Sun": "太陽=意志・人生の目的・その人らしさの核",
+      "Moon": "月=素の感情・安心・日常の習慣",
+      "Mercury": "水星=言葉・思考・コミュニケーション",
+      "Venus": "金星=愛情・好み・楽しみ方",
+      "Mars": "火星=行動力・情熱・怒りの出し方",
+      "Jupiter": "木星=拡大・楽観・チャンス",
+      "Saturn": "土星=責任・持続・時間をかけて固めるもの",
+      "Uranus": "天王星=革新・自由・突然の変化",
+      "Neptune": "海王星=夢・理想・境界の溶解",
+      "Pluto": "冥王星=根源的変容・深層の力",
+      "ASC": "ASC=佇まい・第一印象・世界への入口",
+      "MC": "MC=社会的な到達点・キャリアの方向"
+    },
+    "types": {
+      "Conjunction": { "nature": "融合", "text": "0度=合。二つの働きが混ざり一体化する最強の結び。良くも悪くも分離不能" },
+      "Sextile": { "nature": "ソフト", "text": "60度=セクスタイル。意識して使うと機能する協力角。育てる好機" },
+      "Square": { "nature": "ハード", "text": "90度=スクエア。緊張と摩擦。ただし成長のエンジンでもあり、乗り越えると最も強い絆になる角度" },
+      "Trine": { "nature": "ソフト", "text": "120度=トライン。努力なしに流れる調和。心地よさの源泉(甘えすぎ注意が古典の注記)" },
+      "Opposition": { "nature": "ハード", "text": "180度=オポジション。正面から向かい合う緊張=強い引力。相手は自分の鏡" },
+      "Semisextile": { "nature": "マイナー", "text": "30度=セミセクスタイル。隣り合う微妙な調整角。小さな違和感と学び" },
+      "Quincunx": { "nature": "マイナー", "text": "150度=クインカンクス(インコンジャンクト)。噛み合わない角度。調整し続けることで独自の強みになる" }
+    }
+  },
+
+  "overall": {
+    "headline": "3つの占術は互いを知らない。それでも同じ方向を指した。",
+    "agreements": [
+      {
+        "title": "一致点1: 「長期安定」を3体系が別々の理屈で支持",
+        "text": "西洋占星術は土星の多重好角(月・金星・MC・ASC等の7点)で「時間とともに固まる関係」を示し、四柱推命は互いが互いの配偶者星という最古典の夫婦象意を示し、姓名判断は改姓シミュレーションで総格が50(凶)→57(吉)へ上昇。計算体系が全く違う3つが、いずれも「長い時間軸でこそ強い縁」を指しています。"
+      },
+      {
+        "title": "一致点2: 補完構造——欠けの噛み合わせが良すぎる",
+        "text": "占星術のエレメント分布は宏勇=火5地4(行動と実務)、奈緒美=水5風3(感受と知性)で、ほぼ完全な鏡合わせ。合算すると火6地6風4水6と一気に整います。四柱推命でも宏勇に無い木を奈緒美が3つ持ち、合算で五行が改善。「持っていないものを相手が持っている」構造が2体系で同時に出ました。"
+      },
+      {
+        "title": "一致点3: 二人同時に「新章の入口」にいる",
+        "text": "四柱推命の大運は宏勇が2025年から辛亥、奈緒美が2026年から壬戌と、ほぼ同時に10年運が切り替わったばかり。人生の章替わりのタイミングが同期しています。"
+      }
+    ],
+    "splits": [
+      {
+        "title": "割れた点1: 日常リズム——占星術は「ズレ」、四柱は「支え合い」",
+        "text": "月-月スクエアは生活リズム・寛ぎ方の違いを示す一方、四柱の日支は午→辰の相生で日常の根は支え合うと出ました。矛盾ではなく解像度の違いと読めます: スタイルは違う(占星術)が、方向は支え合う(四柱)。"
+      },
+      {
+        "title": "割れた点2: 改姓の読み——総格は上昇、人格は下降",
+        "text": "「菅野奈緒美」は総格50→57で吉に転じる一方、人格21→19で下がります。どの格を重視するかは流派の分かれ目そのもので、姓名判断の内部でも読みは一枚岩ではありません。隠さずそのまま提示します。"
+      },
+      {
+        "title": "割れた点3: 会話の質感——磁力と審査",
+        "text": "金星-火星オポ(強い引力)と水星-土星オポ(会話が現実論で締まる)が同居。ときめきと緊張が同じ食卓に乗る構造です。伝統的には「言葉が年々鍛えられる夫婦」の型と読まれます。"
+      }
+    ],
+    "structure_note": "占いの予測的妥当性に科学的根拠はありません。ここに並べたのは「3つの伝統体系が、検証済みの同一の生年月日データからそれぞれ何を計算したか」の構造です。一致した点は偶然かもしれないし、割れた点も体系の癖かもしれません。それでも——別々の千年級の体系が揃って「長期安定・相互補完」を指したという事実は、二人で眺めて楽しむ材料として上等ではないでしょうか。"
+  }
+}
+;
+  </script>
+  <script>
+(() => {
+  "use strict";
+
+  const PERSONS = {
+    naomi: { key: "naomi", label: "奈緒美", interpKey: "person_naomi", color: "naomi" },
+    hk: { key: "hk", label: "宏勇", interpKey: "person_hk", color: "hk" }
+  };
+  const TAB_ORDER = ["naomi", "hk", "compat", "overall"];
+  const TAB_LABELS = { naomi: "奈緒美", hk: "宏勇", compat: "相性", overall: "総合" };
+  const KAKU_LABELS = { tenkaku: "天格", jinkaku: "人格", chikaku: "地格", gaikaku: "外格", soukaku: "総格" };
+  const PLANET_GLYPHS = { Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂", Jupiter: "♃", Saturn: "♄", Uranus: "♅", Neptune: "♆", Pluto: "♇", ASC: "ASC", MC: "MC" };
+  const SIGN_GLYPHS = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"];
+  const SIGN_NAMES = ["牡羊", "牡牛", "双子", "蟹", "獅子", "乙女", "天秤", "蠍", "射手", "山羊", "水瓶", "魚"];
+  const WUXING = ["木", "火", "土", "金", "水"];
+  const CURRENT_YEAR = 2026;
+
+  const app = document.getElementById("app");
+  const tip = document.getElementById("tip");
+
+  function fail(message) {
+    throw new Error(message);
+  }
+
+  function assertData() {
+    if (!CALC || !INTERP) fail("CALC/INTERP が読み込めません。");
+    if ((INTERP.meta?.person_order || []).join(",") !== "naomi,hk") fail("INTERP.meta.person_order が naomi,hk ではありません。");
+    if (!CALC.astro?.naomi || !CALC.astro?.hk || !CALC.astro?.synastry) fail("CALC.astro の必須キーが不足しています。");
+    if (CALC.astro.synastry.aspects.length !== 70) fail("synastry aspects が70件ではありません。");
+    if (!Array.isArray(INTERP.compat?.astro?.aspect_featured) || INTERP.compat.astro.aspect_featured.length !== 14) fail("compat.astro.aspect_featured が14件ではありません。");
+  }
+
+  function esc(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  }
+
+  function text(value, fallback = "記載なし") {
+    const s = value == null ? "" : String(value);
+    return s.trim() ? s : fallback;
+  }
+
+  function deg(value) {
+    return `${Number(value || 0).toFixed(2)}°`;
+  }
+
+  function angleForLon(lon, ascLon = 0) {
+    return (180 - Number(lon || 0) + Number(ascLon || 0)) % 360;
+  }
+
+  function xy(lon, radius, ascLon = 0, cx = 250, cy = 250) {
+    const a = angleForLon(lon, ascLon) * Math.PI / 180;
+    return { x: cx + radius * Math.cos(a), y: cy - radius * Math.sin(a) };
+  }
+
+  function lineClass(type, featured = false) {
+    const soft = ["Trine", "Sextile"];
+    const hard = ["Square", "Opposition"];
+    const major = ["Conjunction", "Trine", "Sextile", "Square", "Opposition"];
+    const c = ["aspect-line"];
+    if (soft.includes(type)) c.push("soft");
+    else if (hard.includes(type)) c.push("hard");
+    else if (type === "Conjunction") c.push("conjunction");
+    else if (!major.includes(type)) c.push("minor");
+    if (featured) c.push("featured");
+    return c.join(" ");
+  }
+
+  function signForLon(lon) {
+    const idx = Math.floor((((Number(lon || 0) % 360) + 360) % 360) / 30);
+    return `${SIGN_GLYPHS[idx]} ${SIGN_NAMES[idx]} ${deg(Number(lon || 0) % 30)}`;
+  }
+
+  function objectEntries(obj) {
+    return Object.entries(obj || {});
+  }
+
+  function normalizePoint(name) {
+    return String(name || "").replace(/^HK\./, "").replace(/^Naomi\./, "");
+  }
+
+  function sameAspect(a, b, type, item) {
+    if (!item) return false;
+    return item.type === type && ((item.a === a && item.b === b) || (item.a === b && item.b === a));
+  }
+
+  function findFeatured(list, aspect) {
+    return (list || []).find((item) => sameAspect(aspect.a, aspect.b, aspect.type, item));
+  }
+
+  function aspectFallback(aspect) {
+    const parts = INTERP.aspect_parts || {};
+    const a = normalizePoint(aspect.a);
+    const b = normalizePoint(aspect.b);
+    const pa = parts.points?.[a] || a;
+    const pb = parts.points?.[b] || b;
+    const tt = parts.types?.[aspect.type]?.text || aspect.type;
+    return {
+      title: `${aspect.a} ${aspect.type} ${aspect.b}`,
+      text: `${pa} / ${pb} / ${tt}`,
+      constructive_note: ""
+    };
+  }
+
+  function showTip(title, body, x, y) {
+    tip.innerHTML = `<strong>${esc(title)}</strong>${esc(body)}`;
+    const pad = 14;
+    const rectWidth = Math.min(340, window.innerWidth - pad * 2);
+    const left = Math.max(pad, Math.min(x + 14, window.innerWidth - rectWidth - pad));
+    const top = Math.max(pad, Math.min(y + 14, window.innerHeight - 180));
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+    tip.classList.add("is-visible");
+  }
+
+  function hideTip() {
+    tip.classList.remove("is-visible");
+  }
+
+  function bindTip(el, title, body) {
+    el.addEventListener("pointerenter", (event) => showTip(title, body, event.clientX, event.clientY));
+    el.addEventListener("pointermove", (event) => showTip(title, body, event.clientX, event.clientY));
+    el.addEventListener("pointerleave", hideTip);
+    el.addEventListener("focus", () => {
+      const r = el.getBoundingClientRect();
+      showTip(title, body, r.left + r.width / 2, r.top + r.height / 2);
+    });
+    el.addEventListener("blur", hideTip);
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      showTip(title, body, event.clientX, event.clientY);
+    });
+  }
+
+  function renderShell() {
+    app.innerHTML = `
+      <main>
+        <div class="shell">
+          <header class="hero">
+            <div class="topline">
+              <span>Fortune Lab</span>
+              <span class="seal">鑑定<br>書</span>
+            </div>
+            <div class="hero-grid">
+              <div>
+                <h1>奈緒美 × 宏勇<br>ふたりの鑑定書</h1>
+                <p class="lead">1984年3月11日、青森・八戸生まれの奈緒美。1983年4月12日、北海道・函館生まれの宏勇。ふたりが生まれた瞬間の星空と暦を、西洋占星術・四柱推命・姓名判断の三つの伝統占術で読み解きます。計算は本物、解釈は楽しく——気になる線や数字に触れると、その根拠が開きます。</p>
+              </div>
+              <aside class="hero-card">
+                <p>${esc(INTERP.meta?.reading_stance || INTERP.meta?.disclaimer || "")}</p>
+              </aside>
+            </div>
+          </header>
+        </div>
+        <nav class="tabs-wrap" aria-label="鑑定タブ">
+          <div class="tabs" role="tablist">
+            ${TAB_ORDER.map((key, i) => `<button class="tab" id="tab-${key}" role="tab" type="button" aria-controls="panel-${key}" aria-selected="${i === 0 ? "true" : "false"}" data-tab="${key}">${TAB_LABELS[key]}</button>`).join("")}
+          </div>
+        </nav>
+        <div class="shell" id="panels">
+          <section class="panel" id="panel-naomi" role="tabpanel" aria-labelledby="tab-naomi"></section>
+          <section class="panel" id="panel-hk" role="tabpanel" aria-labelledby="tab-hk" hidden></section>
+          <section class="panel" id="panel-compat" role="tabpanel" aria-labelledby="tab-compat" hidden></section>
+          <section class="panel" id="panel-overall" role="tabpanel" aria-labelledby="tab-overall" hidden></section>
+        </div>
+        <footer class="footer">
+          <p>${esc(INTERP.meta?.disclaimer || "")}</p>
+          <p>${esc(INTERP.meta?.kanji_note || "")}</p>
+        </footer>
+      </main>
+    `;
+  }
+
+  function renderPerson(key) {
+    const person = PERSONS[key];
+    const calc = CALC.astro[key];
+    const interp = INTERP[person.interpKey];
+    const bazi = CALC.bazi[key];
+    const seimei = key === "naomi" ? CALC.seimei.naomi_maiden?.[0] : CALC.seimei.hk_current;
+    const panel = document.getElementById(`panel-${key}`);
+    panel.innerHTML = `
+      ${coreSection(person, interp)}
+      <section class="section section-pad">
+        <div class="two-col">
+          <div class="chart-panel">
+            <p class="chart-title"><span>ネイタルホロスコープ</span><span>${person.label}</span></p>
+            <div id="horo-${key}"></div>
+            <div class="legend"><span class="${person.color}">${person.label}</span><span class="soft">ソフト</span><span class="hard">ハード</span></div>
+          </div>
+          <div class="stack">
+            ${distributionBlock(calc.distribution, interp.astro?.distribution_reading)}
+            <div class="subgrid">
+              ${featuredCards(interp.astro?.natal_aspects_featured, "注目アスペクト")}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">${esc(text(interp.astro?.life_themes?.title, "人生のテーマ"))}</h2>
+        <p class="section-copy">${esc(text(interp.astro?.life_themes?.text))}</p>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">四柱推命</h2>
+        <div class="two-col">
+          <div class="stack">
+            ${baziTable(bazi, person)}
+            ${readingCard(interp.bazi?.meishiki_reading)}
+          </div>
+          <div class="stack">
+            <div class="mini-card">
+              <h3 class="mini-title">五行レーダー</h3>
+              ${radarSvg(bazi.wuxing_count, person.color)}
+              <p class="copy">${esc(text(interp.bazi?.wuxing_reading?.text))}</p>
+            </div>
+            ${dayunBlock(bazi.dayun, interp.bazi?.dayun_reading)}
+          </div>
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">姓名判断</h2>
+        <div id="seimei-${key}"></div>
+      </section>
+      <details>
+        <summary>生データの折りたたみ</summary>
+        ${rawTables(key, calc, bazi)}
+      </details>
+    `;
+    renderNatalChart(`horo-${key}`, key, calc, interp.astro?.natal_aspects_featured || []);
+    renderSeimei(`seimei-${key}`, key, seimei, interp.seimei);
+  }
+
+  function coreSection(person, interp) {
+    const core = interp.astro?.core3 || {};
+    return `
+      <section class="section section-pad">
+        <h2 class="section-title">${esc(text(core.title, `${person.label}のコア3プロフィール`))}</h2>
+        <p class="section-copy">${esc(text(core.text))}</p>
+        <span class="one-liner">${esc(text(core.one_liner, person.label))}</span>
+      </section>
+    `;
+  }
+
+  function distributionBlock(dist, reading) {
+    return `
+      <div class="mini-card full">
+        <h3 class="mini-title">気質分布</h3>
+        <div class="subgrid">
+          <div>${bars(dist?.elements, { fire: "火", earth: "地", air: "風", water: "水" })}</div>
+          <div>${bars(dist?.qualities, { cardinal: "活動", fixed: "不動", mutable: "柔軟" })}</div>
+        </div>
+        <p class="meta">${esc(reading?.data_note || "")}</p>
+        <p class="copy">${esc(text(reading?.text))}</p>
+      </div>
+    `;
+  }
+
+  function bars(obj, labels) {
+    const entries = objectEntries(obj);
+    const max = Math.max(1, ...entries.map(([, v]) => Number(v || 0)));
+    return `<div class="bars">${entries.map(([k, v]) => `
+      <div class="bar-row">
+        <span>${esc(labels?.[k] || k)}</span>
+        <span class="bar-track"><span class="bar-fill" style="width:${Math.round(Number(v || 0) / max * 100)}%"></span></span>
+        <strong>${esc(v)}</strong>
+      </div>`).join("")}</div>`;
+  }
+
+  function featuredCards(list, title) {
+    return (list || []).map((item, index) => `
+      <article class="mini-card ${index === 0 ? "full" : ""}">
+        <h3 class="mini-title">${esc(item.title || title)}</h3>
+        <p class="copy">${esc(text(item.text))}</p>
+        ${item.constructive_note ? `<p class="meta">${esc(item.constructive_note)}</p>` : ""}
+      </article>
+    `).join("");
+  }
+
+  function readingCard(reading) {
+    if (!reading) return "";
+    return `
+      <article class="mini-card">
+        <h3 class="mini-title">${esc(reading.title || "読み解き")}</h3>
+        <p class="copy">${esc(text(reading.text))}</p>
+        ${reading.note ? `<p class="meta">${esc(reading.note)}</p>` : ""}
+        ${reading.data_note ? `<p class="meta">${esc(reading.data_note)}</p>` : ""}
+      </article>
+    `;
+  }
+
+  function baziTable(bazi, person) {
+    const rows = ["year", "month", "day", "time"].map((k) => {
+      const p = bazi?.[k] || {};
+      return `<tr><th>${{ year: "年柱", month: "月柱", day: "日柱", time: "時柱" }[k]}</th><td class="${k === "day" ? "day-cell" : ""}">${esc(p.ganzhi || "")}</td><td>${esc(p.gan || "")}</td><td>${esc(p.zhi || "")}</td></tr>`;
+    }).join("");
+    return `
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>${person.label}</th><th>干支</th><th>天干</th><th>地支</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function radarSvg(counts, colorClass = "") {
+    const entries = WUXING.map((label) => [label, Number(counts?.[label] || 0)]);
+    const max = Math.max(1, ...entries.map(([, v]) => v));
+    const cx = 150, cy = 150, r = 100;
+    const pts = entries.map(([, value], i) => {
+      const a = (-90 + i * 72) * Math.PI / 180;
+      const rr = r * value / max;
+      return `${cx + rr * Math.cos(a)},${cy + rr * Math.sin(a)}`;
+    }).join(" ");
+    const frame = [1, 0.66, 0.33].map((scale) => {
+      const p = entries.map((_, i) => {
+        const a = (-90 + i * 72) * Math.PI / 180;
+        return `${cx + r * scale * Math.cos(a)},${cy + r * scale * Math.sin(a)}`;
+      }).join(" ");
+      return `<polygon class="radar-frame" points="${p}"></polygon>`;
+    }).join("");
+    const axes = entries.map(([label], i) => {
+      const a = (-90 + i * 72) * Math.PI / 180;
+      const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
+      const lx = cx + (r + 20) * Math.cos(a), ly = cy + (r + 20) * Math.sin(a);
+      return `<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"></line><text class="radar-label" x="${lx}" y="${ly}">${esc(label)}</text>`;
+    }).join("");
+    return `<svg class="radar" viewBox="0 0 300 300" role="img" aria-label="五行レーダー">${frame}${axes}<polygon class="radar-shape ${colorClass}" points="${pts}"></polygon></svg>`;
+  }
+
+  function dayunBlock(dayun, reading) {
+    const periods = (dayun?.pillars || []).map((p) => {
+      const current = Number(p.start_year) <= CURRENT_YEAR && CURRENT_YEAR <= Number(p.end_year);
+      return `<div class="period ${current ? "current" : ""}"><strong>${esc(p.ganzhi)}</strong><div class="meta">${esc(p.start_year)}-${esc(p.end_year)} / ${esc(p.start_age)}歳</div></div>`;
+    }).join("");
+    return `
+      <div class="mini-card">
+        <h3 class="mini-title">${esc(reading?.title || "大運タイムライン")}</h3>
+        <div class="timeline">${periods}</div>
+        <p class="copy">${esc(text(reading?.text))}</p>
+        ${reading?.data_note ? `<p class="meta">${esc(reading.data_note)}</p>` : ""}
+      </div>
+    `;
+  }
+
+  function renderNatalChart(targetId, key, calc, featuredList) {
+    const target = document.getElementById(targetId);
+    const ascLon = calc.asc?.lon || 0;
+    const planetItems = objectEntries(calc.planets).map(([name, p]) => ({ name, lon: p.lon, sign: p.sign_ja, house: p.house, retro: p.retro }));
+    planetItems.push({ name: "ASC", lon: calc.asc?.lon, sign: calc.asc?.sign_ja, house: "", marker: true });
+    planetItems.push({ name: "MC", lon: calc.mc?.lon, sign: calc.mc?.sign_ja, house: "", marker: true });
+    const byName = Object.fromEntries(planetItems.map((p) => [p.name, p]));
+    const signs = SIGN_GLYPHS.map((glyph, i) => {
+      const p = xy(i * 30 + 15, 228, ascLon);
+      const line = xy(i * 30, 220, ascLon);
+      const inner = xy(i * 30, 172, ascLon);
+      return `<line class="zodiac-line" x1="${line.x}" y1="${line.y}" x2="${inner.x}" y2="${inner.y}"></line><text class="sign-label" x="${p.x}" y="${p.y}">${glyph}</text>`;
+    }).join("");
+    const houses = (calc.house_cusps || []).map((lon) => {
+      const o = xy(lon, 210, ascLon);
+      const i = xy(lon, 82, ascLon);
+      return `<line class="house" x1="${o.x}" y1="${o.y}" x2="${i.x}" y2="${i.y}"></line>`;
+    }).join("");
+    const aspects = (calc.natal_aspects || []).map((aspect, idx) => {
+      const a = byName[aspect.a], b = byName[aspect.b];
+      if (!a || !b) return "";
+      const pa = xy(a.lon, 124, ascLon), pb = xy(b.lon, 124, ascLon);
+      const f = findFeatured(featuredList, aspect);
+      const d = f || aspectFallback(aspect);
+      return `<line tabindex="0" role="button" class="${lineClass(aspect.type, Boolean(f))}" data-tip-title="${esc(d.title)}" data-tip-body="${esc(d.text || d.constructive_note || "")}" x1="${pa.x}" y1="${pa.y}" x2="${pb.x}" y2="${pb.y}"></line>`;
+    }).join("");
+    const planets = planetItems.map((p, idx) => {
+      const pos = xy(p.lon, p.marker ? 148 : 132 + (idx % 3) * 12, ascLon);
+      const title = `${p.name} / ${signForLon(p.lon)}${p.house ? ` / ${p.house}ハウス` : ""}${p.retro ? " / R" : ""}`;
+      return `<text tabindex="0" class="planet ${PERSONS[key].color} ${p.marker ? "marker" : ""}" data-tip-title="${esc(p.name)}" data-tip-body="${esc(title)}" x="${pos.x}" y="${pos.y}">${esc(PLANET_GLYPHS[p.name] || p.name)}</text>`;
+    }).join("");
+    target.innerHTML = `<svg class="horo" viewBox="0 0 500 500" role="img" aria-label="${PERSONS[key].label}のネイタルホロスコープ"><circle class="ring" cx="250" cy="250" r="232"></circle><circle class="ring" cx="250" cy="250" r="210"></circle><circle class="ring" cx="250" cy="250" r="152"></circle><circle class="ring" cx="250" cy="250" r="82"></circle>${signs}${houses}${aspects}${planets}</svg>`;
+    target.querySelectorAll("[data-tip-title]").forEach((el) => bindTip(el, el.dataset.tipTitle, el.dataset.tipBody));
+  }
+
+  function rawTables(key, calc, bazi) {
+    const planetRows = objectEntries(calc.planets).map(([name, p]) => `<tr><td>${esc(name)}</td><td>${esc(p.sign_ja)}</td><td>${esc(deg(p.lon))}</td><td>${esc(p.house)}</td><td>${p.retro ? "R" : ""}</td></tr>`).join("");
+    return `
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>天体</th><th>サイン</th><th>全度数</th><th>ハウス</th><th>逆行</th></tr></thead>
+          <tbody>${planetRows}</tbody>
+        </table>
+      </div>
+      <pre>${esc(JSON.stringify({ jd_ut: calc.jd_ut, asc: calc.asc, mc: calc.mc, bazi }, null, 2))}</pre>
+    `;
+  }
+
+  function renderSeimei(targetId, key, initial, interpSeimei) {
+    const target = document.getElementById(targetId);
+    if (key === "naomi") {
+      const records = CALC.seimei.naomi_maiden || [];
+      target.innerHTML = `
+        <p class="copy">${esc(interpSeimei?.intro || "")}</p>
+        <div class="controls">
+          ${records.map((record, idx) => `<button class="chip" type="button" aria-pressed="${idx === 0 ? "true" : "false"}" data-seimei="${idx}">${idx === 0 ? "塚=13画" : "塚=12画"}</button>`).join("")}
+        </div>
+        <div id="${targetId}-body"></div>
+      `;
+      const body = document.getElementById(`${targetId}-body`);
+      const draw = (idx) => { body.innerHTML = seimeiRecord(records[idx], interpSeimei?.kaku_texts?.[records[idx]?.variant]); };
+      draw(0);
+      target.querySelectorAll("[data-seimei]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          target.querySelectorAll("[data-seimei]").forEach((b) => b.setAttribute("aria-pressed", "false"));
+          btn.setAttribute("aria-pressed", "true");
+          draw(Number(btn.dataset.seimei));
+        });
+      });
+    } else {
+      target.innerHTML = `${seimeiRecord(initial, interpSeimei?.kaku_texts?.primary)}${interpSeimei?.saikyo_note ? `<article class="mini-card"><h3 class="mini-title">補足</h3><p class="copy">${esc(interpSeimei.saikyo_note)}</p></article>` : ""}`;
+    }
+  }
+
+  function seimeiRecord(record, texts) {
+    if (!record) return "";
+    const kakus = ["tenkaku", "jinkaku", "chikaku", "gaikaku", "soukaku"];
+    return `
+      <div class="cards">
+        <article class="mini-card full">
+          <h3 class="mini-title">${esc(record.label)} <span class="meta">${esc(record.variant || "")}</span></h3>
+          <p class="copy">${(record.chars || []).map((c) => `${esc(c.ch)} ${esc(c.strokes)}画`).join(" / ")}</p>
+          ${texts?.variant_note ? `<p class="meta">${esc(texts.variant_note)}</p>` : ""}
+        </article>
+        ${kakus.map((k) => {
+          const item = record[k] || {};
+          return `<article class="mini-card"><h3 class="mini-title">${esc(KAKU_LABELS[k] || k)} ${esc(item.kaku || "")} ${esc(item.fortune || "")}</h3><p class="copy">${esc(item.meaning || texts?.[k] || "")}</p>${item.note ? `<p class="meta">${esc(item.note)}</p>` : ""}</article>`;
+        }).join("")}
+        ${texts?.structural_note ? `<article class="mini-card full"><h3 class="mini-title">補足</h3><p class="copy">${esc(texts.structural_note)}</p></article>` : ""}
+      </div>
+    `;
+  }
+
+  function renderCompat() {
+    const panel = document.getElementById("panel-compat");
+    const astro = INTERP.compat.astro || {};
+    const bazi = INTERP.compat.bazi || {};
+    const seimei = INTERP.compat.seimei || {};
+    panel.innerHTML = `
+      <section class="section section-pad">
+        <h2 class="section-title">${esc(text(astro.headline, "相性ヘッドライン"))}</h2>
+        <p class="section-copy">${esc(text(astro.structural_summary))}</p>
+      </section>
+      <section class="section section-pad">
+        <div class="two-col">
+          <div class="chart-panel">
+            <p class="chart-title"><span>シナストリーホロスコープ</span><span>内=奈緒美 / 外=宏勇</span></p>
+            <div class="controls" role="group" aria-label="相性アスペクトフィルタ">
+              <button class="chip" type="button" aria-pressed="true" data-filter="all">すべて</button>
+              <button class="chip" type="button" aria-pressed="false" data-filter="major">主要のみ</button>
+              <button class="chip" type="button" aria-pressed="false" data-filter="soft">ソフト</button>
+              <button class="chip" type="button" aria-pressed="false" data-filter="hard">ハード</button>
+            </div>
+            <div id="synastry-chart"></div>
+            <div class="legend"><span class="naomi">奈緒美</span><span class="hk">宏勇</span><span class="soft">ソフト</span><span class="hard">ハード</span></div>
+          </div>
+          <div class="stack">
+            <article class="mini-card">
+              <h3 class="mini-title">コンポジット要約</h3>
+              <p class="copy">${esc(text(astro.composite_summary))}</p>
+            </article>
+            ${compositeCards()}
+          </div>
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">注目アスペクト</h2>
+        <div class="cards">${featuredCards(astro.aspect_featured, "相性アスペクト")}</div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">四柱推命の相性</h2>
+        <div class="two-col">
+          <div class="stack">
+            ${readingCard(bazi.day_gan)}
+            ${readingCard(bazi.zhi)}
+            ${readingCard(bazi.wuxing)}
+            <article class="mini-card"><h3 class="mini-title">まとめ</h3><p class="copy">${esc(text(bazi.summary))}</p></article>
+          </div>
+          <div class="stack">
+            <div class="mini-card">
+              <h3 class="mini-title">五行合算レーダー</h3>
+              ${compatRadar()}
+            </div>
+            ${dayGanDiagram()}
+          </div>
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">姓名判断シミュレーション</h2>
+        <div class="reveal">
+          <p class="copy">${esc(seimei.married_sim_reveal?.before_text || "")}</p>
+          <button class="primary-btn" type="button" id="reveal-name">開く</button>
+          <div class="reveal-box" id="reveal-box">
+            <article class="mini-card">
+              <h3 class="mini-title">${esc(seimei.married_sim_reveal?.after_title || "")}</h3>
+              <p class="copy">${esc(seimei.married_sim_reveal?.after_text || "")}</p>
+              <p class="meta">${esc(seimei.married_sim_reveal?.structural_note || "")}</p>
+              <p class="meta">${esc(seimei.married_sim_reveal?.playful_note || "")}</p>
+            </article>
+            ${comparisonTable(seimei.comparison)}
+            ${seimeiRecord(CALC.seimei.naomi_married_sim, null)}
+          </div>
+        </div>
+      </section>
+    `;
+    renderSynastry();
+    bindCompatControls();
+    const revealBtn = document.getElementById("reveal-name");
+    revealBtn.addEventListener("click", () => {
+      document.getElementById("reveal-box").classList.toggle("is-open");
+      revealBtn.textContent = document.getElementById("reveal-box").classList.contains("is-open") ? "閉じる" : "開く";
+    });
+  }
+
+  function compositeCards() {
+    const comp = CALC.astro.composite || {};
+    const items = [
+      ["Sun", comp.planets?.Sun],
+      ["Moon", comp.planets?.Moon],
+      ["ASC", comp.asc]
+    ];
+    return `<div class="subgrid">${items.map(([name, p]) => `<article class="mini-card"><h3 class="mini-title">${esc(name)}</h3><p class="copy">${esc(p?.sign_ja || "")} ${esc(deg(p?.lon || 0))}</p></article>`).join("")}</div>`;
+  }
+
+  function renderSynastry() {
+    const target = document.getElementById("synastry-chart");
+    const naomi = CALC.astro.naomi;
+    const hk = CALC.astro.hk;
+    const ascLon = naomi.asc?.lon || 0;
+    const all = {
+      Naomi: { ...naomi.planets, ASC: naomi.asc, MC: naomi.mc },
+      HK: { ...hk.planets, ASC: hk.asc, MC: hk.mc }
+    };
+    const signs = SIGN_GLYPHS.map((glyph, i) => {
+      const p = xy(i * 30 + 15, 228, ascLon);
+      return `<text class="sign-label" x="${p.x}" y="${p.y}">${glyph}</text>`;
+    }).join("");
+    const planetTexts = ["Naomi", "HK"].map((prefix) => {
+      const radius = prefix === "Naomi" ? 132 : 174;
+      const cls = prefix === "Naomi" ? "naomi" : "hk";
+      return objectEntries(all[prefix]).map(([name, p], idx) => {
+        const pos = xy(p.lon, radius + (idx % 2) * 10, ascLon);
+        const body = `${prefix}.${name} / ${signForLon(p.lon)}${p.house ? ` / ${p.house}ハウス` : ""}`;
+        return `<text tabindex="0" class="planet ${cls} ${name === "ASC" || name === "MC" ? "marker" : ""}" data-tip-title="${esc(prefix + "." + name)}" data-tip-body="${esc(body)}" x="${pos.x}" y="${pos.y}">${esc(PLANET_GLYPHS[name] || name)}</text>`;
+      }).join("");
+    }).join("");
+    const aspects = CALC.astro.synastry.aspects.map((aspect) => {
+      const [paName, aName] = aspect.a.split(".");
+      const [pbName, bName] = aspect.b.split(".");
+      const a = all[paName]?.[aName], b = all[pbName]?.[bName];
+      if (!a || !b) return "";
+      const p1 = xy(a.lon, paName === "Naomi" ? 132 : 174, ascLon);
+      const p2 = xy(b.lon, pbName === "Naomi" ? 132 : 174, ascLon);
+      const f = findFeatured(INTERP.compat.astro.aspect_featured, aspect);
+      const d = f || aspectFallback(aspect);
+      const filter = aspect.highlight || f ? "major" : (["Trine", "Sextile"].includes(aspect.type) ? "soft" : (["Square", "Opposition"].includes(aspect.type) ? "hard" : "all"));
+      return `<line tabindex="0" role="button" class="${lineClass(aspect.type, Boolean(aspect.highlight || f))}" data-filter-kind="${filter}" data-type="${esc(aspect.type)}" data-tip-title="${esc(d.title)}" data-tip-body="${esc((d.text || "") + (d.constructive_note ? " / " + d.constructive_note : ""))}" x1="${p1.x}" y1="${p1.y}" x2="${p2.x}" y2="${p2.y}"></line>`;
+    }).join("");
+    target.innerHTML = `<svg class="horo" viewBox="0 0 500 500" role="img" aria-label="シナストリーホロスコープ。内側は奈緒美、外側は宏勇"><circle class="ring" cx="250" cy="250" r="232"></circle><circle class="ring" cx="250" cy="250" r="190"></circle><circle class="ring" cx="250" cy="250" r="152"></circle><circle class="ring" cx="250" cy="250" r="112"></circle><circle class="ring" cx="250" cy="250" r="70"></circle>${signs}${aspects}${planetTexts}</svg>`;
+    target.querySelectorAll("[data-tip-title]").forEach((el) => bindTip(el, el.dataset.tipTitle, el.dataset.tipBody));
+  }
+
+  function bindCompatControls() {
+    const buttons = document.querySelectorAll("[data-filter]");
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        buttons.forEach((b) => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        const filter = btn.dataset.filter;
+        document.querySelectorAll("#synastry-chart .aspect-line").forEach((line) => {
+          const type = line.dataset.type;
+          const kind = line.dataset.filterKind;
+          const visible =
+            filter === "all" ||
+            (filter === "major" && kind === "major") ||
+            (filter === "soft" && ["Trine", "Sextile"].includes(type)) ||
+            (filter === "hard" && ["Square", "Opposition"].includes(type));
+          line.style.display = visible ? "" : "none";
+        });
+      });
+    });
+  }
+
+  function compatRadar() {
+    const c = CALC.bazi.compat?.wuxing_complement?.combined || {};
+    const n = CALC.bazi.naomi?.wuxing_count || {};
+    const h = CALC.bazi.hk?.wuxing_count || {};
+    return `${radarSvg(c)}<div class="legend"><span class="naomi">奈緒美</span><span class="hk">宏勇</span><span class="soft">合算</span></div><p class="meta">奈緒美: ${esc(JSON.stringify(n))}</p><p class="meta">宏勇: ${esc(JSON.stringify(h))}</p>`;
+  }
+
+  function dayGanDiagram() {
+    const rel = CALC.bazi.compat?.day_gan_relation || {};
+    return `<article class="mini-card"><h3 class="mini-title">日干関係</h3><p class="copy">宏勇 ${esc(CALC.bazi.hk?.day?.gan || "")} → 奈緒美 ${esc(CALC.bazi.naomi?.day?.gan || "")}</p><p class="meta">${esc(rel.relation || "")} / ${esc(rel.direction || "")}</p></article>`;
+  }
+
+  function comparisonTable(comp) {
+    const rows = (comp?.rows || []).map((r) => `<tr><td>${esc(r.kaku)}</td><td>${esc(r.maiden)}</td><td>${esc(r.married)}</td></tr>`).join("");
+    return `<div class="table-wrap"><table><thead><tr><th>${esc(comp?.title || "比較")}</th><th>旧姓</th><th>新姓</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+
+  function renderOverall() {
+    const panel = document.getElementById("panel-overall");
+    const overall = INTERP.overall || {};
+    panel.innerHTML = `
+      <section class="section section-pad">
+        <h2 class="section-title">${esc(text(overall.headline, "総合"))}</h2>
+      </section>
+      <section class="section section-pad">
+        <div class="two-col">
+          <div>
+            <h2 class="section-title">一致点</h2>
+            <div class="stack">${(overall.agreements || []).map((item) => `<article class="mini-card"><h3 class="mini-title">${esc(item.title)}</h3><p class="copy">${esc(item.text)}</p></article>`).join("")}</div>
+          </div>
+          <div>
+            <h2 class="section-title">割れた点</h2>
+            <div class="stack">${(overall.splits || []).map((item) => `<article class="mini-card"><h3 class="mini-title">${esc(item.title)}</h3><p class="copy">${esc(item.text)}</p></article>`).join("")}</div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">構造メモ</h2>
+        <p class="section-copy">${esc(text(overall.structure_note))}</p>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">3体系の結果要約</h2>
+        ${summaryMatrix()}
+      </section>
+    `;
+  }
+
+  function summaryMatrix() {
+    const rows = [
+      ["西洋占星術", INTERP.person_naomi?.astro?.core3?.one_liner, INTERP.person_hk?.astro?.core3?.one_liner, INTERP.compat?.astro?.headline],
+      ["四柱推命", INTERP.person_naomi?.bazi?.meishiki_reading?.title, INTERP.person_hk?.bazi?.meishiki_reading?.title, INTERP.compat?.bazi?.summary],
+      ["姓名判断", INTERP.person_naomi?.seimei?.intro, INTERP.person_hk?.seimei?.saikyo_note || CALC.seimei.hk_current?.soukaku?.meaning, INTERP.compat?.seimei?.married_sim_reveal?.after_title]
+    ];
+    return `<div class="table-wrap"><table><thead><tr><th>体系</th><th>奈緒美</th><th>宏勇</th><th>相性</th></tr></thead><tbody>${rows.map((r) => `<tr><th>${esc(r[0])}</th><td>${esc(r[1] || "")}</td><td>${esc(r[2] || "")}</td><td>${esc(r[3] || "")}</td></tr>`).join("")}</tbody></table></div>`;
+  }
+
+  function activateTab(key, updateHash = true) {
+    const safeKey = TAB_ORDER.includes(key) ? key : "naomi";
+    TAB_ORDER.forEach((id) => {
+      const active = id === safeKey;
+      document.getElementById(`tab-${id}`).setAttribute("aria-selected", String(active));
+      document.getElementById(`panel-${id}`).hidden = !active;
+    });
+    if (updateHash && location.hash.replace("#", "") !== safeKey) history.replaceState(null, "", `#${safeKey}`);
+  }
+
+  function bindTabs() {
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.addEventListener("click", () => activateTab(tab.dataset.tab));
+    });
+    window.addEventListener("hashchange", () => activateTab(location.hash.replace("#", ""), false));
+  }
+
+  function init() {
+    assertData();
+    renderShell();
+    renderPerson("naomi");
+    renderPerson("hk");
+    renderCompat();
+    renderOverall();
+    bindTabs();
+    activateTab(location.hash.replace("#", "") || "naomi", false);
+  }
+
+  try {
+    init();
+  } catch (error) {
+    app.innerHTML = `<div class="error"><strong>仕様またはJSONの齟齬を検出しました。</strong><p>${esc(error.message)}</p></div>`;
+    console.error(error);
+  }
+})();
+  </script>
+</body>
+</html>

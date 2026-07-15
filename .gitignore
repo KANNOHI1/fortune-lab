@@ -1,0 +1,35 @@
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.vscode/
+.idea/
+.playwright-mcp/
+.ruff_cache/
+*.png
+*.jpg
+*.jpeg
+.env
+.env.local
+
+# personal memory (HK) — canonical は project_root/memory/、GitHub には上げない
+memory
+
+# 作業中の下書き・中間ファイル
+_*.json
+_*.md
+
+# エディタ設定
+*.code-workspace
+
+# Claude セッションログ
+claude_logs/
+
+# 作業ファイル(公開リポには含めない — サイト本体は index.html のみ)
+engine/
+.venv/
+STATUS.md
+CLAUDE.md
+uranai-project-handoff.md
+design-samples.html
+design-samples-spec.md

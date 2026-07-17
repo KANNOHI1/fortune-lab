@@ -844,8 +844,8 @@
       stroke-width: 2;
     }
 
-    .radar-shape.naomi { fill: rgba(232, 160, 168, 0.2); stroke: var(--naomi); }
-    .radar-shape.hk { fill: rgba(127, 168, 217, 0.18); stroke: var(--hk); stroke-dasharray: 6 4; }
+    .radar-shape.naomi { fill: rgba(232, 160, 168, 0.14); stroke: var(--naomi); }
+    .radar-shape.hk { fill: rgba(127, 168, 217, 0.12); stroke: var(--hk); }
     .radar-label {
       fill: var(--text);
       font-size: 12px;
@@ -4144,29 +4144,34 @@ const INTERP = {
     `;
   }
 
-  function radarSvg(counts, colorClass = "") {
-    const entries = WUXING.map((label) => [label, Number(counts?.[label] || 0)]);
-    const max = Math.max(1, ...entries.map(([, v]) => v));
+  function radarSvg(counts, colorClass = "", maxValue = null) {
+    const series = Array.isArray(counts)
+      ? counts.map((item) => ({ counts: item.counts || {}, colorClass: item.colorClass || "" }))
+      : [{ counts: counts || {}, colorClass }];
+    const baseEntries = WUXING.map((label) => [label, 0]);
+    const seriesEntries = series.map((item) => WUXING.map((label) => [label, Number(item.counts?.[label] || 0)]));
+    const max = Math.max(1, Number(maxValue || 0), ...seriesEntries.flatMap((entries) => entries.map(([, v]) => v)));
     const cx = 150, cy = 150, r = 100;
-    const pts = entries.map(([, value], i) => {
+    const pointsFor = (entries) => entries.map(([, value], i) => {
       const a = (-90 + i * 72) * Math.PI / 180;
       const rr = r * value / max;
       return `${cx + rr * Math.cos(a)},${cy + rr * Math.sin(a)}`;
     }).join(" ");
     const frame = [1, 0.66, 0.33].map((scale) => {
-      const p = entries.map((_, i) => {
+      const p = baseEntries.map((_, i) => {
         const a = (-90 + i * 72) * Math.PI / 180;
         return `${cx + r * scale * Math.cos(a)},${cy + r * scale * Math.sin(a)}`;
       }).join(" ");
       return `<polygon class="radar-frame" points="${p}"></polygon>`;
     }).join("");
-    const axes = entries.map(([label], i) => {
+    const axes = baseEntries.map(([label], i) => {
       const a = (-90 + i * 72) * Math.PI / 180;
       const x = cx + r * Math.cos(a), y = cy + r * Math.sin(a);
       const lx = cx + (r + 20) * Math.cos(a), ly = cy + (r + 20) * Math.sin(a);
       return `<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${x}" y2="${y}"></line><text class="radar-label" x="${lx}" y="${ly}">${esc(label)}</text>`;
     }).join("");
-    return `<svg class="radar" viewBox="0 0 300 300" role="img" aria-label="五行レーダー">${frame}${axes}<polygon class="radar-shape ${colorClass}" points="${pts}"></polygon></svg>`;
+    const shapes = seriesEntries.map((entries, index) => `<polygon class="radar-shape ${esc(series[index].colorClass)}" points="${pointsFor(entries)}"></polygon>`).join("");
+    return `<svg class="radar" viewBox="0 0 300 300" role="img" aria-label="五行レーダー">${frame}${axes}${shapes}</svg>`;
   }
 
   function dayunBlock(dayun, reading) {
@@ -4548,7 +4553,14 @@ const INTERP = {
     const c = CALC.bazi.compat?.wuxing_complement?.combined || {};
     const n = CALC.bazi.naomi?.wuxing_count || {};
     const h = CALC.bazi.hk?.wuxing_count || {};
-    return `${radarSvg(c)}<div class="legend"><span class="naomi">奈緒美</span><span class="hk">宏勇</span><span class="soft">合算</span></div><p class="meta">奈緒美: ${esc(JSON.stringify(n))}</p><p class="meta">宏勇: ${esc(JSON.stringify(h))}</p>`;
+    const max = Math.max(1, ...WUXING.map((label) => Number(c?.[label] || 0)));
+    const series = [
+      { counts: c, colorClass: "" },
+      { counts: h, colorClass: "hk" },
+      { counts: n, colorClass: "naomi" }
+    ];
+    const formatCounts = (counts) => WUXING.map((label) => `${label}${Number(counts?.[label] || 0)}`).join("・");
+    return `${radarSvg(series, "", max)}<div class="legend"><span class="naomi">奈緒美</span><span class="hk">宏勇</span><span class="soft">合算</span></div><p class="meta">奈緒美: ${esc(formatCounts(n))}</p><p class="meta">宏勇: ${esc(formatCounts(h))}</p>`;
   }
 
   function compatDirectionLabel(direction) {

@@ -9,6 +9,10 @@ node_modules/
 *.png
 *.jpg
 *.jpeg
+# サイト用アセットは例外(公開する)
+!ogp.png
+!apple-touch-icon.png
+!favicon-32x32.png
 .env
 .env.local
 

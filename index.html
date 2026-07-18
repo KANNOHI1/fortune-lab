@@ -901,13 +901,11 @@
       stroke-dasharray: 5 8;
       marker-end: url(#gogyo-arrow-muted);
       opacity: 0.56;
-      transition: opacity 240ms ease, stroke 240ms ease, stroke-dasharray 240ms ease, filter 240ms ease;
+      transition: opacity 240ms ease, stroke 240ms ease, stroke-width 240ms ease, stroke-dasharray 240ms ease, filter 240ms ease;
     }
 
     .gogyo-arrow.is-active {
-      stroke: var(--gold);
       stroke-dasharray: 1;
-      marker-end: url(#gogyo-arrow-gold);
       opacity: 1;
       filter: drop-shadow(0 0 7px rgba(224, 184, 76, 0.34));
     }
@@ -947,6 +945,31 @@
     .gogyo-node.is-dim {
       opacity: 0.34;
       filter: grayscale(0.5);
+    }
+
+    .gogyo-node.is-empty {
+      opacity: 0.32;
+      filter: grayscale(0.6);
+    }
+
+    .gogyo-node.is-thin {
+      opacity: 0.75;
+      filter: none;
+    }
+
+    .gogyo-node.is-thin circle.node-core {
+      stroke-width: 1;
+      filter: drop-shadow(0 0 5px rgba(224, 184, 76, 0.12));
+    }
+
+    .gogyo-node.is-strong {
+      opacity: 1;
+      filter: none;
+    }
+
+    .gogyo-node.is-strong circle.node-core {
+      stroke-width: 2;
+      filter: drop-shadow(0 0 13px rgba(224, 184, 76, 0.4));
     }
 
     .gogyo-label {
@@ -1028,6 +1051,83 @@
     .sheet-sub {
       color: var(--muted);
       font-weight: 700;
+    }
+
+    .day-gan-flow {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      margin: 14px 0 4px;
+      padding: 14px;
+      border: 1px solid rgba(224, 184, 76, 0.2);
+      border-radius: 12px;
+      background: rgba(5, 8, 16, 0.28);
+    }
+
+    .day-gan-node {
+      min-width: 0;
+      border: 1px solid rgba(255, 248, 236, 0.24);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.035);
+    }
+
+    .day-gan-node.naomi {
+      background: rgba(232, 160, 168, 0.11);
+      border-color: rgba(232, 160, 168, 0.44);
+    }
+
+    .day-gan-node.hk {
+      background: rgba(127, 168, 217, 0.11);
+      border-color: rgba(127, 168, 217, 0.44);
+    }
+
+    .day-gan-symbol {
+      display: block;
+      color: var(--white);
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(20px, 4vw, 28px);
+      line-height: 1.2;
+    }
+
+    .day-gan-person {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .day-gan-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      margin-top: 9px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(224, 184, 76, 0.14);
+      color: var(--gold-2);
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .day-gan-arrow {
+      display: grid;
+      justify-items: center;
+      gap: 3px;
+      min-width: 48px;
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .day-gan-arrow svg {
+      width: 54px;
+      height: 26px;
+      overflow: visible;
     }
 
     .timeline {
@@ -1466,6 +1566,8 @@
       .miracle-hero { border-radius: 12px; }
       .miracle-card { border-radius: 12px; padding: 16px; }
       .gogyo-controls { grid-template-columns: 1fr; }
+      .day-gan-flow { grid-template-columns: 1fr; }
+      .day-gan-arrow svg { transform: rotate(90deg); }
       .bar-row { grid-template-columns: 70px minmax(0, 1fr) 42px; }
       table { min-width: 100%; table-layout: fixed; }
     }
@@ -4357,6 +4459,54 @@ const INTERP = {
     `;
   }
 
+  function dayGanLabel(gan) {
+    const images = { 甲: "大樹", 庚: "鋼" };
+    return images[gan] ? `${gan}(${images[gan]})` : gan;
+  }
+
+  function dayGanFlowDiagram() {
+    const naomiGan = CALC.bazi.naomi?.day?.gan || "";
+    const hkGan = CALC.bazi.hk?.day?.gan || "";
+    return `
+      <div class="day-gan-flow" aria-label="日干関係の図解">
+        <div class="day-gan-node naomi">
+          <span class="day-gan-symbol">${esc(dayGanLabel(naomiGan))}</span>
+          <span class="day-gan-person">奈緒美</span>
+          <span class="day-gan-badge">宏勇さんの妻の星</span>
+        </div>
+        <div class="day-gan-arrow" aria-label="庚から甲へ剋">
+          <svg viewBox="0 0 80 30" role="img" aria-label="庚から甲へ剋">
+            <defs>
+              <marker id="day-gan-arrowhead" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+                <path d="M 8 0 L 0 4 L 8 8 Z" fill="#e0b84c"></path>
+              </marker>
+            </defs>
+            <path d="M 68 15 C 54 15 30 15 12 15" fill="none" stroke="#e0b84c" stroke-width="2.4" stroke-linecap="round" marker-end="url(#day-gan-arrowhead)"></path>
+          </svg>
+          <span>剋</span>
+        </div>
+        <div class="day-gan-node hk">
+          <span class="day-gan-symbol">${esc(dayGanLabel(hkGan))}</span>
+          <span class="day-gan-person">宏勇</span>
+          <span class="day-gan-badge">奈緒美さんの夫の星</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function dayGanReadingCard(reading) {
+    if (!reading) return "";
+    return `
+      <article class="mini-card">
+        <h3 class="mini-title">${esc(reading.title || "日干関係")}</h3>
+        ${dayGanFlowDiagram()}
+        <p class="copy">${esc(text(reading.text))}</p>
+        ${reading.spouse_star_note ? `<p class="copy">${esc(reading.spouse_star_note)}</p>` : ""}
+        ${reading.constructive_note ? `<p class="copy">${esc(reading.constructive_note)}</p>` : ""}
+      </article>
+    `;
+  }
+
   function baziTable(bazi, person) {
     const rows = ["year", "month", "day", "time"].map((k) => {
       const p = bazi?.[k] || {};
@@ -4659,7 +4809,7 @@ const INTERP = {
         <h2 class="section-title">四柱推命の相性</h2>
         <div class="two-col">
           <div class="stack">
-            ${readingCard(bazi.day_gan)}
+            ${dayGanReadingCard(bazi.day_gan)}
             ${readingCard(bazi.zhi)}
             ${readingCard(bazi.wuxing)}
             <article class="mini-card"><h3 class="mini-title">まとめ</h3><p class="copy">${esc(text(bazi.summary))}</p></article>
@@ -4670,7 +4820,6 @@ const INTERP = {
               ${compatRadar()}
             </div>
             ${gogyoCycleSection(bazi.gogyo_cycle)}
-            ${dayGanDiagram()}
           </div>
         </div>
       </section>
@@ -4820,7 +4969,7 @@ const INTERP = {
     return Array.from({ length: count }, (_, index) => {
       const dotX = x + side + (index % 4) * 8;
       const dotY = y - 10 + Math.floor(index / 4) * 8;
-      return `<circle class="gogyo-dot ${className}" cx="${dotX.toFixed(1)}" cy="${dotY.toFixed(1)}" r="4"></circle>`;
+      return `<circle class="gogyo-dot ${className}" data-cycle-dot data-dot-owner="${esc(className)}" data-dot-element="${esc(label)}" cx="${dotX.toFixed(1)}" cy="${dotY.toFixed(1)}" r="4"></circle>`;
     }).join("");
   }
 
@@ -4846,6 +4995,12 @@ const INTERP = {
           <defs>
             <marker id="gogyo-arrow-gold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
               <path d="M 0 0 L 8 4 L 0 8 Z" fill="#e0b84c"></path>
+            </marker>
+            <marker id="gogyo-arrow-naomi" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#e8a0a8"></path>
+            </marker>
+            <marker id="gogyo-arrow-hk" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#7fa8d9"></path>
             </marker>
             <marker id="gogyo-arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
               <path d="M 0 0 L 8 4 L 0 8 Z" fill="rgba(188, 182, 170, 0.46)"></path>
@@ -4876,6 +5031,31 @@ const INTERP = {
     `;
   }
 
+  function gogyoModeCount(mode, label, naomi, hk) {
+    if (mode === "naomi") return wuxingCount(naomi, label);
+    if (mode === "hk") return wuxingCount(hk, label);
+    return wuxingCount(naomi, label) + wuxingCount(hk, label);
+  }
+
+  function gogyoFlowWidth(flow) {
+    if (flow <= 0) return 1.2;
+    if (flow === 1) return 1.5;
+    if (flow === 2) return 2.5;
+    return 4;
+  }
+
+  function gogyoModeColor(mode) {
+    if (mode === "naomi") return "#e8a0a8";
+    if (mode === "hk") return "#7fa8d9";
+    return "#e0b84c";
+  }
+
+  function gogyoMarker(mode) {
+    if (mode === "naomi") return "url(#gogyo-arrow-naomi)";
+    if (mode === "hk") return "url(#gogyo-arrow-hk)";
+    return "url(#gogyo-arrow-gold)";
+  }
+
   function updateGogyoCycle(section, mode) {
     const cycle = INTERP.compat?.bazi?.gogyo_cycle || {};
     const naomi = CALC.bazi.naomi?.wuxing_count || {};
@@ -4887,25 +5067,32 @@ const INTERP = {
     });
     const modeText = section.querySelector("[data-cycle-mode-text]");
     if (modeText) modeText.textContent = cycle.modes?.[activeMode] || "";
+    section.querySelectorAll("[data-cycle-dot]").forEach((dot) => {
+      const visible = activeMode === "both" || dot.dataset.dotOwner === activeMode;
+      dot.style.display = visible ? "" : "none";
+    });
     section.querySelectorAll("[data-cycle-node]").forEach((node) => {
       const label = node.dataset.element;
-      const count = activeMode === "naomi"
-        ? wuxingCount(naomi, label)
-        : activeMode === "hk"
-          ? wuxingCount(hk, label)
-          : wuxingCount(naomi, label) + wuxingCount(hk, label);
-      node.classList.toggle("is-dim", activeMode !== "both" && count === 0);
+      const count = gogyoModeCount(activeMode, label, naomi, hk);
+      node.classList.toggle("is-dim", count === 0);
+      node.classList.toggle("is-empty", count === 0);
+      node.classList.toggle("is-thin", count === 1);
+      node.classList.toggle("is-strong", count >= 2);
     });
     section.querySelectorAll("[data-cycle-arrow]").forEach((arrow) => {
       const from = arrow.dataset.from;
       const to = arrow.dataset.to;
-      const active = activeMode === "both" || (
-        activeMode === "naomi"
-          ? wuxingCount(naomi, from) > 0 && wuxingCount(naomi, to) > 0
-          : wuxingCount(hk, from) > 0 && wuxingCount(hk, to) > 0
-      );
+      const fromCount = gogyoModeCount(activeMode, from, naomi, hk);
+      const toCount = gogyoModeCount(activeMode, to, naomi, hk);
+      const flow = Math.min(fromCount, toCount);
+      const active = flow > 0;
       arrow.classList.toggle("is-active", active);
       arrow.classList.toggle("is-broken", !active);
+      arrow.style.stroke = active ? gogyoModeColor(activeMode) : "rgba(188, 182, 170, 0.36)";
+      arrow.style.strokeWidth = String(gogyoFlowWidth(flow));
+      arrow.style.strokeDasharray = active ? (activeMode === "both" ? "18 10" : "1") : "5 9";
+      arrow.style.opacity = active ? "1" : "0.38";
+      arrow.style.setProperty("marker-end", active ? gogyoMarker(activeMode) : "url(#gogyo-arrow-muted)");
     });
   }
 
@@ -4927,22 +5114,6 @@ const INTERP = {
       });
       updateGogyoCycle(section, "both");
     });
-  }
-
-  function compatDirectionLabel(direction) {
-    const text = String(direction || "");
-    const match = text.match(/^(Naomi|HK)\s+(\S+)\s+controls\s+(Naomi|HK)\s+(\S+)$/);
-    if (!match) return text;
-    const [, fromPerson, fromElement, toPerson, toElement] = match;
-    if (fromPerson === "Naomi") {
-      return `奈緒美 ${fromElement} が 宏勇 ${toElement}を剋す`;
-    }
-    return `奈緒美 ${toElement} は 宏勇 ${fromElement}から剋される`;
-  }
-
-  function dayGanDiagram() {
-    const rel = CALC.bazi.compat?.day_gan_relation || {};
-    return `<article class="mini-card"><h3 class="mini-title">日干関係</h3><p class="copy">奈緒美 ${esc(CALC.bazi.naomi?.day?.gan || "")} / 宏勇 ${esc(CALC.bazi.hk?.day?.gan || "")}</p><p class="meta">${esc(rel.relation || "")} / ${esc(compatDirectionLabel(rel.direction || ""))}</p></article>`;
   }
 
   function comparisonTable(comp) {

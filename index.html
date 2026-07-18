@@ -176,13 +176,21 @@
     .tabs {
       width: var(--safe);
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      display: flex;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
       gap: 8px;
+      padding-bottom: 2px;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .tab {
       min-height: 44px;
+      flex: 1 0 96px;
       border: 1px solid rgba(224, 184, 76, 0.44);
       border-radius: 999px;
       background: rgba(19, 26, 53, 0.74);
@@ -1502,6 +1510,274 @@
       opacity: 1;
     }
 
+    .year-door {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(224, 184, 76, 0.54);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 248, 236, 0.34) 0 1px, transparent 2px),
+        radial-gradient(circle at 86% 24%, rgba(224, 184, 76, 0.32) 0 1px, transparent 2px),
+        linear-gradient(145deg, rgba(24, 32, 67, 0.96), rgba(8, 12, 31, 0.96));
+    }
+
+    .year-label {
+      display: inline-flex;
+      width: fit-content;
+      margin: 0 0 12px;
+      border: 1px solid rgba(224, 184, 76, 0.44);
+      border-radius: 999px;
+      padding: 6px 12px;
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      background: rgba(224, 184, 76, 0.09);
+    }
+
+    .year-person-card {
+      border-color: rgba(224, 184, 76, 0.28);
+      background: linear-gradient(145deg, rgba(10, 14, 39, 0.76), rgba(19, 26, 53, 0.72));
+    }
+
+    .year-person-card.naomi {
+      border-color: rgba(232, 160, 168, 0.38);
+    }
+
+    .year-person-card.hk {
+      border-color: rgba(127, 168, 217, 0.38);
+    }
+
+    .year-card-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ten-god-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      border: 1px solid rgba(224, 184, 76, 0.42);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: rgba(224, 184, 76, 0.1);
+      color: var(--gold-2);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    button.ten-god-badge {
+      cursor: pointer;
+    }
+
+    .ten-god-badge.naomi {
+      border-color: rgba(232, 160, 168, 0.5);
+      background: rgba(232, 160, 168, 0.1);
+      color: var(--naomi);
+    }
+
+    .ten-god-badge.hk {
+      border-color: rgba(127, 168, 217, 0.52);
+      background: rgba(127, 168, 217, 0.1);
+      color: var(--hk);
+    }
+
+    .year-events {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .year-event {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid rgba(224, 184, 76, 0.36);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 800;
+      background: rgba(224, 184, 76, 0.08);
+    }
+
+    .year-event.hard {
+      border-color: rgba(194, 84, 80, 0.58);
+      color: #ffb8b4;
+      background: rgba(194, 84, 80, 0.1);
+    }
+
+    .year-note {
+      margin-top: 14px;
+      border: 1px solid rgba(221, 214, 200, 0.22);
+      border-radius: 10px;
+      padding: 12px;
+      color: #ddd6c8;
+      font-size: 14px;
+      line-height: 1.8;
+      background: rgba(255, 248, 236, 0.04);
+    }
+
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .month-card {
+      min-width: 0;
+      min-height: 142px;
+      border: 1px solid rgba(224, 184, 76, 0.24);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: left;
+      background: rgba(10, 14, 39, 0.68);
+      color: var(--text);
+      cursor: pointer;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .month-card:hover,
+    .month-card:focus-visible {
+      outline: none;
+      border-color: rgba(224, 184, 76, 0.62);
+      box-shadow: 0 0 0 3px rgba(224, 184, 76, 0.16);
+    }
+
+    .month-card.is-current {
+      border-color: rgba(224, 184, 76, 0.82);
+      box-shadow: inset 0 0 24px rgba(224, 184, 76, 0.12), 0 0 20px rgba(224, 184, 76, 0.13);
+    }
+
+    .month-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .month-name {
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .month-date {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .month-ganzhi {
+      display: block;
+      margin: 0 0 10px;
+      color: #f3ead8;
+      font-family: "Shippori Mincho", serif;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .month-ten-gods {
+      display: grid;
+      gap: 6px;
+    }
+
+    .month-ten {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .month-ten .person {
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .month-ten.naomi .person { color: var(--naomi); }
+    .month-ten.hk .person { color: var(--hk); }
+
+    .year-timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .timeline-person {
+      margin: 0 0 8px;
+      font-weight: 900;
+    }
+
+    .timeline-person.naomi { color: var(--naomi); }
+    .timeline-person.hk { color: var(--hk); }
+
+    .year-strip {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(82px, 1fr));
+      gap: 8px;
+    }
+
+    .year-item {
+      min-width: 0;
+      border: 1px solid rgba(224, 184, 76, 0.2);
+      border-radius: 10px;
+      padding: 9px;
+      background: rgba(10, 14, 39, 0.58);
+    }
+
+    .year-item.is-target {
+      border-color: rgba(224, 184, 76, 0.74);
+      background: rgba(224, 184, 76, 0.1);
+    }
+
+    .year-item .year-num {
+      display: block;
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .year-item .year-ganzhi {
+      display: block;
+      margin-top: 4px;
+      color: #f3ead8;
+      font-family: "Shippori Mincho", serif;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .year-item .year-ten {
+      display: block;
+      margin-top: 5px;
+      color: #ddd6c8;
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .sheet-person-block {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      border-top: 1px solid rgba(224, 184, 76, 0.18);
+      padding-top: 12px;
+    }
+
+    .sheet-person-name {
+      font-weight: 900;
+    }
+
+    .sheet-person-name.naomi { color: var(--naomi); }
+    .sheet-person-name.hk { color: var(--hk); }
+
     .footer {
       width: var(--safe);
       margin: 0 auto;
@@ -1544,6 +1820,13 @@
       .full { grid-column: auto; }
       table { min-width: 460px; }
       .timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .year-strip {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        padding-bottom: 4px;
+      }
+      .year-item { flex: 0 0 88px; }
     }
 
     @media (max-width: 640px) {
@@ -1554,6 +1837,10 @@
       .summary-cards {
         display: block;
       }
+
+      .month-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 420px) {
@@ -1561,7 +1848,7 @@
       .shell { padding-top: 18px; }
       .topline { font-size: 12px; }
       .seal { width: 48px; height: 48px; }
-      .tab { font-size: 12px; }
+      .tab { flex-basis: 84px; font-size: 12px; }
       .section-pad { padding: 16px; }
       .miracle-hero { border-radius: 12px; }
       .miracle-card { border-radius: 12px; padding: 16px; }
@@ -1569,6 +1856,8 @@
       .day-gan-flow { grid-template-columns: 1fr; }
       .day-gan-arrow svg { transform: rotate(90deg); }
       .bar-row { grid-template-columns: 70px minmax(0, 1fr) 42px; }
+      .month-card { min-height: 150px; padding: 10px; }
+      .month-ten { grid-template-columns: 40px minmax(0, 1fr); }
       table { min-width: 100%; table-layout: fixed; }
     }
 
@@ -3132,6 +3421,304 @@ const CALC = {
             "start_age": 73
           }
         ]
+      },
+      "liunian": {
+        "dayun_ganzhi": "辛亥",
+        "years": [
+          {
+            "year": 2025,
+            "age": 43,
+            "ganzhi": "乙巳",
+            "ten_god": "正財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "亥",
+                "type": "冲"
+              },
+              {
+                "with": "dayun",
+                "zhi": "亥",
+                "type": "冲"
+              }
+            ]
+          },
+          {
+            "year": 2026,
+            "age": 44,
+            "ganzhi": "丙午",
+            "ten_god": "偏官",
+            "gan_he_with_dayun": true,
+            "zhi_events": [
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "自刑"
+              },
+              {
+                "with": "time",
+                "zhi": "未",
+                "type": "六合"
+              }
+            ]
+          },
+          {
+            "year": 2027,
+            "age": 45,
+            "ganzhi": "丁未",
+            "ten_god": "正官",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "六合"
+              }
+            ]
+          },
+          {
+            "year": 2028,
+            "age": 46,
+            "ganzhi": "戊申",
+            "ten_god": "偏印",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "亥",
+                "type": "害"
+              },
+              {
+                "with": "dayun",
+                "zhi": "亥",
+                "type": "害"
+              }
+            ]
+          },
+          {
+            "year": 2029,
+            "age": 47,
+            "ganzhi": "己酉",
+            "ten_god": "正印",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "辰",
+                "type": "六合"
+              }
+            ]
+          },
+          {
+            "year": 2030,
+            "age": 48,
+            "ganzhi": "庚戌",
+            "ten_god": "比肩",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "辰",
+                "type": "冲"
+              },
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "半合",
+                "detail": "火局"
+              },
+              {
+                "with": "time",
+                "zhi": "未",
+                "type": "刑"
+              }
+            ]
+          },
+          {
+            "year": 2031,
+            "age": 49,
+            "ganzhi": "辛亥",
+            "ten_god": "劫財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "亥",
+                "type": "自刑"
+              },
+              {
+                "with": "dayun",
+                "zhi": "亥",
+                "type": "自刑"
+              }
+            ]
+          },
+          {
+            "year": 2032,
+            "age": 50,
+            "ganzhi": "壬子",
+            "ten_god": "食神",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "辰",
+                "type": "半合",
+                "detail": "水局"
+              },
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "冲"
+              },
+              {
+                "with": "time",
+                "zhi": "未",
+                "type": "害"
+              }
+            ]
+          },
+          {
+            "year": 2033,
+            "age": 51,
+            "ganzhi": "癸丑",
+            "ten_god": "傷官",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "害"
+              },
+              {
+                "with": "time",
+                "zhi": "未",
+                "type": "冲"
+              },
+              {
+                "with": "time",
+                "zhi": "未",
+                "type": "刑"
+              }
+            ]
+          },
+          {
+            "year": 2034,
+            "age": 52,
+            "ganzhi": "甲寅",
+            "ten_god": "偏財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "亥",
+                "type": "六合"
+              },
+              {
+                "with": "day",
+                "zhi": "午",
+                "type": "半合",
+                "detail": "火局"
+              },
+              {
+                "with": "dayun",
+                "zhi": "亥",
+                "type": "六合"
+              }
+            ]
+          }
+        ]
+      },
+      "liuyue": {
+        "year": 2026,
+        "year_ganzhi": "丙午",
+        "months": [
+          {
+            "index": 1,
+            "label": "寅月",
+            "ganzhi": "庚寅",
+            "ten_god": "比肩",
+            "start_date": "2026-02-04"
+          },
+          {
+            "index": 2,
+            "label": "卯月",
+            "ganzhi": "辛卯",
+            "ten_god": "劫財",
+            "start_date": "2026-03-05"
+          },
+          {
+            "index": 3,
+            "label": "辰月",
+            "ganzhi": "壬辰",
+            "ten_god": "食神",
+            "start_date": "2026-04-05"
+          },
+          {
+            "index": 4,
+            "label": "巳月",
+            "ganzhi": "癸巳",
+            "ten_god": "傷官",
+            "start_date": "2026-05-05"
+          },
+          {
+            "index": 5,
+            "label": "午月",
+            "ganzhi": "甲午",
+            "ten_god": "偏財",
+            "start_date": "2026-06-05"
+          },
+          {
+            "index": 6,
+            "label": "未月",
+            "ganzhi": "乙未",
+            "ten_god": "正財",
+            "start_date": "2026-07-07"
+          },
+          {
+            "index": 7,
+            "label": "申月",
+            "ganzhi": "丙申",
+            "ten_god": "偏官",
+            "start_date": "2026-08-07"
+          },
+          {
+            "index": 8,
+            "label": "酉月",
+            "ganzhi": "丁酉",
+            "ten_god": "正官",
+            "start_date": "2026-09-07"
+          },
+          {
+            "index": 9,
+            "label": "戌月",
+            "ganzhi": "戊戌",
+            "ten_god": "偏印",
+            "start_date": "2026-10-08"
+          },
+          {
+            "index": 10,
+            "label": "亥月",
+            "ganzhi": "己亥",
+            "ten_god": "正印",
+            "start_date": "2026-11-07"
+          },
+          {
+            "index": 11,
+            "label": "子月",
+            "ganzhi": "庚子",
+            "ten_god": "比肩",
+            "start_date": "2026-12-07"
+          },
+          {
+            "index": 12,
+            "label": "丑月",
+            "ganzhi": "辛丑",
+            "ten_god": "劫財",
+            "start_date": "2027-01-05"
+          }
+        ]
       }
     },
     "naomi": {
@@ -3214,6 +3801,311 @@ const CALC = {
             "start_year": 2056,
             "end_year": 2065,
             "start_age": 73
+          }
+        ]
+      },
+      "liunian": {
+        "dayun_ganzhi": "壬戌",
+        "years": [
+          {
+            "year": 2026,
+            "age": 43,
+            "ganzhi": "丙午",
+            "ten_god": "食神",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "子",
+                "type": "冲"
+              },
+              {
+                "with": "dayun",
+                "zhi": "戌",
+                "type": "半合",
+                "detail": "火局"
+              }
+            ]
+          },
+          {
+            "year": 2027,
+            "age": 44,
+            "ganzhi": "丁未",
+            "ten_god": "傷官",
+            "gan_he_with_dayun": true,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "子",
+                "type": "害"
+              },
+              {
+                "with": "month",
+                "zhi": "卯",
+                "type": "半合",
+                "detail": "木局"
+              },
+              {
+                "with": "dayun",
+                "zhi": "戌",
+                "type": "刑"
+              }
+            ]
+          },
+          {
+            "year": 2028,
+            "age": 45,
+            "ganzhi": "戊申",
+            "ten_god": "偏財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "子",
+                "type": "半合",
+                "detail": "水局"
+              }
+            ]
+          },
+          {
+            "year": 2029,
+            "age": 46,
+            "ganzhi": "己酉",
+            "ten_god": "正財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "卯",
+                "type": "冲"
+              },
+              {
+                "with": "day",
+                "zhi": "辰",
+                "type": "六合"
+              },
+              {
+                "with": "time",
+                "zhi": "酉",
+                "type": "自刑"
+              },
+              {
+                "with": "dayun",
+                "zhi": "戌",
+                "type": "害"
+              }
+            ]
+          },
+          {
+            "year": 2030,
+            "age": 47,
+            "ganzhi": "庚戌",
+            "ten_god": "偏官",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "卯",
+                "type": "六合"
+              },
+              {
+                "with": "day",
+                "zhi": "辰",
+                "type": "冲"
+              },
+              {
+                "with": "time",
+                "zhi": "酉",
+                "type": "害"
+              }
+            ]
+          },
+          {
+            "year": 2031,
+            "age": 48,
+            "ganzhi": "辛亥",
+            "ten_god": "正官",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "卯",
+                "type": "半合",
+                "detail": "木局"
+              }
+            ]
+          },
+          {
+            "year": 2032,
+            "age": 49,
+            "ganzhi": "壬子",
+            "ten_god": "偏印",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "month",
+                "zhi": "卯",
+                "type": "刑"
+              },
+              {
+                "with": "day",
+                "zhi": "辰",
+                "type": "半合",
+                "detail": "水局"
+              }
+            ]
+          },
+          {
+            "year": 2033,
+            "age": 50,
+            "ganzhi": "癸丑",
+            "ten_god": "正印",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "子",
+                "type": "六合"
+              },
+              {
+                "with": "time",
+                "zhi": "酉",
+                "type": "半合",
+                "detail": "金局"
+              },
+              {
+                "with": "dayun",
+                "zhi": "戌",
+                "type": "刑"
+              }
+            ]
+          },
+          {
+            "year": 2034,
+            "age": 51,
+            "ganzhi": "甲寅",
+            "ten_god": "比肩",
+            "gan_he_with_dayun": false,
+            "zhi_events": []
+          },
+          {
+            "year": 2035,
+            "age": 52,
+            "ganzhi": "乙卯",
+            "ten_god": "劫財",
+            "gan_he_with_dayun": false,
+            "zhi_events": [
+              {
+                "with": "year",
+                "zhi": "子",
+                "type": "刑"
+              },
+              {
+                "with": "day",
+                "zhi": "辰",
+                "type": "害"
+              },
+              {
+                "with": "time",
+                "zhi": "酉",
+                "type": "冲"
+              },
+              {
+                "with": "dayun",
+                "zhi": "戌",
+                "type": "六合"
+              }
+            ]
+          }
+        ]
+      },
+      "liuyue": {
+        "year": 2026,
+        "year_ganzhi": "丙午",
+        "months": [
+          {
+            "index": 1,
+            "label": "寅月",
+            "ganzhi": "庚寅",
+            "ten_god": "偏官",
+            "start_date": "2026-02-04"
+          },
+          {
+            "index": 2,
+            "label": "卯月",
+            "ganzhi": "辛卯",
+            "ten_god": "正官",
+            "start_date": "2026-03-05"
+          },
+          {
+            "index": 3,
+            "label": "辰月",
+            "ganzhi": "壬辰",
+            "ten_god": "偏印",
+            "start_date": "2026-04-05"
+          },
+          {
+            "index": 4,
+            "label": "巳月",
+            "ganzhi": "癸巳",
+            "ten_god": "正印",
+            "start_date": "2026-05-05"
+          },
+          {
+            "index": 5,
+            "label": "午月",
+            "ganzhi": "甲午",
+            "ten_god": "比肩",
+            "start_date": "2026-06-05"
+          },
+          {
+            "index": 6,
+            "label": "未月",
+            "ganzhi": "乙未",
+            "ten_god": "劫財",
+            "start_date": "2026-07-07"
+          },
+          {
+            "index": 7,
+            "label": "申月",
+            "ganzhi": "丙申",
+            "ten_god": "食神",
+            "start_date": "2026-08-07"
+          },
+          {
+            "index": 8,
+            "label": "酉月",
+            "ganzhi": "丁酉",
+            "ten_god": "傷官",
+            "start_date": "2026-09-07"
+          },
+          {
+            "index": 9,
+            "label": "戌月",
+            "ganzhi": "戊戌",
+            "ten_god": "偏財",
+            "start_date": "2026-10-08"
+          },
+          {
+            "index": 10,
+            "label": "亥月",
+            "ganzhi": "己亥",
+            "ten_god": "正財",
+            "start_date": "2026-11-07"
+          },
+          {
+            "index": 11,
+            "label": "子月",
+            "ganzhi": "庚子",
+            "ten_god": "偏官",
+            "start_date": "2026-12-07"
+          },
+          {
+            "index": 12,
+            "label": "丑月",
+            "ganzhi": "辛丑",
+            "ten_god": "正官",
+            "start_date": "2027-01-05"
           }
         ]
       }
@@ -3732,6 +4624,41 @@ const INTERP = {
     }
   },
 
+  "year2026": {
+    "year_label": "2026年(丙午・ひのえうま)",
+    "headline": "火の年が来た——ふたりに足りなかった色が、空から補充される",
+    "intro": "2026年は丙午。天干も地支も火という、60年に一度の「火の塊」の年です(立春2026年2月4日〜2027年2月3日)。ふたりの五行合算で相対的に薄かったのが火まわりの流れでした。今年はその火が、暦のほうからやって来ます。",
+    "naomi": {
+      "title": "奈緒美の2026年 — 食神の年",
+      "ten_god": "食神",
+      "text": "年干の丙は、甲(奈緒美さん)から見て食神——「表現・楽しみ・作ること・味わうこと」の星です。命式で最少だった火(表現)が年に満ちる上、大運の戌と年支の午が半合して火の局を組む(午戌半合)。伝統的には、内に溜めてきたものが自然に外へ流れ出す年、頑張って出すのではなく「漏れ出てしまう」年と読まれます。作りたかったもの、言いたかったこと、始めたかったことに最適の追い風です。",
+      "caution": "ひとつ正直に: 年支の午は、命式の年柱の子と子午冲を起こします。年柱は「実家・ルーツ・古い環境」の宮。今年は実家まわりや古い環境に動き・変化が入りやすい配置ですが、冲は「破壊」ではなく「動く」の意。動いたものは整理のチャンス、が建設的な読みです。"
+    },
+    "hk": {
+      "title": "宏勇の2026年 — 偏官(七殺)の年",
+      "ten_god": "偏官",
+      "text": "年干の丙は、庚(宏勇さん)から見て偏官——通称「七殺」。プレッシャー・挑戦・鍛えの星で、聞こえは物騒ですが、庚午(火に鍛えられる鋼)の日主にとっては本領発揮のテーマそのものです。負荷がかかるほど切れ味が増す一年。しかも大運の辛と年干の丙が丙辛干合を結び、七殺の圧が「縁」に変換される配置——鍛えが孤独な苦行ではなく、引き立てや役割として来る形です。さらに年支の午は時柱の未と六合。時柱は「これからの時間・後半生」の宮で、今年の挑戦が未来と手を結ぶ、と読めます。",
+      "caution": "正直に: 年支の午は日支の午と午午自刑を起こします。自刑は「自分で自分に厳しくしすぎる」暗示。日支は生活の宮なので、根を詰めすぎて体調や日常を削らないこと——それさえ守れば、七殺の年は鋼の年です。"
+    },
+    "couple": {
+      "title": "ふたりの2026年",
+      "text": "同じ火の年が、ふたりには別の顔で届きます。奈緒美さんには「表現の追い風」、宏勇さんには「鍛えの負荷」。ここで五行の環を思い出してください——奈緒美さんの木は火を生む側、宏勇さんの庚は火に鍛えられる側です。つまり今年は、奈緒美さんが楽しみ表現するほど場の火が増え、その火が宏勇さんを磨く、という循環が暦の上で組まれた年。ふたりで新しいことを始めるなら、奈緒美さんの「やってみたい」を起点にするのが、今年の星の使い方です。"
+    },
+    "monthly_note": "月めぐりは「節入り」で切り替わります(カレンダーの1日ではありません)。各月のラベルはその月の干支と、日主から見た十神。タップすると十神の意味が開きます。同じ月でも、ふたりで星が違うことを楽しんでください。"
+  },
+  "ten_gods": {
+    "比肩": { "name": "比肩", "keyword": "自立・仲間", "text": "自分と同じ気質の星。自分の軸を強め、対等な仲間や競い合いを呼ぶ。独立心が高まる時。" },
+    "劫財": { "name": "劫財", "keyword": "協力・散財注意", "text": "同じ五行の陰陽違い。人との共同・協力が進む一方、お金の出入りが荒くなりやすい時とされる。" },
+    "食神": { "name": "食神", "keyword": "表現・楽しみ", "text": "自分から自然に流れ出すものの星。衣食住の楽しみ・創作・のびやかな表現。十神の中でも屈指の福の星とされる。" },
+    "傷官": { "name": "傷官", "keyword": "才気・鋭さ", "text": "鋭い表現・批評・技巧の星。才が光る一方、言葉が尖りやすい時。作品や技術に向ければ最良。" },
+    "偏財": { "name": "偏財", "keyword": "回る財・社交", "text": "動きのある財の星。商い・社交・気前の良さ。お金は貯めるより回すと活きる時。" },
+    "正財": { "name": "正財", "keyword": "堅実な財", "text": "コツコツ築く財の星。堅実・誠実・着実な蓄え。地に足のついた充実の時。" },
+    "偏官": { "name": "偏官(七殺)", "keyword": "挑戦・鍛え", "text": "プレッシャーと挑戦の星。負荷がかかるが、乗りこなせば大きな役割と権威に変わる。鍛えの時。" },
+    "正官": { "name": "正官", "keyword": "役割・信用", "text": "秩序と信用の星。役職・責任・社会的な評価。きちんとやることが最短距離の時。" },
+    "偏印": { "name": "偏印", "keyword": "探究・ひらめき", "text": "独自の学びの星。専門・趣味・直感的な知恵。深掘りがはかどる時(考えすぎには注意)。" },
+    "正印": { "name": "正印", "keyword": "学び・守られ", "text": "吸収と保護の星。学び・資格・年長者からの引き立て。土台を育てる時。" }
+  },
+
   "guides": {
     "astro": {
       "title": "30秒でわかる: 西洋占星術の仕組み",
@@ -3789,6 +4716,11 @@ const INTERP = {
     "大運": "10年ごとに巡ってくる運気の区切り。月柱を起点に順行または逆行で進む。人生の「章」にあたる。",
     "起運": "大運が始まる年齢。誕生から節入りまでの日数を3で割って求める(3日=1年)。",
     "節入り": "二十四節気による月の区切り。四柱推命の「月」はカレンダーではなくこれで決まる(例: 啓蟄・清明)。",
+    "流年": "その年に巡ってくる干支(2026年=丙午)。大運(10年の章)の中の「1年ごとのページ」にあたり、日主との関係で年のテーマを読む。",
+    "流月": "その月に巡ってくる干支。月の区切りは節入り。年のテーマ(流年)の中の月ごとの変化を読む。",
+    "十神": "日主から見た他の干の関係を10種に分類したもの(比肩・劫財・食神・傷官・偏財・正財・偏官・正官・偏印・正印)。同じ丙の年でも、日主が違えば別の星になる。",
+    "自刑": "同じ支同士(辰辰・午午・酉酉・亥亥)が重なる刑。自分で自分に厳しくなりすぎる暗示とされ、休息が処方箋。",
+    "半合": "三合局(3つの支で局を組む)のうち2つが揃った状態。完全な三合より穏やかだが、その五行の力が強まる。",
     "五格": "姓名判断で名前の画数から作る5つの数(天格・人格・地格・外格・総格)。",
     "天格": "姓の画数合計。家系・先祖から受け継ぐ器。単独では吉凶を重視しない流派が多い。",
     "人格": "姓の最後の字+名の最初の字。性格の中心・人生の中核運を表す最重要格のひとつ。",
@@ -3842,8 +4774,8 @@ const INTERP = {
     naomi: { key: "naomi", label: "奈緒美", interpKey: "person_naomi", color: "naomi" },
     hk: { key: "hk", label: "宏勇", interpKey: "person_hk", color: "hk" }
   };
-  const TAB_ORDER = ["naomi", "hk", "compat", "overall"];
-  const TAB_LABELS = { naomi: "奈緒美", hk: "宏勇", compat: "相性", overall: "総合" };
+  const TAB_ORDER = ["naomi", "hk", "compat", "year", "overall"];
+  const TAB_LABELS = { naomi: "奈緒美", hk: "宏勇", compat: "相性", year: "今年", overall: "総合" };
   const KAKU_LABELS = { tenkaku: "天格", jinkaku: "人格", chikaku: "地格", gaikaku: "外格", soukaku: "総格" };
   const PLANET_GLYPHS = { Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂", Jupiter: "♃", Saturn: "♄", Uranus: "♅", Neptune: "♆", Pluto: "♇", ASC: "ASC", MC: "MC" };
   const PLANET_NAMES_JA = { Sun: "太陽", Moon: "月", Mercury: "水星", Venus: "金星", Mars: "火星", Jupiter: "木星", Saturn: "土星", Uranus: "天王星", Neptune: "海王星", Pluto: "冥王星", ASC: "ASC", MC: "MC" };
@@ -3861,6 +4793,10 @@ const INTERP = {
   const sheetBackdrop = document.getElementById("sheet-backdrop");
   const sheetTitle = document.getElementById("sheet-title");
   const sheetBody = document.getElementById("sheet-body");
+
+  function currentDate() {
+    return new Date();
+  }
 
   function fail(message) {
     throw new Error(message);
@@ -3882,6 +4818,12 @@ const INTERP = {
     const hkWuxingTotal = WUXING.reduce((sum, label) => sum + Number(CALC.bazi.hk?.wuxing_count?.[label] || 0), 0);
     if (naomiWuxingTotal !== 8 || hkWuxingTotal !== 8) fail(`五行ドット合計が命式8文字と一致しません。naomi=${naomiWuxingTotal}, hk=${hkWuxingTotal}`);
     if (!Array.isArray(INTERP.compat?.astro?.aspect_featured) || INTERP.compat.astro.aspect_featured.length !== 14) fail("compat.astro.aspect_featured が14件ではありません。");
+    if (!INTERP.year2026?.year_label || !INTERP.year2026?.naomi || !INTERP.year2026?.hk || !INTERP.year2026?.couple || !INTERP.year2026?.monthly_note) fail("INTERP.year2026 が不足しています。");
+    if (!INTERP.ten_gods || Object.keys(INTERP.ten_gods).length < 10) fail("INTERP.ten_gods が不足しています。");
+    ["naomi", "hk"].forEach((key) => {
+      if (!Array.isArray(CALC.bazi?.[key]?.liunian?.years) || CALC.bazi[key].liunian.years.length !== 10) fail(`${key}.liunian が10年分ではありません。`);
+      if (!Array.isArray(CALC.bazi?.[key]?.liuyue?.months) || CALC.bazi[key].liuyue.months.length !== 12) fail(`${key}.liuyue が12ヶ月分ではありません。`);
+    });
     if (!INTERP.guides?.astro || !INTERP.guides?.bazi || !INTERP.guides?.seimei) fail("INTERP.guides が不足しています。");
     if (!INTERP.glossary || Object.keys(INTERP.glossary).length < 34) fail("INTERP.glossary が不足しています。");
     if (JSON.stringify(INTERP).includes("\u043c\u0430\u0433\u043d\u0435\u0442\u0438\u0437\u043c")) fail("INTERP に未修正のロシア語が残っています。");
@@ -4248,6 +5190,7 @@ const INTERP = {
           <section class="panel" id="panel-naomi" role="tabpanel" aria-labelledby="tab-naomi"></section>
           <section class="panel" id="panel-hk" role="tabpanel" aria-labelledby="tab-hk" hidden></section>
           <section class="panel" id="panel-compat" role="tabpanel" aria-labelledby="tab-compat" hidden></section>
+          <section class="panel" id="panel-year" role="tabpanel" aria-labelledby="tab-year" hidden></section>
           <section class="panel" id="panel-overall" role="tabpanel" aria-labelledby="tab-overall" hidden></section>
         </div>
         <footer class="footer">
@@ -5121,6 +6064,254 @@ const INTERP = {
     return `<div class="table-wrap"><table><thead><tr><th>${esc(comp?.title || "比較")}</th><th>旧姓</th><th>新姓</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
+  function yearTarget() {
+    const months = CALC.bazi.naomi?.liuyue?.months || [];
+    const fromMonth = Number(String(months[0]?.start_date || "").slice(0, 4));
+    if (Number.isFinite(fromMonth) && fromMonth > 0) return fromMonth;
+    const fromLabel = Number(String(INTERP.year2026?.year_label || "").match(/\d{4}/)?.[0]);
+    return Number.isFinite(fromLabel) && fromLabel > 0 ? fromLabel : CURRENT_YEAR;
+  }
+
+  function liunianRecord(personKey, year = yearTarget()) {
+    return (CALC.bazi?.[personKey]?.liunian?.years || []).find((item) => Number(item.year) === Number(year));
+  }
+
+  function tenGodInfo(name) {
+    return INTERP.ten_gods?.[name] || {};
+  }
+
+  function tenGodLabel(name) {
+    const info = tenGodInfo(name);
+    return info.name || name || "";
+  }
+
+  function tenGodBadge(name, owner = "", interactive = true) {
+    const classes = ["ten-god-badge", owner].filter(Boolean).join(" ");
+    const label = tenGodLabel(name);
+    if (!interactive) return `<span class="${esc(classes)}">${esc(label)}</span>`;
+    return `<button class="${esc(classes)}" type="button" data-ten-god="${esc(name)}">${esc(label)}</button>`;
+  }
+
+  function showTenGodSheet(name) {
+    const info = tenGodInfo(name);
+    if (!info.name && !info.keyword && !info.text) return;
+    const body = `
+      <span class="sheet-line sheet-main">${esc(info.name || name)}</span>
+      ${info.keyword ? `<span class="sheet-line sheet-sub">${esc(info.keyword)}</span>` : ""}
+      ${info.text ? `<span class="sheet-line">${esc(info.text)}</span>` : ""}
+    `;
+    openSheet(info.name || name, body, true);
+  }
+
+  function bindTenGodButtons(root) {
+    root.querySelectorAll("[data-ten-god]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        showTenGodSheet(button.dataset.tenGod);
+      });
+    });
+  }
+
+  function yearEventTone(type) {
+    return ["六合", "半合", "三合", "干合"].includes(type) ? "good" : "hard";
+  }
+
+  function yearEventLabel(event) {
+    if (!event) return "";
+    const withLabels = { year: "年支", month: "月支", day: "日支", time: "時支", dayun: "大運" };
+    const withPart = event.with ? `${withLabels[event.with] || event.with}${event.zhi ? `(${event.zhi})` : ""}` : event.zhi || "";
+    const detail = event.detail ? `(${event.detail})` : "";
+    return `${withPart} ${event.type || ""}${detail}`.trim();
+  }
+
+  function yearEventChips(personKey) {
+    const record = liunianRecord(personKey);
+    const chips = (record?.zhi_events || []).map((event) => {
+      const type = event.type || "";
+      return `<span class="year-event ${esc(yearEventTone(type))}">${esc(yearEventLabel(event))}</span>`;
+    });
+    if (record?.gan_he_with_dayun) {
+      chips.push(`<span class="year-event good">大運 干合</span>`);
+    }
+    return chips.length ? `<div class="year-events">${chips.join("")}</div>` : "";
+  }
+
+  function yearPersonCard(personKey, interp, owner) {
+    const person = PERSONS[personKey];
+    const record = liunianRecord(personKey);
+    if (!record) fail(`${personKey} ${yearTarget()}年の流年データが見つかりません。`);
+    return `
+      <article class="mini-card year-person-card ${esc(owner)}">
+        <div class="year-card-head">
+          <h3 class="mini-title">${esc(interp?.title || `${person.label}の今年`)}</h3>
+          ${tenGodBadge(record.ten_god || interp?.ten_god, owner)}
+        </div>
+        <p class="copy">${esc(text(interp?.text))}</p>
+        ${yearEventChips(personKey)}
+        ${interp?.caution ? `<p class="year-note">${esc(interp.caution)}</p>` : ""}
+      </article>
+    `;
+  }
+
+  function parseLocalDate(value) {
+    const [year, month, day] = String(value || "").split("-").map(Number);
+    if (!year || !month || !day) return null;
+    return new Date(year, month - 1, day);
+  }
+
+  function addDays(date, days) {
+    const next = new Date(date.getTime());
+    next.setDate(next.getDate() + days);
+    return next;
+  }
+
+  function formatMonthStart(value) {
+    const date = parseLocalDate(value);
+    if (!date) return "";
+    return `${date.getMonth() + 1}/${date.getDate()}〜`;
+  }
+
+  function currentMonthIndex(months, now = currentDate()) {
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    for (let i = 0; i < months.length; i += 1) {
+      const start = parseLocalDate(months[i]?.start_date);
+      if (!start) continue;
+      const nextStart = i + 1 < months.length ? parseLocalDate(months[i + 1]?.start_date) : addDays(start, 30);
+      if (today >= start && today < nextStart) return i;
+    }
+    return -1;
+  }
+
+  function monthPair(index) {
+    const naomi = CALC.bazi.naomi?.liuyue?.months?.[index];
+    const hk = CALC.bazi.hk?.liuyue?.months?.[index];
+    if (!naomi || !hk) fail(`流月データ ${index + 1} が不足しています。`);
+    return { naomi, hk };
+  }
+
+  function monthGrid() {
+    const months = CALC.bazi.naomi?.liuyue?.months || [];
+    const current = currentMonthIndex(months);
+    return `
+      <div class="month-grid">
+        ${months.map((month, index) => {
+          const pair = monthPair(index);
+          const isCurrent = index === current;
+          return `
+            <button class="month-card ${isCurrent ? "is-current" : ""}" type="button" data-month-index="${index}">
+              <span class="month-top">
+                <span class="month-name">${esc(month.label)}</span>
+                <span class="month-date">${esc(formatMonthStart(month.start_date))}</span>
+              </span>
+              <span class="month-ganzhi">${esc(month.ganzhi)}</span>
+              <span class="month-ten-gods">
+                <span class="month-ten naomi"><span class="person">奈緒美</span><span>${tenGodBadge(pair.naomi.ten_god, "naomi", false)}</span></span>
+                <span class="month-ten hk"><span class="person">宏勇</span><span>${tenGodBadge(pair.hk.ten_god, "hk", false)}</span></span>
+              </span>
+              ${isCurrent ? `<span class="now-badge">いま</span>` : ""}
+            </button>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function monthSheetBlock(personKey, record, owner) {
+    const person = PERSONS[personKey];
+    const info = tenGodInfo(record.ten_god);
+    return `
+      <span class="sheet-person-block">
+        <span class="sheet-person-name ${esc(owner)}">${esc(person.label)}</span>
+        ${tenGodBadge(record.ten_god, owner, false)}
+        ${info.keyword || info.text ? `<span class="sheet-line">${esc([info.keyword, info.text].filter(Boolean).join(" — "))}</span>` : ""}
+      </span>
+    `;
+  }
+
+  function showMonthSheet(index) {
+    const pair = monthPair(index);
+    const title = `${pair.naomi.label} / ${pair.naomi.ganzhi}`;
+    const body = `
+      <span class="sheet-line sheet-main">${esc(formatMonthStart(pair.naomi.start_date))}</span>
+      ${monthSheetBlock("naomi", pair.naomi, "naomi")}
+      ${monthSheetBlock("hk", pair.hk, "hk")}
+    `;
+    openSheet(title, body, true);
+  }
+
+  function bindYearInteractions(root) {
+    root.querySelectorAll("[data-month-index]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        showMonthSheet(Number(button.dataset.monthIndex));
+      });
+    });
+    bindTenGodButtons(root);
+  }
+
+  function timelineRow(personKey, owner) {
+    const person = PERSONS[personKey];
+    const target = yearTarget();
+    const years = CALC.bazi?.[personKey]?.liunian?.years || [];
+    return `
+      <div class="timeline-row">
+        <p class="timeline-person ${esc(owner)}">${esc(person.label)}</p>
+        <div class="year-strip">
+          ${years.map((item) => `
+            <article class="year-item ${Number(item.year) === Number(target) ? "is-target" : ""}">
+              <span class="year-num">${esc(item.year)}</span>
+              <span class="year-ganzhi">${esc(item.ganzhi)}</span>
+              <span class="year-ten">${esc(tenGodLabel(item.ten_god))}</span>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function yearTimeline() {
+    return `
+      <div class="year-timeline">
+        ${timelineRow("naomi", "naomi")}
+        ${timelineRow("hk", "hk")}
+      </div>
+    `;
+  }
+
+  function renderYear() {
+    const panel = document.getElementById("panel-year");
+    const year = INTERP.year2026 || {};
+    panel.innerHTML = `
+      <section class="section section-pad year-door">
+        <span class="year-label">${esc(year.year_label || `${yearTarget()}年`)}</span>
+        <h2 class="section-title">${esc(text(year.headline, "今年の流れ"))}</h2>
+        <p class="section-copy">${esc(text(year.intro))}</p>
+      </section>
+      <section class="section section-pad">
+        <div class="cards">
+          ${yearPersonCard("naomi", year.naomi, "naomi")}
+          ${yearPersonCard("hk", year.hk, "hk")}
+        </div>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">${esc(year.couple?.title || "ふたりの今年")}</h2>
+        <p class="section-copy">${esc(text(year.couple?.text))}</p>
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">月めぐり</h2>
+        <p class="section-copy">${esc(text(year.monthly_note))}</p>
+        ${monthGrid()}
+      </section>
+      <section class="section section-pad">
+        <h2 class="section-title">流年タイムライン</h2>
+        ${yearTimeline()}
+      </section>
+    `;
+    bindYearInteractions(panel);
+  }
+
   function renderOverall() {
     const panel = document.getElementById("panel-overall");
     const overall = INTERP.overall || {};
@@ -5175,6 +6366,9 @@ const INTERP = {
       document.getElementById(`tab-${id}`).setAttribute("aria-selected", String(active));
       document.getElementById(`panel-${id}`).hidden = !active;
     });
+    const activeTab = document.getElementById(`tab-${safeKey}`);
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    activeTab?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
     if (safeKey === "compat") bindMiracleReveal(document.getElementById("panel-compat"));
     if (updateHash && location.hash.replace("#", "") !== safeKey) history.replaceState(null, "", `#${safeKey}`);
   }
@@ -5195,6 +6389,7 @@ const INTERP = {
     renderPerson("naomi");
     renderPerson("hk");
     renderCompat();
+    renderYear();
     renderOverall();
     applyGlossary(app);
     bindGlobalClosers();

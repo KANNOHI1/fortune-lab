@@ -866,6 +866,170 @@
       dominant-baseline: central;
     }
 
+    .gogyo-cycle-card {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(224, 184, 76, 0.4);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(224, 184, 76, 0.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 16%, rgba(255, 248, 236, 0.22) 0 1px, transparent 2px),
+        linear-gradient(145deg, rgba(10, 14, 39, 0.72), rgba(19, 26, 53, 0.72));
+    }
+
+    .gogyo-cycle-card .section-copy {
+      font-size: 14px;
+    }
+
+    .gogyo-cycle-wrap {
+      width: min(100%, 400px);
+      margin: 18px auto 12px;
+    }
+
+    .gogyo-cycle-svg {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 1;
+      display: block;
+      overflow: visible;
+    }
+
+    .gogyo-arrow {
+      fill: none;
+      stroke: rgba(224, 184, 76, 0.28);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 5 8;
+      marker-end: url(#gogyo-arrow-muted);
+      opacity: 0.56;
+      transition: opacity 240ms ease, stroke 240ms ease, stroke-dasharray 240ms ease, filter 240ms ease;
+    }
+
+    .gogyo-arrow.is-active {
+      stroke: var(--gold);
+      stroke-dasharray: 1;
+      marker-end: url(#gogyo-arrow-gold);
+      opacity: 1;
+      filter: drop-shadow(0 0 7px rgba(224, 184, 76, 0.34));
+    }
+
+    .gogyo-arrow.is-broken {
+      stroke: rgba(188, 182, 170, 0.36);
+      stroke-dasharray: 5 9;
+      marker-end: url(#gogyo-arrow-muted);
+      opacity: 0.38;
+      filter: none;
+    }
+
+    .gogyo-cycle[data-cycle-mode="both"] .gogyo-arrow.is-active {
+      stroke-dasharray: 18 10;
+      animation: gogyoFlow 4s linear infinite;
+    }
+
+    .gogyo-node {
+      cursor: pointer;
+      outline: none;
+      transition: opacity 240ms ease, filter 240ms ease;
+    }
+
+    .gogyo-node circle.node-core {
+      stroke: rgba(255, 248, 236, 0.72);
+      stroke-width: 1.5;
+      filter: drop-shadow(0 0 10px rgba(224, 184, 76, 0.18));
+      transition: stroke 200ms ease, filter 200ms ease;
+    }
+
+    .gogyo-node:hover circle.node-core,
+    .gogyo-node:focus-visible circle.node-core {
+      stroke: var(--gold-2);
+      filter: drop-shadow(0 0 12px rgba(224, 184, 76, 0.54));
+    }
+
+    .gogyo-node.is-dim {
+      opacity: 0.34;
+      filter: grayscale(0.5);
+    }
+
+    .gogyo-label {
+      fill: #101426;
+      font-size: 19px;
+      font-weight: 900;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+
+    .gogyo-dot {
+      stroke: rgba(5, 8, 16, 0.82);
+      stroke-width: 1;
+      transition: opacity 220ms ease;
+    }
+
+    .gogyo-dot.naomi { fill: var(--naomi); }
+    .gogyo-dot.hk { fill: var(--hk); }
+
+    .gogyo-cycle[data-cycle-mode="naomi"] .gogyo-dot.hk,
+    .gogyo-cycle[data-cycle-mode="hk"] .gogyo-dot.naomi {
+      opacity: 0;
+    }
+
+    .gogyo-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .gogyo-mode {
+      min-height: 44px;
+      border: 1px solid rgba(224, 184, 76, 0.38);
+      border-radius: 999px;
+      background: rgba(10, 14, 39, 0.58);
+      color: var(--gold-2);
+      font-size: 13px;
+      font-weight: 900;
+      transition: background-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .gogyo-mode[aria-pressed="true"] {
+      background: rgba(224, 184, 76, 0.2);
+      color: var(--white);
+      box-shadow: inset 0 0 18px rgba(224, 184, 76, 0.12);
+    }
+
+    .gogyo-mode:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(224, 184, 76, 0.18);
+    }
+
+    .gogyo-mode-text {
+      min-height: 70px;
+      margin-top: 12px;
+      border-top: 1px solid rgba(224, 184, 76, 0.16);
+      padding-top: 12px;
+    }
+
+    .gogyo-hint {
+      margin-top: 8px;
+      color: var(--gold-2);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .sheet-line {
+      display: block;
+      margin-top: 8px;
+    }
+
+    .sheet-main {
+      color: var(--gold-2);
+      font-weight: 900;
+    }
+
+    .sheet-sub {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
     .timeline {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1263,6 +1427,11 @@
       to { transform: translate3d(1.2%, 1.4%, 0) scale(1.04); }
     }
 
+    @keyframes gogyoFlow {
+      from { stroke-dashoffset: 28; }
+      to { stroke-dashoffset: 0; }
+    }
+
     @media (max-width: 860px) {
       :root { --safe: min(100% - 24px, 680px); }
       .hero { min-height: auto; padding-top: 34px; }
@@ -1296,6 +1465,7 @@
       .section-pad { padding: 16px; }
       .miracle-hero { border-radius: 12px; }
       .miracle-card { border-radius: 12px; padding: 16px; }
+      .gogyo-controls { grid-template-columns: 1fr; }
       .bar-row { grid-template-columns: 70px minmax(0, 1fr) 42px; }
       table { min-width: 100%; table-layout: fixed; }
     }
@@ -1311,6 +1481,10 @@
       .miracle-card {
         opacity: 1 !important;
         transform: none !important;
+      }
+
+      .gogyo-cycle[data-cycle-mode="both"] .gogyo-arrow.is-active {
+        animation: none !important;
       }
     }
   </style>
@@ -3385,6 +3559,23 @@ const INTERP = {
         "title": "日支: 辰(土) × 午(火)——火生土の静かな支え",
         "text": "日支(結婚生活の宮)同士は、六合でも冲でもないフラットな関係ですが、五行では相生の並び。奈緒美さんの辰(土)を、宏勇さんの午(火)が生み温め続ける構造です。派手さはないが消耗もない、生活レベルの相性としては地味に良い配置と読まれます。"
       },
+      "gogyo_cycle": {
+        "title": "めぐりの環 — 五行はふたりでひと回り",
+        "intro": "五行(木火土金水)は「木→火→土→金→水→木」の順に相手を生み、環になって巡ります。大事なのは、同じ元素でも「誰にとって何の星か」が違うこと。奈緒美さん目線で見ると、この環はこう読めます。",
+        "modes": {
+          "naomi": "奈緒美さんだけだと——木3(自分)と水2(学び)はしっかり。ただ火・土・金が1つずつで、環の後半の流れが細い。",
+          "hk": "宏勇さんだけだと——木が0。金→水まで勢いよく流れた先の行き場がなく、環はここで途切れる。",
+          "both": "ふたり合わせると——全元素が2以上になり、環がつながる。金(宏勇さん)→水(言葉)→木(奈緒美さん)→火(役割)→土(基盤)→また金へ。「二人でいるほうが気が回る」を、形がそのまま示している。"
+        },
+        "elements": {
+          "木": { "naomi_view": "わたし自身(甲の大樹・自我と意志)", "hk_view": "宏勇さんにとっては財星=財と妻の星", "story": "宏勇さんの命式で唯一空席だった「財と妻の星」に、奈緒美さんの木3がそのまま座る。" },
+          "火": { "naomi_view": "わたしの表現(内に溜めがちな火は1つ)", "hk_view": "宏勇さんにとっては官星=役割・規律", "story": "宏勇さんの火2が場を焚くと木火通明——奈緒美さんの才が外に輝き出す読み。" },
+          "土": { "naomi_view": "わたしの財星(保有は1つ)", "hk_view": "宏勇さんにとっては印星=学び・保護", "story": "奈緒美さんの薄めの財の土台を、宏勇さんの土2が合算で厚くする。" },
+          "金": { "naomi_view": "わたしにとって夫の星(官星)", "hk_view": "宏勇さんそのもの(庚)", "story": "奈緒美さんの命式にある「夫の星」の席——その実体が宏勇さん自身、という出来すぎた配役。" },
+          "水": { "naomi_view": "わたしの学びの星(印星)", "hk_view": "宏勇さんの分析・言葉(食傷)", "story": "宏勇さんが出す言葉や分析が、奈緒美さんにはそのまま栄養として入る。出す側と受け取る側が噛み合う元素。" }
+        },
+        "note": "十神(元素の役割の読み)は伝統的な解釈ルールに基づくエンタメです。保有数は検算済みの命式から。"
+      },
       "wuxing": {
         "title": "五行の相互補完",
         "text": "奈緒美さんは木を3つ持ち、宏勇さんに無い木を満たします。宏勇さんは火を2つ持ち、奈緒美さんに薄い火を補います。二人の五行を合算すると木3・火3・土3・金2・水5と、単独時より明らかにバランスが整います。伝統的には「二人でいるほうが五行が回る」=互いの欠けを埋め合う補完型の組み合わせです。"
@@ -3559,6 +3750,7 @@ const INTERP = {
   const SIGN_GLYPHS = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"];
   const SIGN_NAMES = ["牡羊", "牡牛", "双子", "蟹", "獅子", "乙女", "天秤", "蠍", "射手", "山羊", "水瓶", "魚"];
   const WUXING = ["木", "火", "土", "金", "水"];
+  const GOGYO_COLORS = { 木: "#78a96b", 火: "#d9915f", 土: "#b99a54", 金: "#d8d6c8", 水: "#6f9fce" };
   const CURRENT_YEAR = 2026;
 
   const app = document.getElementById("app");
@@ -3578,6 +3770,15 @@ const INTERP = {
     if (!CALC.astro?.naomi || !CALC.astro?.hk || !CALC.astro?.synastry) fail("CALC.astro の必須キーが不足しています。");
     if (CALC.astro.synastry.aspects.length !== 70) fail("synastry aspects が70件ではありません。");
     if (!Array.isArray(INTERP.compat?.miracles) || INTERP.compat.miracles.length !== 3) fail("compat.miracles が3件ではありません。");
+    const cycle = INTERP.compat?.bazi?.gogyo_cycle;
+    if (!cycle?.title || !cycle?.intro || !cycle?.modes?.naomi || !cycle?.modes?.hk || !cycle?.modes?.both || !cycle?.note) fail("compat.bazi.gogyo_cycle の必須キーが不足しています。");
+    WUXING.forEach((label) => {
+      const item = cycle.elements?.[label];
+      if (!item?.naomi_view || !item?.hk_view || !item?.story) fail(`gogyo_cycle.elements.${label} が不足しています。`);
+    });
+    const naomiWuxingTotal = WUXING.reduce((sum, label) => sum + Number(CALC.bazi.naomi?.wuxing_count?.[label] || 0), 0);
+    const hkWuxingTotal = WUXING.reduce((sum, label) => sum + Number(CALC.bazi.hk?.wuxing_count?.[label] || 0), 0);
+    if (naomiWuxingTotal !== 8 || hkWuxingTotal !== 8) fail(`五行ドット合計が命式8文字と一致しません。naomi=${naomiWuxingTotal}, hk=${hkWuxingTotal}`);
     if (!Array.isArray(INTERP.compat?.astro?.aspect_featured) || INTERP.compat.astro.aspect_featured.length !== 14) fail("compat.astro.aspect_featured が14件ではありません。");
     if (!INTERP.guides?.astro || !INTERP.guides?.bazi || !INTERP.guides?.seimei) fail("INTERP.guides が不足しています。");
     if (!INTERP.glossary || Object.keys(INTERP.glossary).length < 34) fail("INTERP.glossary が不足しています。");
@@ -3755,16 +3956,31 @@ const INTERP = {
     });
   }
 
-  function showGlossary(term) {
-    const body = INTERP.glossary?.[term];
-    if (!body) return;
-    hideTip();
-    sheetTitle.textContent = term;
-    sheetBody.textContent = body;
+  function openSheet(title, body, html = false) {
+    sheetTitle.textContent = title;
+    if (html) {
+      sheetBody.innerHTML = body;
+    } else {
+      sheetBody.textContent = body;
+    }
     sheetBackdrop.classList.add("is-open");
     sheetBackdrop.setAttribute("aria-hidden", "false");
     sheet.classList.add("is-open");
     sheet.setAttribute("aria-hidden", "false");
+  }
+
+  function showGlossary(term) {
+    const body = INTERP.glossary?.[term];
+    if (!body) return;
+    hideTip();
+    openSheet(term, body);
+  }
+
+  function showGogyoElement(label) {
+    const item = INTERP.compat?.bazi?.gogyo_cycle?.elements?.[label];
+    if (!item) return;
+    hideTip();
+    openSheet(label, `<span class="sheet-line sheet-main">${esc(item.naomi_view)}</span><span class="sheet-line sheet-sub">${esc(item.hk_view)}</span><span class="sheet-line">${esc(item.story)}</span>`, true);
   }
 
   function hideGlossary() {
@@ -4453,6 +4669,7 @@ const INTERP = {
               <h3 class="mini-title">五行合算レーダー</h3>
               ${compatRadar()}
             </div>
+            ${gogyoCycleSection(bazi.gogyo_cycle)}
             ${dayGanDiagram()}
           </div>
         </div>
@@ -4478,6 +4695,7 @@ const INTERP = {
       </section>
     `;
     bindMiracleReveal(panel);
+    bindGogyoCycle(panel);
     renderSynastry();
     bindCompatControls();
     const revealBtn = document.getElementById("reveal-name");
@@ -4573,6 +4791,142 @@ const INTERP = {
     ];
     const formatCounts = (counts) => WUXING.map((label) => `${label}${Number(counts?.[label] || 0)}`).join("・");
     return `${radarSvg(series, "", max)}<div class="legend"><span class="naomi">奈緒美</span><span class="hk">宏勇</span><span class="soft">合算</span></div><p class="meta">奈緒美: ${esc(formatCounts(n))}</p><p class="meta">宏勇: ${esc(formatCounts(h))}</p>`;
+  }
+
+  function wuxingCount(counts, label) {
+    return Number(counts?.[label] || 0);
+  }
+
+  function gogyoPoint(index) {
+    const cx = 200, cy = 200, radius = 132;
+    const angle = (-90 + index * 72) * Math.PI / 180;
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  }
+
+  function gogyoArrowPath(from, to) {
+    const nodeRadius = 34;
+    const dx = to.x - from.x;
+    const dy = to.y - from.y;
+    const len = Math.max(1, Math.hypot(dx, dy));
+    const sx = from.x + dx / len * nodeRadius;
+    const sy = from.y + dy / len * nodeRadius;
+    const ex = to.x - dx / len * nodeRadius;
+    const ey = to.y - dy / len * nodeRadius;
+    return `M ${sx.toFixed(1)} ${sy.toFixed(1)} Q 200 200 ${ex.toFixed(1)} ${ey.toFixed(1)}`;
+  }
+
+  function gogyoDots(label, counts, className, x, y, side) {
+    const count = wuxingCount(counts, label);
+    return Array.from({ length: count }, (_, index) => {
+      const dotX = x + side + (index % 4) * 8;
+      const dotY = y - 10 + Math.floor(index / 4) * 8;
+      return `<circle class="gogyo-dot ${className}" cx="${dotX.toFixed(1)}" cy="${dotY.toFixed(1)}" r="4"></circle>`;
+    }).join("");
+  }
+
+  function gogyoCycleSvg() {
+    const naomi = CALC.bazi.naomi?.wuxing_count || {};
+    const hk = CALC.bazi.hk?.wuxing_count || {};
+    const points = WUXING.map((label, index) => ({ label, ...gogyoPoint(index) }));
+    const arrows = points.map((from, index) => {
+      const to = points[(index + 1) % points.length];
+      return `<path class="gogyo-arrow" data-cycle-arrow data-from="${esc(from.label)}" data-to="${esc(to.label)}" d="${gogyoArrowPath(from, to)}"></path>`;
+    }).join("");
+    const nodes = points.map((point) => `
+      <g class="gogyo-node" tabindex="0" role="button" aria-label="${esc(point.label)}の解説を開く" data-cycle-node data-element="${esc(point.label)}">
+        <circle class="node-core" cx="${point.x.toFixed(1)}" cy="${point.y.toFixed(1)}" r="28" fill="${esc(GOGYO_COLORS[point.label])}"></circle>
+        <text class="gogyo-label" x="${point.x.toFixed(1)}" y="${point.y.toFixed(1)}">${esc(point.label)}</text>
+        ${gogyoDots(point.label, naomi, "naomi", point.x, point.y, -46)}
+        ${gogyoDots(point.label, hk, "hk", point.x, point.y, 32)}
+      </g>
+    `).join("");
+    return `
+      <div class="gogyo-cycle-wrap">
+        <svg class="gogyo-cycle-svg" viewBox="0 0 400 400" role="img" aria-label="五行循環図。木から火、土、金、水へ巡り、また木へ戻る環">
+          <defs>
+            <marker id="gogyo-arrow-gold" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#e0b84c"></path>
+            </marker>
+            <marker id="gogyo-arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="rgba(188, 182, 170, 0.46)"></path>
+            </marker>
+          </defs>
+          ${arrows}
+          ${nodes}
+        </svg>
+      </div>
+    `;
+  }
+
+  function gogyoCycleSection(cycle) {
+    return `
+      <section class="mini-card gogyo-cycle-card" id="gogyo-cycle" data-gogyo-cycle data-cycle-mode="both">
+        <h3 class="mini-title">${esc(cycle.title)}</h3>
+        <p class="section-copy">${esc(cycle.intro)}</p>
+        ${gogyoCycleSvg()}
+        <div class="gogyo-controls" role="group" aria-label="五行循環図の表示モード">
+          <button class="gogyo-mode" type="button" data-cycle-mode-button="naomi" aria-pressed="false">奈緒美だけ</button>
+          <button class="gogyo-mode" type="button" data-cycle-mode-button="hk" aria-pressed="false">宏勇だけ</button>
+          <button class="gogyo-mode" type="button" data-cycle-mode-button="both" aria-pressed="true">ふたり</button>
+        </div>
+        <p class="copy gogyo-mode-text" data-cycle-mode-text>${esc(cycle.modes?.both || "")}</p>
+        <p class="gogyo-hint">元素をタップで解説</p>
+        <p class="meta">${esc(cycle.note || "")}</p>
+      </section>
+    `;
+  }
+
+  function updateGogyoCycle(section, mode) {
+    const cycle = INTERP.compat?.bazi?.gogyo_cycle || {};
+    const naomi = CALC.bazi.naomi?.wuxing_count || {};
+    const hk = CALC.bazi.hk?.wuxing_count || {};
+    const activeMode = ["naomi", "hk", "both"].includes(mode) ? mode : "both";
+    section.dataset.cycleMode = activeMode;
+    section.querySelectorAll("[data-cycle-mode-button]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.cycleModeButton === activeMode));
+    });
+    const modeText = section.querySelector("[data-cycle-mode-text]");
+    if (modeText) modeText.textContent = cycle.modes?.[activeMode] || "";
+    section.querySelectorAll("[data-cycle-node]").forEach((node) => {
+      const label = node.dataset.element;
+      const count = activeMode === "naomi"
+        ? wuxingCount(naomi, label)
+        : activeMode === "hk"
+          ? wuxingCount(hk, label)
+          : wuxingCount(naomi, label) + wuxingCount(hk, label);
+      node.classList.toggle("is-dim", activeMode !== "both" && count === 0);
+    });
+    section.querySelectorAll("[data-cycle-arrow]").forEach((arrow) => {
+      const from = arrow.dataset.from;
+      const to = arrow.dataset.to;
+      const active = activeMode === "both" || (
+        activeMode === "naomi"
+          ? wuxingCount(naomi, from) > 0 && wuxingCount(naomi, to) > 0
+          : wuxingCount(hk, from) > 0 && wuxingCount(hk, to) > 0
+      );
+      arrow.classList.toggle("is-active", active);
+      arrow.classList.toggle("is-broken", !active);
+    });
+  }
+
+  function bindGogyoCycle(root) {
+    root.querySelectorAll("[data-gogyo-cycle]").forEach((section) => {
+      if (section.dataset.cycleBound === "true") return;
+      section.dataset.cycleBound = "true";
+      section.querySelectorAll("[data-cycle-mode-button]").forEach((button) => {
+        button.addEventListener("click", () => updateGogyoCycle(section, button.dataset.cycleModeButton));
+      });
+      section.querySelectorAll("[data-cycle-node]").forEach((node) => {
+        const open = () => showGogyoElement(node.dataset.element);
+        node.addEventListener("click", open);
+        node.addEventListener("keydown", (event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          open();
+        });
+      });
+      updateGogyoCycle(section, "both");
+    });
   }
 
   function compatDirectionLabel(direction) {

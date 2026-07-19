@@ -1778,6 +1778,67 @@
     .sheet-person-name.naomi { color: var(--naomi); }
     .sheet-person-name.hk { color: var(--hk); }
 
+    .tsumari-wrap {
+      margin-top: 12px;
+    }
+
+    .tsumari-chip {
+      min-height: 44px;
+      border: 1px solid rgba(160, 204, 214, 0.44);
+      border-radius: 999px;
+      padding: 8px 14px;
+      background: rgba(160, 204, 214, 0.1);
+      color: #d7f4f8;
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .tsumari-chip:hover,
+    .tsumari-chip:focus-visible {
+      outline: none;
+      border-color: rgba(160, 204, 214, 0.72);
+      box-shadow: 0 0 0 3px rgba(160, 204, 214, 0.15);
+    }
+
+    .tsumari-box {
+      max-height: 0;
+      margin-top: 0;
+      overflow: hidden;
+      border: 1px solid rgba(160, 204, 214, 0.34);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(214, 236, 238, 0.12), rgba(127, 168, 217, 0.08));
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: max-height 260ms ease, margin-top 260ms ease, opacity 220ms ease, transform 220ms ease;
+    }
+
+    .tsumari-box.is-open {
+      max-height: 420px;
+      margin-top: 10px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tsumari-box h4 {
+      margin: 12px 14px 0;
+      color: #d7f4f8;
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .tsumari-copy {
+      margin: 6px 14px 14px;
+      color: #edf8f9;
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
     .footer {
       width: var(--safe);
       margin: 0 auto;
@@ -4379,7 +4440,8 @@ const INTERP = {
       "core3": {
         "title": "太陽 魚座 × 月 双子座 × ASC 天秤座",
         "text": "太陽は魚座の第6ハウス。伝統的には、共感力と想像力を日々の仕事や誰かの役に立つ形で使う人と読まれます。月は双子座の第9ハウスで、心の栄養は「知ること・学ぶこと・遠くの世界」。好奇心が情緒の軸です。ASC天秤座は、外から見た佇まいが調和的で品よく、人と人の間をなめらかにする空気。MCは蟹座で、キャリアの到達点に「ケアと居場所づくり」の色が乗ります。",
-        "one_liner": "柔らかな共感力に、軽やかな知性のエンジンを積んだ人。いてくれるだけで場の空気がふっと軽くなる、得がたい佇まいです。"
+        "one_liner": "柔らかな共感力に、軽やかな知性のエンジンを積んだ人。いてくれるだけで場の空気がふっと軽くなる、得がたい佇まいです。",
+        "tsumari": "ひとことで言うと: 共感力が高く、好奇心で動き、人当たりのいい人。仕事は「誰かの役に立つこと」で輝き、心の充電方法は「知らないことを知ること」。周りをなごませる才能は生まれつきの装備です。"
       },
       "distribution_reading": {
         "data_note": "水5・風3・地2・火1 / 活動3・不動4・柔軟4",
@@ -4437,7 +4499,8 @@ const INTERP = {
       },
       "sokatsu": {
         "verdict": "総評: 中心は強い。波は総格だけ。",
-        "text": "ひとことで言うと——性格の中心(人格21)と人との縁(地格32)が大吉で、名前の芯は相当に強い構成です。唯一、人生全体(総格50)に「一盛一衰」の波を持ちますが、総格は姓が変われば変わる格。つまりこの名前の弱点は「変わりうる場所」にだけあり、強みは「変わらない場所」(地格)にある——姓名判断的にはかなり面白い配置です。"
+        "text": "ひとことで言うと——性格の中心(人格21)と人との縁(地格32)が大吉で、名前の芯は相当に強い構成です。唯一、人生全体(総格50)に「一盛一衰」の波を持ちますが、総格は姓が変われば変わる格。つまりこの名前の弱点は「変わりうる場所」にだけあり、強みは「変わらない場所」(地格)にある——姓名判断的にはかなり面白い配置です。",
+        "tsumari": "名前の「性格」と「縁」の数字が最高ランク。唯一の弱点である「人生全体」の数字は、結婚で姓が変われば変わる場所にある——つまり弱点だけが可変で、強みは固定という、けっこうずるい構成です。"
       }
     }
   },
@@ -4448,7 +4511,8 @@ const INTERP = {
       "core3": {
         "title": "太陽 牡羊座 × 月 牡羊座 × ASC 乙女座",
         "text": "太陽も月も牡羊座で、しかも第8ハウス。意志(太陽)と感情(月)が同じ方向を向いており、「やりたい」と「好きだ」が一致する迷いの少ない内面構造です。牡羊は開拓者の星座、第8ハウスは他者との深い結びつき・共有・変容の部屋。表の顔(ASC乙女座)は緻密で分析的、実務を丁寧に片づける佇まい——内側の開拓者と外側の分析者の二層構造です。MC双子は、キャリアの到達点として「情報を扱い、翻訳して伝える」方向を指し示しています——このチャートだけを見た占星術師は、迷わずそう言うはずです。",
-        "one_liner": "分析者の顔をした開拓者。"
+        "one_liner": "分析者の顔をした開拓者。",
+        "tsumari": "ひとことで言うと: 中身は猪突猛進の開拓者、外に見せる顔は几帳面な分析屋という二層構造の人。狭く深く掘って、掘り出したものを言葉にして伝える仕事が天職の配置です。"
       },
       "distribution_reading": {
         "data_note": "火5・地4・風1・水1 / 活動3・不動4・柔軟4",
@@ -4494,7 +4558,8 @@ const INTERP = {
       },
       "saikyo_note": {
         "title": "総評: 五格に凶なし、首領運が三つ",
-        "text": "五格のどこにも凶がなく、首領運の大吉数(16・23・41)を3つ同時に持つ、姓名判断ではめったに見ない構成です。特に総格41は「純陽独秀」と呼ばれる81数の最上級。人望で立ち、外に出るほど運が開き、人生全体を頭領運が貫く——数の並びだけでそう読める名前です。なおこれは菅=14画と数える康熙字典体(旧字体)基準での結果で、新字体流派(菅=11画)では別の結果になります。"
+        "text": "五格のどこにも凶がなく、首領運の大吉数(16・23・41)を3つ同時に持つ、姓名判断ではめったに見ない構成です。特に総格41は「純陽独秀」と呼ばれる81数の最上級。人望で立ち、外に出るほど運が開き、人生全体を頭領運が貫く——数の並びだけでそう読める名前です。なおこれは菅=14画と数える康熙字典体(旧字体)基準での結果で、新字体流派(菅=11画)では別の結果になります。",
+        "tsumari": "名前の5つの数字に悪いものがゼロで、しかもリーダー運の最上級数字が3つ入っている。姓名判断的には「文句のつけようがない名前」です。ただし旧字体で数えた場合の話、という但し書き付き。"
       }
     }
   },
@@ -4506,18 +4571,21 @@ const INTERP = {
         "kicker": "奇跡その一 — 西洋占星術",
         "headline": "生まれた瞬間、ふたりの星は0.08度で重なっていた",
         "text": "奈緒美さんの冥王星と宏勇さんの土星。黄道360度の中で、ふたつの星の差はわずか0.08度——計算上ほぼ完全な一致です。占星術で「合」は結びつきの最強角度。しかも冥王星×土星は「時間が経つほど固まり、お互いを根本から作り替える絆」と読まれる組み合わせです。約11ヶ月違いで生まれたふたりの空に、これが最初から刻まれていました。",
+        "tsumari": "生まれた瞬間の空で、二人の「深い絆の星」と「長続きの星」がほぼ完全に同じ場所にあった、ということ。占星術師が身を乗り出す精度で、意味は「時間が経つほど固まる関係」。",
         "anchor": "kamishibai"
       },
       {
         "kicker": "奇跡その二 — 四柱推命",
         "headline": "暦の上で、ふたりは互いの「配偶者の星」だった",
         "text": "奈緒美さんの日主・甲から見て、宏勇さんの庚は、そのまま「夫の星(官星)」。宏勇さんの日主・庚から見て、奈緒美さんの甲は、そのまま「妻の星(財星)」。しかも宏勇さんの命式には木がひとつも無く、「妻の星は命式の外からやって来る」構造——その甲木が、奈緒美さんです。千年以上前から夫婦の象意とされてきた、教科書どおりの成立です。",
+        "tsumari": "四柱推命には「夫の星」「妻の星」という考え方があり、奈緒美さんの「夫の星」の実物が宏勇さん、宏勇さんの「妻の星」の実物が奈緒美さん。お互いがお互いの「配偶者の星」そのものという、教科書に載せたいレベルの一致です。",
         "anchor": "bazi-compat"
       },
       {
         "kicker": "奇跡その三 — ふたつの体系が同じ答え",
         "headline": "彼に足りないもの、ぜんぶあなたが持っていた",
         "text": "占星術では、奈緒美さん=水と風(感受と知性)、宏勇さん=火と地(行動と実務)——きれいな鏡合わせです。四柱推命でも、宏勇さんにひとつも無い「木」を、奈緒美さんは3つ持っています。互いを知らない別々の体系が、同時に「欠けを埋め合う配分」を指しました。ふたり合わせて、ようやく全色そろうパレットです。",
+        "tsumari": "性格の傾向を分類したら、二人はきれいに真逆で、合わせるとちょうど全部そろう。「足りないところを相手が全部持っている」という結果が、別々の2つの占術で同時に出た、ということです。",
         "anchor": "wuxing-compat"
       }
     ],
@@ -4632,17 +4700,20 @@ const INTERP = {
       "title": "奈緒美の2026年 — 食神の年",
       "ten_god": "食神",
       "text": "年干の丙は、甲(奈緒美さん)から見て食神——「表現・楽しみ・作ること・味わうこと」の星です。命式で最少だった火(表現)が年に満ちる上、大運の戌と年支の午が半合して火の局を組む(午戌半合)。伝統的には、内に溜めてきたものが自然に外へ流れ出す年、頑張って出すのではなく「漏れ出てしまう」年と読まれます。作りたかったもの、言いたかったこと、始めたかったことに最適の追い風です。",
-      "caution": "ひとつ正直に: 年支の午は、命式の年柱の子と子午冲を起こします。年柱は「実家・ルーツ・古い環境」の宮。今年は実家まわりや古い環境に動き・変化が入りやすい配置ですが、冲は「破壊」ではなく「動く」の意。動いたものは整理のチャンス、が建設的な読みです。"
+      "caution": "ひとつ正直に: 年支の午は、命式の年柱の子と子午冲を起こします。年柱は「実家・ルーツ・古い環境」の宮。今年は実家まわりや古い環境に動き・変化が入りやすい配置ですが、冲は「破壊」ではなく「動く」の意。動いたものは整理のチャンス、が建設的な読みです。",
+      "tsumari": "今年は「出す年」。ためこんでいた「やってみたいこと・作りたいもの・言いたいこと」が、気合いを入れなくても自然に外に出るコンディションです。新しい趣味・発信・習いごと——始めるのに一番コスパがいいタイミング。ひとつだけ: 実家・親・古い環境まわりで何かが動きやすい年。悪い知らせという意味ではなく「動く」だけで、動いたらそれは片付け時のサインです。"
     },
     "hk": {
       "title": "宏勇の2026年 — 偏官(七殺)の年",
       "ten_god": "偏官",
       "text": "年干の丙は、庚(宏勇さん)から見て偏官——通称「七殺」。プレッシャー・挑戦・鍛えの星で、聞こえは物騒ですが、庚午(火に鍛えられる鋼)の日主にとっては本領発揮のテーマそのものです。負荷がかかるほど切れ味が増す一年。しかも大運の辛と年干の丙が丙辛干合を結び、七殺の圧が「縁」に変換される配置——鍛えが孤独な苦行ではなく、引き立てや役割として来る形です。さらに年支の午は時柱の未と六合。時柱は「これからの時間・後半生」の宮で、今年の挑戦が未来と手を結ぶ、と読めます。",
-      "caution": "正直に: 年支の午は日支の午と午午自刑を起こします。自刑は「自分で自分に厳しくしすぎる」暗示。日支は生活の宮なので、根を詰めすぎて体調や日常を削らないこと——それさえ守れば、七殺の年は鋼の年です。"
+      "caution": "正直に: 年支の午は日支の午と午午自刑を起こします。自刑は「自分で自分に厳しくしすぎる」暗示。日支は生活の宮なので、根を詰めすぎて体調や日常を削らないこと——それさえ守れば、七殺の年は鋼の年です。",
+      "tsumari": "今年は「重いものが来る年」。ただし、あなた向きの重さです。難題や責任が降ってきますが、あなたはもともと負荷がかかるほど仕上がるタイプなので、実質ボーナスステージ。しかも独りで抱える形ではなく、引き上げてくれる人や役割とセットで来て、今年引き受けたことが数年先のポジションにつながります。注意は1つだけ: 自分に厳しくしすぎて睡眠・食事・日常を削らないこと。「倒れなければ勝ち」の年です。"
     },
     "couple": {
       "title": "ふたりの2026年",
-      "text": "同じ火の年が、ふたりには別の顔で届きます。奈緒美さんには「表現の追い風」、宏勇さんには「鍛えの負荷」。ここで五行の環を思い出してください——奈緒美さんの木は火を生む側、宏勇さんの庚は火に鍛えられる側です。つまり今年は、奈緒美さんが楽しみ表現するほど場の火が増え、その火が宏勇さんを磨く、という循環が暦の上で組まれた年。ふたりで新しいことを始めるなら、奈緒美さんの「やってみたい」を起点にするのが、今年の星の使い方です。"
+      "text": "同じ火の年が、ふたりには別の顔で届きます。奈緒美さんには「表現の追い風」、宏勇さんには「鍛えの負荷」。ここで五行の環を思い出してください——奈緒美さんの木は火を生む側、宏勇さんの庚は火に鍛えられる側です。つまり今年は、奈緒美さんが楽しみ表現するほど場の火が増え、その火が宏勇さんを磨く、という循環が暦の上で組まれた年。ふたりで新しいことを始めるなら、奈緒美さんの「やってみたい」を起点にするのが、今年の星の使い方です。",
+      "tsumari": "彼女が楽しそうなほど、彼の調子が上がる年。迷ったら奈緒美さんの「やってみたい」を優先する——それが今年の家庭運用の最適解です。"
     },
     "monthly_note": "月めぐりは「節入り」で切り替わります(カレンダーの1日ではありません)。各月のラベルはその月の干支と、日主から見た十神。タップすると十神の意味が開きます。同じ月でも、ふたりで星が違うことを楽しんでください。"
   },
@@ -4793,6 +4864,7 @@ const INTERP = {
   const sheetBackdrop = document.getElementById("sheet-backdrop");
   const sheetTitle = document.getElementById("sheet-title");
   const sheetBody = document.getElementById("sheet-body");
+  let tsumariCounter = 0;
 
   function currentDate() {
     return new Date();
@@ -4852,6 +4924,45 @@ const INTERP = {
   function textTitle(value, fallback = "補足") {
     if (value && typeof value === "object") return value.title || value.verdict || fallback;
     return text(value, fallback);
+  }
+
+  function tsumariToggle(item) {
+    if (!item?.tsumari) return "";
+    tsumariCounter += 1;
+    const id = `tsumari-${tsumariCounter}`;
+    return `
+      <div class="tsumari-wrap">
+        <button class="tsumari-chip" type="button" aria-expanded="false" aria-controls="${esc(id)}" data-tsumari-toggle>つまり？</button>
+        <div class="tsumari-box" id="${esc(id)}" data-tsumari-box hidden>
+          <h4>つまり:</h4>
+          <p class="tsumari-copy">${esc(item.tsumari)}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindTsumariToggles(root) {
+    root.querySelectorAll("[data-tsumari-toggle]").forEach((button) => {
+      if (button.dataset.tsumariBound === "true") return;
+      button.dataset.tsumariBound = "true";
+      button.addEventListener("click", () => {
+        const box = document.getElementById(button.getAttribute("aria-controls"));
+        if (!box) return;
+        const open = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!open));
+        button.textContent = open ? "つまり？" : "とじる";
+        if (open) {
+          box.classList.remove("is-open");
+          window.setTimeout(() => {
+            if (!box.classList.contains("is-open")) box.hidden = true;
+          }, 270);
+        } else {
+          box.hidden = false;
+          window.requestAnimationFrame?.(() => box.classList.add("is-open"));
+          if (!window.requestAnimationFrame) box.classList.add("is-open");
+        }
+      });
+    });
   }
 
   function deg(value) {
@@ -4994,7 +5105,7 @@ const INTERP = {
   }
 
   function applyGlossary(root = document) {
-    root.querySelectorAll(".copy, .section-copy, .lead, .meta, .one-liner, .hero-card p, .footer p, .paper-card p, .guide li").forEach((el) => {
+    root.querySelectorAll(".copy, .section-copy, .lead, .meta, .one-liner, .hero-card p, .footer p, .paper-card p, .guide li, .tsumari-copy").forEach((el) => {
       if (el.closest("svg, button") || el.querySelector(".term")) return;
       el.innerHTML = wrapTerms(el.textContent);
     });
@@ -5103,6 +5214,7 @@ const INTERP = {
               <span class="miracle-kicker">${esc(item.kicker || "")}</span>
               <h3 class="miracle-headline">${esc(item.headline || "")}</h3>
               <p class="miracle-text">${esc(item.text || "")}</p>
+              ${tsumariToggle(item)}
               <a class="miracle-link" href="#${esc(item.anchor || "")}">根拠を見る ↓</a>
             </article>
           `).join("")}
@@ -5267,6 +5379,7 @@ const INTERP = {
     renderNatalChart(`horo-${key}`, key, calc, interp.astro?.natal_aspects_featured || []);
     panel.querySelectorAll(".trait-chip[data-tip-title]").forEach((el) => bindTip(el, el.dataset.tipTitle, el.dataset.tipBody));
     renderSeimei(`seimei-${key}`, key, seimei, interp.seimei);
+    bindTsumariToggles(panel);
   }
 
   function coreSection(person, interp) {
@@ -5276,6 +5389,7 @@ const INTERP = {
         <h2 class="section-title">${esc(text(core.title, `${person.label}のコア3プロフィール`))}</h2>
         <p class="section-copy">${esc(text(core.text))}</p>
         <span class="one-liner">${esc(text(core.one_liner, person.label))}</span>
+        ${tsumariToggle(core)}
       </section>
     `;
   }
@@ -5396,6 +5510,7 @@ const INTERP = {
       <article class="mini-card">
         <h3 class="mini-title">${esc(reading.title || "読み解き")}</h3>
         <p class="copy">${esc(text(reading.text))}</p>
+        ${tsumariToggle(reading)}
         ${reading.note ? `<p class="meta">${esc(reading.note)}</p>` : ""}
         ${reading.data_note ? `<p class="meta">${esc(reading.data_note)}</p>` : ""}
       </article>
@@ -5647,10 +5762,12 @@ const INTERP = {
         const summary = {
           title: interpSeimei?.sokatsu?.verdict,
           text: interpSeimei?.sokatsu?.text,
+          tsumari: interpSeimei?.sokatsu?.tsumari,
           note: texts?.structural_note
         };
         body.innerHTML = seimeiRecord(record, texts, summary);
         applyGlossary(body);
+        bindTsumariToggles(body);
       };
       draw(0);
       target.querySelectorAll("[data-seimei]").forEach((btn) => {
@@ -5663,6 +5780,7 @@ const INTERP = {
     } else {
       const texts = interpSeimei?.kaku_texts?.primary || interpSeimei?.kaku_texts;
       target.innerHTML = seimeiRecord(initial, texts, interpSeimei?.saikyo_note);
+      bindTsumariToggles(target);
     }
   }
 
@@ -5698,7 +5816,7 @@ const INTERP = {
           const label = KAKU_LABELS[k] || k;
           return `<article class="mini-card"><h3 class="mini-title"><span class="term" tabindex="0" data-term="${esc(label)}">${esc(label)}</span> ${esc(item.kaku || "")}${fortuneBadge(item.fortune)}</h3><p class="copy">${esc(item.meaning || "")}</p>${texts?.[k] ? `<p class="copy">${esc(texts[k])}</p>` : ""}${item.note ? `<p class="meta">${esc(item.note)}</p>` : ""}</article>`;
         }).join("")}
-        ${summaryTitle || summaryText || summaryNote ? `<article class="mini-card full seimei-summary"><h3 class="mini-title">${esc(summaryTitle || "総評")}</h3>${summaryText ? `<p class="copy">${esc(summaryText)}</p>` : ""}${summaryNote ? `<p class="copy">${esc(summaryNote)}</p>` : ""}</article>` : ""}
+        ${summaryTitle || summaryText || summaryNote ? `<article class="mini-card full seimei-summary"><h3 class="mini-title">${esc(summaryTitle || "総評")}</h3>${summaryText ? `<p class="copy">${esc(summaryText)}</p>` : ""}${tsumariToggle(summary)}${summaryNote ? `<p class="copy">${esc(summaryNote)}</p>` : ""}</article>` : ""}
       </div>
     `;
   }
@@ -5787,6 +5905,7 @@ const INTERP = {
       </section>
     `;
     bindMiracleReveal(panel);
+    bindTsumariToggles(panel);
     bindGogyoCycle(panel);
     renderSynastry();
     bindCompatControls();
@@ -6148,6 +6267,7 @@ const INTERP = {
           ${tenGodBadge(record.ten_god || interp?.ten_god, owner)}
         </div>
         <p class="copy">${esc(text(interp?.text))}</p>
+        ${tsumariToggle(interp)}
         ${yearEventChips(personKey)}
         ${interp?.caution ? `<p class="year-note">${esc(interp.caution)}</p>` : ""}
       </article>
@@ -6298,6 +6418,7 @@ const INTERP = {
       <section class="section section-pad">
         <h2 class="section-title">${esc(year.couple?.title || "ふたりの今年")}</h2>
         <p class="section-copy">${esc(text(year.couple?.text))}</p>
+        ${tsumariToggle(year.couple)}
       </section>
       <section class="section section-pad">
         <h2 class="section-title">月めぐり</h2>
@@ -6310,6 +6431,7 @@ const INTERP = {
       </section>
     `;
     bindYearInteractions(panel);
+    bindTsumariToggles(panel);
   }
 
   function renderOverall() {
